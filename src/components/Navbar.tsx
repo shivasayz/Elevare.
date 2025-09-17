@@ -24,10 +24,10 @@ export const Navbar = () => {
   return (
     <nav className="fixed top-4 left-0 right-0 z-50 px-4 md:px-8">
       <div
-        className={`mx-auto max-w-7xl bg-card/95 backdrop-blur-lg rounded-2xl shadow-lg border border-border/50 transition-all duration-500 ${
+        className={`mx-auto bg-card/95 backdrop-blur-lg rounded-2xl shadow-lg border border-border/50 transition-all duration-500 ${
           isScrolled
-            ? "py-4 shadow-xl"
-            : "py-2"
+            ? "max-w-7xl py-3 shadow-xl"
+            : "max-w-5xl py-2"
         }`}
       >
         <div className="container mx-auto px-6">
