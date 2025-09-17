@@ -9,19 +9,21 @@ export const Hero = () => {
     <section className="relative min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-primary/10 to-background" />
-      
+
       {/* Animated Shapes */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
-      <div className="relative container mx-auto px-6 py-32 text-center">
+      <div className="relative container mx-auto px-6 py-72 text-center">
         <div className="animate-fade-in space-y-6 max-w-4xl mx-auto">
           {/* Badge */}
           <div className="inline-flex items-center space-x-2 bg-primary-light/50 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/20">
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Your Tech Career Starts Here</span>
+            <span className="text-sm font-medium text-primary">
+              Your Tech Career Starts Here
+            </span>
           </div>
 
           {/* Main Heading */}
@@ -34,8 +36,9 @@ export const Hero = () => {
 
           {/* Subheading */}
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Discover the latest opportunities, industry insights, and software releases all in one place. 
-            Your gateway to the tech world's most important updates.
+            Discover the latest opportunities, industry insights, and software
+            releases all in one place. Your gateway to the tech world's most
+            important updates.
           </p>
 
           {/* CTA Buttons */}
