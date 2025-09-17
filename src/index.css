@@ -8,124 +8,134 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Core colors - Cool blue/gray with teal accent */
-    --background: 210 25% 98%;
-    --foreground: 213 31% 18%;
+    /* Platinum Luxe Color Palette */
+    --background: 0 0% 98%; /* Soft White #FAFAFA */
+    --foreground: 0 0% 18%; /* Charcoal #2E2E2E */
 
-    --card: 0 0% 100%;
-    --card-foreground: 213 31% 18%;
-    --card-border: 214 20% 91%;
-    --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
-    --card-shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --card: 40 7% 89%; /* Platinum #E5E4E2 */
+    --card-foreground: 0 0% 18%; /* Charcoal */
+    --card-border: 40 7% 82%;
+    --card-shadow: 0 4px 6px -1px hsl(233 38% 17% / 0.05);
+    --card-shadow-hover: 0 10px 15px -3px hsl(233 38% 17% / 0.1);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 213 31% 18%;
+    --popover: 40 7% 89%; /* Platinum */
+    --popover-foreground: 0 0% 18%; /* Charcoal */
 
-    /* Primary - Teal accent */
-    --primary: 173 80% 40%;
-    --primary-foreground: 0 0% 100%;
-    --primary-hover: 173 80% 35%;
-    --primary-light: 173 80% 95%;
+    /* Primary - Navy */
+    --primary: 233 38% 17%; /* Navy #1B1F3B */
+    --primary-foreground: 0 0% 98%; /* Soft White */
+    --primary-hover: 233 38% 22%;
+    --primary-light: 233 38% 95%;
 
-    /* Secondary - Cool gray */
-    --secondary: 215 25% 27%;
-    --secondary-foreground: 0 0% 100%;
-    --secondary-hover: 215 25% 23%;
+    /* Secondary - Platinum */
+    --secondary: 40 7% 89%; /* Platinum #E5E4E2 */
+    --secondary-foreground: 233 38% 17%; /* Navy */
+    --secondary-hover: 40 7% 85%;
 
-    /* Muted - Light gray */
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 16% 47%;
+    /* Muted */
+    --muted: 40 7% 85%; /* Slightly darker Platinum */
+    --muted-foreground: 0 0% 35%; /* Lighter Charcoal */
 
-    /* Accent - Blue */
-    --accent: 217 91% 60%;
-    --accent-foreground: 0 0% 100%;
-    --accent-hover: 217 91% 55%;
+    /* Accent - Gold */
+    --accent: 51 100% 50%; /* Gold #FFD700 */
+    --accent-foreground: 233 38% 17%; /* Navy */
+    --accent-hover: 51 100% 45%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214 20% 91%;
-    --input: 214 20% 91%;
-    --ring: 173 80% 40%;
+    --border: 40 7% 82%; /* Platinum border */
+    --input: 40 7% 82%;
+    --ring: 51 100% 50%; /* Gold ring for focus states */
 
     --radius: 0.75rem;
     --radius-sm: 0.5rem;
     --radius-lg: 1rem;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(217 91% 60%), hsl(173 80% 40%));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 25% 98%));
-    --gradient-teal: linear-gradient(135deg, hsl(173 80% 40%), hsl(173 80% 35%));
-    --gradient-blue: linear-gradient(135deg, hsl(217 91% 60%), hsl(217 91% 50%));
+    --gradient-hero: linear-gradient(135deg, hsl(233 38% 17%), hsl(51 100% 50%));
+    --gradient-card: linear-gradient(145deg, hsl(40 7% 89%), hsl(40 7% 94%));
+    --gradient-teal: linear-gradient(135deg, hsl(233 38% 17%), hsl(233 38% 25%));
+    --gradient-blue: linear-gradient(135deg, hsl(233 38% 17%), hsl(233 38% 22%));
 
     /* Shadows */
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-    --shadow-glow: 0 0 20px hsl(173 80% 40% / 0.3);
+    --shadow-sm: 0 1px 2px 0 hsl(233 38% 17% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(233 38% 17% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(233 38% 17% / 0.1);
+    --shadow-xl: 0 20px 25px -5px hsl(233 38% 17% / 0.15);
+    --shadow-glow: 0 0 20px hsl(51 100% 50% / 0.3);
 
     /* Glass effect */
-    --glass-bg: hsl(0 0% 100% / 0.8);
-    --glass-border: hsl(214 20% 91% / 0.5);
+    --glass-bg: hsl(40 7% 89% / 0.95);
+    --glass-border: hsl(40 7% 82% / 0.5);
 
     /* Transitions */
     --transition-base: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-background: 0 0% 98%;
+    /* Chart colors */
+    --chart-1: 233 38% 17%; /* Navy */
+    --chart-2: 51 100% 50%; /* Gold */
+    --chart-3: 40 7% 89%; /* Platinum */
+    --chart-4: 233 38% 30%; /* Lighter Navy */
+    --chart-5: 51 100% 40%; /* Darker Gold */
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar */
+    --sidebar-background: 40 7% 89%; /* Platinum */
+    --sidebar-foreground: 0 0% 18%; /* Charcoal */
+    --sidebar-primary: 233 38% 17%; /* Navy */
+    --sidebar-primary-foreground: 0 0% 98%; /* Soft White */
+    --sidebar-accent: 51 100% 50%; /* Gold */
+    --sidebar-accent-foreground: 233 38% 17%; /* Navy */
+    --sidebar-border: 40 7% 82%; /* Platinum border */
+    --sidebar-ring: 51 100% 50%; /* Gold */
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark mode - Navy dominant with gold accents */
+    --background: 233 38% 12%; /* Dark Navy */
+    --foreground: 40 7% 94%; /* Light Platinum */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 233 38% 15%; /* Slightly lighter Navy */
+    --card-foreground: 40 7% 94%; /* Light Platinum */
+    --card-border: 233 38% 20%;
+    --card-shadow: 0 4px 6px -1px hsl(0 0% 0% / 0.3);
+    --card-shadow-hover: 0 10px 15px -3px hsl(0 0% 0% / 0.4);
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 233 38% 15%;
+    --popover-foreground: 40 7% 94%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 51 100% 50%; /* Gold becomes primary in dark */
+    --primary-foreground: 233 38% 12%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 233 38% 25%; /* Lighter Navy */
+    --secondary-foreground: 40 7% 94%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 233 38% 20%;
+    --muted-foreground: 40 7% 70%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 51 100% 50%; /* Gold */
+    --accent-foreground: 233 38% 12%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 40 7% 94%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 233 38% 20%;
+    --input: 233 38% 20%;
+    --ring: 51 100% 50%; /* Gold ring */
+
+    /* Dark mode specific shadows */
+    --shadow-glow: 0 0 30px hsl(51 100% 50% / 0.2);
+
+    /* Sidebar dark */
+    --sidebar-background: 233 38% 15%;
+    --sidebar-foreground: 40 7% 94%;
+    --sidebar-primary: 51 100% 50%; /* Gold */
+    --sidebar-primary-foreground: 233 38% 12%;
+    --sidebar-accent: 233 38% 25%;
+    --sidebar-accent-foreground: 40 7% 94%;
+    --sidebar-border: 233 38% 20%;
+    --sidebar-ring: 51 100% 50%; /* Gold */
   }
 }
 

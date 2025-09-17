@@ -24,10 +24,10 @@ export const Navbar = () => {
   return (
     <nav className="fixed top-4 left-0 right-0 z-50 px-4 md:px-8">
       <div
-        className={`mx-auto bg-card/95 backdrop-blur-lg rounded-2xl shadow-lg border border-border/50 transition-all duration-500 ${
+        className={`mx-auto bg-card/95 backdrop-blur-lg rounded-2xl border border-border/50 transition-all duration-500 ${
           isScrolled
-            ? "max-w-7xl py-3 shadow-xl"
-            : "max-w-5xl py-2"
+            ? "max-w-7xl py-5 shadow-2xl"
+            : "max-w-6xl py-3 shadow-lg"
         }`}
       >
         <div className="container mx-auto px-6">
@@ -52,7 +52,7 @@ export const Navbar = () => {
                   `flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200 ${
                     isActive
                       ? "bg-primary text-primary-foreground"
-                      : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                      : "text-muted-foreground hover:bg-accent/10 hover:text-accent border border-transparent hover:border-accent/20"
                   }`
                 }
               >
@@ -89,7 +89,7 @@ export const Navbar = () => {
                     `flex items-center space-x-2 px-4 py-3 rounded-lg transition-all duration-200 ${
                       isActive
                         ? "bg-primary text-primary-foreground"
-                        : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                        : "text-muted-foreground hover:bg-accent/10 hover:text-accent border border-transparent hover:border-accent/20"
                     }`
                   }
                 >
