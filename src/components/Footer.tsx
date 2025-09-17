@@ -101,15 +101,9 @@ export const Footer = () => {
                 </span>
               </li>
               <li className="flex items-center space-x-2">
-                <Phone className="w-4 h-4 text-primary" />
-                <span className="text-sm text-secondary-foreground/80">
-                  +1 (555) 123-4567
-                </span>
-              </li>
-              <li className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4 text-primary" />
                 <span className="text-sm text-secondary-foreground/80">
-                  San Francisco, CA
+                  Hyderabad, India
                 </span>
               </li>
             </ul>
