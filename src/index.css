@@ -36,34 +36,34 @@ All colors MUST be HSL.
     --muted: 40 7% 85%; /* Slightly darker Platinum */
     --muted-foreground: 0 0% 35%; /* Lighter Charcoal */
 
-    /* Accent - Gold */
-    --accent: 51 100% 50%; /* Gold #FFD700 */
-    --accent-foreground: 233 38% 17%; /* Navy */
-    --accent-hover: 51 100% 45%;
+    /* Accent - Deep Sapphire */
+    --accent: 201 59% 47%; /* Deep Sapphire #2E8BC0 */
+    --accent-foreground: 0 0% 98%; /* Soft White */
+    --accent-hover: 201 59% 42%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 40 7% 82%; /* Platinum border */
     --input: 40 7% 82%;
-    --ring: 51 100% 50%; /* Gold ring for focus states */
+    --ring: 201 59% 47%; /* Sapphire ring for focus states */
 
     --radius: 0.75rem;
     --radius-sm: 0.5rem;
     --radius-lg: 1rem;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(233 38% 17%), hsl(51 100% 50%));
+    --gradient-hero: linear-gradient(135deg, hsl(233 38% 17%), hsl(201 59% 47%));
     --gradient-card: linear-gradient(145deg, hsl(40 7% 89%), hsl(40 7% 94%));
-    --gradient-teal: linear-gradient(135deg, hsl(233 38% 17%), hsl(233 38% 25%));
-    --gradient-blue: linear-gradient(135deg, hsl(233 38% 17%), hsl(233 38% 22%));
+    --gradient-navy: linear-gradient(135deg, hsl(233 38% 17%), hsl(233 38% 25%));
+    --gradient-sapphire: linear-gradient(135deg, hsl(201 59% 47%), hsl(201 59% 52%));
 
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 hsl(233 38% 17% / 0.05);
     --shadow-md: 0 4px 6px -1px hsl(233 38% 17% / 0.1);
     --shadow-lg: 0 10px 15px -3px hsl(233 38% 17% / 0.1);
     --shadow-xl: 0 20px 25px -5px hsl(233 38% 17% / 0.15);
-    --shadow-glow: 0 0 20px hsl(51 100% 50% / 0.3);
+    --shadow-glow: 0 0 20px hsl(201 59% 47% / 0.3);
 
     /* Glass effect */
     --glass-bg: hsl(40 7% 89% / 0.95);
@@ -75,24 +75,24 @@ All colors MUST be HSL.
 
     /* Chart colors */
     --chart-1: 233 38% 17%; /* Navy */
-    --chart-2: 51 100% 50%; /* Gold */
+    --chart-2: 201 59% 47%; /* Sapphire */
     --chart-3: 40 7% 89%; /* Platinum */
     --chart-4: 233 38% 30%; /* Lighter Navy */
-    --chart-5: 51 100% 40%; /* Darker Gold */
+    --chart-5: 201 59% 37%; /* Darker Sapphire */
 
     /* Sidebar */
     --sidebar-background: 40 7% 89%; /* Platinum */
     --sidebar-foreground: 0 0% 18%; /* Charcoal */
     --sidebar-primary: 233 38% 17%; /* Navy */
     --sidebar-primary-foreground: 0 0% 98%; /* Soft White */
-    --sidebar-accent: 51 100% 50%; /* Gold */
-    --sidebar-accent-foreground: 233 38% 17%; /* Navy */
+    --sidebar-accent: 201 59% 47%; /* Sapphire */
+    --sidebar-accent-foreground: 0 0% 98%; /* Soft White */
     --sidebar-border: 40 7% 82%; /* Platinum border */
-    --sidebar-ring: 51 100% 50%; /* Gold */
+    --sidebar-ring: 201 59% 47%; /* Sapphire */
   }
 
   .dark {
-    /* Dark mode - Navy dominant with gold accents */
+    /* Dark mode - Navy dominant with sapphire accents */
     --background: 233 38% 12%; /* Dark Navy */
     --foreground: 40 7% 94%; /* Light Platinum */
 
@@ -105,8 +105,8 @@ All colors MUST be HSL.
     --popover: 233 38% 15%;
     --popover-foreground: 40 7% 94%;
 
-    --primary: 51 100% 50%; /* Gold becomes primary in dark */
-    --primary-foreground: 233 38% 12%;
+    --primary: 201 59% 47%; /* Sapphire becomes primary in dark */
+    --primary-foreground: 0 0% 98%;
 
     --secondary: 233 38% 25%; /* Lighter Navy */
     --secondary-foreground: 40 7% 94%;
@@ -114,28 +114,28 @@ All colors MUST be HSL.
     --muted: 233 38% 20%;
     --muted-foreground: 40 7% 70%;
 
-    --accent: 51 100% 50%; /* Gold */
-    --accent-foreground: 233 38% 12%;
+    --accent: 201 59% 47%; /* Sapphire */
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62% 30%;
     --destructive-foreground: 40 7% 94%;
 
     --border: 233 38% 20%;
     --input: 233 38% 20%;
-    --ring: 51 100% 50%; /* Gold ring */
+    --ring: 201 59% 47%; /* Sapphire ring */
 
     /* Dark mode specific shadows */
-    --shadow-glow: 0 0 30px hsl(51 100% 50% / 0.2);
+    --shadow-glow: 0 0 30px hsl(201 59% 47% / 0.2);
 
     /* Sidebar dark */
     --sidebar-background: 233 38% 15%;
     --sidebar-foreground: 40 7% 94%;
-    --sidebar-primary: 51 100% 50%; /* Gold */
-    --sidebar-primary-foreground: 233 38% 12%;
+    --sidebar-primary: 201 59% 47%; /* Sapphire */
+    --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 233 38% 25%;
     --sidebar-accent-foreground: 40 7% 94%;
     --sidebar-border: 233 38% 20%;
-    --sidebar-ring: 51 100% 50%; /* Gold */
+    --sidebar-ring: 201 59% 47%; /* Sapphire */
   }
 }
 
