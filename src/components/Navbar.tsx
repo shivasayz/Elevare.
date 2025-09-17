@@ -1,103 +1,149 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Navbar = () => {
+  const [scrollY, setScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Scroll progress (0 to 1)
+  const progress = Math.min(scrollY / 120, 1);
+
+  // Interpolated styles
+  const contentPadding = 20 - progress * 4; // tighter padding after scroll
+  const bgOpacity = 0.85 + progress * 0.15; // slightly more solid on scroll
+  const borderRadius = 28 - progress * 12; // round → semi-round
+  const shadow = progress > 0.05 ? "shadow-lg" : "shadow-md";
+  const height = 72 - progress * 12; // shrink height smoothly
+
   const navLinks = [
-    { path: "/jobs", label: "Gallery" },
-    { path: "/news", label: "Pricing" },
-    { path: "/releases", label: "White-label" },
+    { path: "/jobs", label: "Jobs" },
+    { path: "/news", label: "Articles" },
+    { path: "/releases", label: "Releases" },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <NavLink to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-foreground rounded-md flex items-center justify-center">
-              <span className="text-background font-bold text-lg">T</span>
-            </div>
-            <span className="font-semibold text-lg text-foreground">TechHub</span>
-          </NavLink>
-
-          {/* Desktop Navigation - Center */}
-          <div className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.path}
-                to={link.path}
-                className={({ isActive }) =>
-                  `text-sm font-medium transition-colors duration-200 ${
-                    isActive
-                      ? "text-foreground"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`
-                }
-              >
-                {link.label}
-              </NavLink>
-            ))}
+    <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-full sm:px-6 lg:px-20">
+      <div
+        className={`mx-auto flex items-center justify-between w-full max-w-[1280px] transition-all duration-500 ease-in-out ${
+          scrollY > 0 ? shadow : ""
+        }`}
+        style={{
+          padding: `0 ${contentPadding}px`,
+          height: `${height}px`,
+          borderRadius: scrollY > 0 ? `${borderRadius}px` : "0px",
+          backgroundColor:
+            scrollY > 0 ? `rgba(255, 255, 255, ${bgOpacity})` : "transparent",
+          backdropFilter: scrollY > 0 ? "blur(12px)" : "none",
+          WebkitBackdropFilter: scrollY > 0 ? "blur(12px)" : "none",
+        }}
+      >
+        {/* Logo */}
+        <NavLink to="/" className="flex items-center gap-2">
+          <div className="w-9 h-9 bg-black rounded-md flex items-center justify-center transition-all duration-300">
+            <span className="text-white font-bold text-lg">T</span>
           </div>
+          <span
+            className="text-black font-semibold"
+            style={{
+              fontSize: `${1 + 0.125 * progress}rem`, // 1rem → 1.125rem
+              transition: "font-size 0.3s ease",
+            }}
+          >
+            TechHub
+          </span>
+        </NavLink>
 
-          {/* Right Side Actions */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" size="sm" className="text-sm font-medium">
-              Sign in
-            </Button>
-            <Button size="sm" className="bg-[#FFD700] hover:bg-[#F0C800] text-black font-semibold">
-              Try it for free
-            </Button>
-          </div>
+        {/* Center nav */}
+        <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.path}
+              to={link.path}
+              className={({ isActive }) =>
+                `text-sm font-medium transition-colors duration-300 ${
+                  isActive
+                    ? "text-black"
+                    : "text-muted-foreground hover:text-black"
+                }`
+              }
+            >
+              {link.label}
+            </NavLink>
+          ))}
+        </div>
 
-          {/* Mobile Menu Toggle */}
+        {/* Right actions */}
+        <div className="hidden md:flex items-center gap-4 justify-end">
           <Button
             variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            size="sm"
+            className="text-sm font-medium px-3 hover:text-black"
           >
-            {isMobileMenuOpen ? (
-              <X className="w-5 h-5" />
-            ) : (
-              <Menu className="w-5 h-5" />
-            )}
+            Sign in
+          </Button>
+          <Button
+            size="sm"
+            className="bg-[#FFD700] hover:bg-[#F0C800] text-black font-semibold px-5 py-2 rounded-xl transition-all duration-300"
+          >
+            Try it for free
           </Button>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.path}
-                to={link.path}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={({ isActive }) =>
-                  `block px-4 py-2 text-sm font-medium transition-colors duration-200 ${
-                    isActive
-                      ? "text-foreground bg-muted"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                  }`
-                }
-              >
-                {link.label}
-              </NavLink>
-            ))}
-            <div className="mt-4 px-4 space-y-2">
-              <Button variant="outline" size="sm" className="w-full">
-                Sign in
-              </Button>
-              <Button size="sm" className="w-full bg-[#FFD700] hover:bg-[#F0C800] text-black font-semibold">
-                Try it for free
-              </Button>
-            </div>
-          </div>
-        )}
+        {/* Mobile menu toggle */}
+        <Button
+          variant="ghost"
+          size="icon"
+          className="md:hidden"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? (
+            <X className="w-5 h-5" />
+          ) : (
+            <Menu className="w-5 h-5" />
+          )}
+        </Button>
       </div>
+
+      {/* Mobile nav */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden py-4 border-t border-border mt-2 bg-white rounded-xl shadow">
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.path}
+              to={link.path}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={({ isActive }) =>
+                `block px-4 py-2 text-sm font-medium transition-colors duration-200 ${
+                  isActive
+                    ? "text-foreground bg-muted"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                }`
+              }
+            >
+              {link.label}
+            </NavLink>
+          ))}
+          <div className="mt-4 px-4 space-y-2">
+            <Button variant="outline" size="sm" className="w-full">
+              Sign in
+            </Button>
+            <Button
+              size="sm"
+              className="w-full bg-[#FFD700] hover:bg-[#F0C800] text-black font-semibold"
+            >
+              Try it for free
+            </Button>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };

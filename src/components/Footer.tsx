@@ -1,6 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Facebook, Twitter, Linkedin, Github, Mail, MapPin, Phone, Send } from "lucide-react";
+import {
+  Facebook,
+  Twitter,
+  Linkedin,
+  Github,
+  Mail,
+  MapPin,
+  Phone,
+  Send,
+} from "lucide-react";
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
 
@@ -47,22 +56,34 @@ export const Footer = () => {
             <h3 className="font-semibold text-lg">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a href="/jobs" className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors">
+                <a
+                  href="/jobs"
+                  className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors"
+                >
                   Job Openings
                 </a>
               </li>
               <li>
-                <a href="/news" className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors">
+                <a
+                  href="/news"
+                  className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors"
+                >
                   Tech News
                 </a>
               </li>
               <li>
-                <a href="/releases" className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors">
+                <a
+                  href="/releases"
+                  className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors"
+                >
                   Software Releases
                 </a>
               </li>
               <li>
-                <a href="#" className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors">
+                <a
+                  href="#"
+                  className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors"
+                >
                   About Us
                 </a>
               </li>
@@ -75,15 +96,21 @@ export const Footer = () => {
             <ul className="space-y-2">
               <li className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-primary" />
-                <span className="text-sm text-secondary-foreground/80">hello@techhub.com</span>
+                <span className="text-sm text-secondary-foreground/80">
+                  hello@techhub.com
+                </span>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-primary" />
-                <span className="text-sm text-secondary-foreground/80">+1 (555) 123-4567</span>
+                <span className="text-sm text-secondary-foreground/80">
+                  +1 (555) 123-4567
+                </span>
               </li>
               <li className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4 text-primary" />
-                <span className="text-sm text-secondary-foreground/80">San Francisco, CA</span>
+                <span className="text-sm text-secondary-foreground/80">
+                  San Francisco, CA
+                </span>
               </li>
             </ul>
           </div>
@@ -133,7 +160,7 @@ export const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-secondary-foreground/10 mt-8 pt-8 text-center">
           <p className="text-sm text-secondary-foreground/60">
-            © 2024 TechHub. All rights reserved.
+            © 2025 TechHub. All rights reserved.
           </p>
         </div>
       </div>
