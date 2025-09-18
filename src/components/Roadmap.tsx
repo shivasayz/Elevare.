@@ -81,7 +81,6 @@ const roadmapItems = [
 
 export const Roadmap = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [isPaused, setIsPaused] = useState(false);
   const animationRef = useRef<number | null>(null);
   const scrollPositionRef = useRef(0);
 
@@ -97,8 +96,8 @@ export const Roadmap = () => {
     }
 
     const animate = () => {
-      if (!isPaused && scrollContainer) {
-        scrollPositionRef.current += 1;
+      if (scrollContainer) {
+        scrollPositionRef.current += 0.8; // Slower animation for premium feel
         
         // Reset scroll when reaching halfway (where duplicate starts)
         const maxScroll = scrollContainer.scrollWidth / 2;
@@ -118,7 +117,7 @@ export const Roadmap = () => {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [isPaused]);
+  }, []);
 
   return (
     <section className="py-20 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
@@ -139,29 +138,30 @@ export const Roadmap = () => {
         <div 
           ref={scrollRef}
           className="overflow-hidden relative"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
         >
-          <div className="scroll-content flex gap-6 py-4">
+          <div className="scroll-content flex gap-8 py-8">
             {roadmapItems.map((item, index) => {
               const Icon = item.icon;
               return (
                 <Card 
                   key={index} 
-                  className="min-w-[320px] hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer border-muted hover:border-primary/20"
+                  className="min-w-[420px] hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] cursor-pointer border-muted/50 hover:border-primary/30 backdrop-blur-sm"
                 >
-                  <CardContent className={`p-6 bg-gradient-to-br ${item.gradient}`}>
-                    <div className="flex items-start space-x-4">
-                      <div className={`p-3 rounded-xl bg-background/80 ${item.iconColor}`}>
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-lg text-foreground mb-2">
-                          {item.title}
-                        </h3>
-                        <p className="text-sm text-muted-foreground">
-                          {item.description}
-                        </p>
+                  <CardContent className={`p-8 bg-gradient-to-br ${item.gradient} relative overflow-hidden`}>
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent"></div>
+                    <div className="relative z-10">
+                      <div className="flex items-start space-x-5">
+                        <div className={`p-4 rounded-2xl bg-background/90 shadow-lg ${item.iconColor}`}>
+                          <Icon className="w-8 h-8" />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="font-bold text-xl text-foreground mb-3">
+                            {item.title}
+                          </h3>
+                          <p className="text-base text-muted-foreground leading-relaxed">
+                            {item.description}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </CardContent>
