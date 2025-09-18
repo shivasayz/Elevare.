@@ -6,7 +6,7 @@ export const Hero = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative min-h-[600px] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[1000px] flex items-center justify-center overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-primary/10 to-background" />
 
@@ -56,7 +56,7 @@ export const Hero = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-border hover:bg-muted px-8 py-6 text-lg rounded-xl transition-all duration-300"
+              className="border-2 border-border px-8 py-6 text-lg rounded-xl transition-all duration-300"
               onClick={() => navigate("/news")}
             >
               Read Latest News
@@ -74,7 +74,7 @@ export const Hero = () => {
               <div className="text-sm text-muted-foreground">Daily Readers</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-secondary">50+</div>
+              <div className="text-3xl font-bold text-primary">50+</div>
               <div className="text-sm text-muted-foreground">New Releases</div>
             </div>
           </div>

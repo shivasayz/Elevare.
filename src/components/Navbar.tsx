@@ -86,7 +86,7 @@ export const Navbar = () => {
           <Button
             variant="ghost"
             size="sm"
-            className="text-sm font-medium px-3 hover:text-black"
+            className="text-sm font-medium px-3"
             onClick={() => navigate("/login")}
           >
             Sign in
@@ -135,9 +135,9 @@ export const Navbar = () => {
             </NavLink>
           ))}
           <div className="mt-4 px-4 space-y-2">
-            <Button 
-              variant="outline" 
-              size="sm" 
+            <Button
+              variant="outline"
+              size="sm"
               className="w-full"
               onClick={() => {
                 navigate("/login");
