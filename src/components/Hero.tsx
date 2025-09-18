@@ -17,13 +17,15 @@ export const Hero = () => {
       </div>
 
       <div className="relative w-full max-w-7xl mx-auto px-6 py-20 text-center">
-        <div className="animate-fade-in space-y-6 max-w-4xl mx-auto">
+        <div className="animate-fade-in space-y-8 max-w-4xl mx-auto">
           {/* Badge */}
-          <div className="inline-flex items-center space-x-2 bg-primary-light/50 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/20">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">
-              Your Tech Career Starts Here
-            </span>
+          <div className="mb-8 pt-8">
+            <div className="inline-flex items-center space-x-2 bg-primary-light/50 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/20">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-primary">
+                Your Tech Career Starts Here
+              </span>
+            </div>
           </div>
 
           {/* Main Heading */}
