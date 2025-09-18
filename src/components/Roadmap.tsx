@@ -12,6 +12,7 @@ import {
   Rocket,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { SectionDivider } from "./SectionDivider";
 
 const roadmapItems = [
   {
@@ -122,65 +123,70 @@ export const Roadmap = () => {
   }, []);
 
   return (
-    <section className="py-20 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center space-x-2 bg-primary/10 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/20 mb-4">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">
-              Coming Soon
-            </span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            What's Next?
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Exciting features on our roadmap to revolutionize your tech career
-            journey
-          </p>
-        </div>
+    <div className="py-10 px-6">
+      <div className="max-w-[84rem] mx-auto">
+        <SectionDivider label="Future Features" className="mb-6" />
+        <section className="py-2 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center space-x-2 bg-primary/10 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/20 mb-4">
+                <Sparkles className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium text-primary">
+                  Coming Soon
+                </span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+                What's Next?
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Exciting features on our roadmap to revolutionize your tech
+                career journey
+              </p>
+            </div>
 
-        <div ref={scrollRef} className="overflow-hidden relative">
-          <div className="scroll-content flex gap-8 py-8">
-            {roadmapItems.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <Card
-                  key={index}
-                  className="min-w-[500px] min-h-[360px] bg-background/80 border border-muted/40 backdrop-blur-md shadow-lg hover:shadow-[0_16px_40px_rgba(0,0,0,0.25)] hover:scale-[1.03] transition-transform duration-500 ease-in-out rounded-3xl overflow-hidden cursor-pointer hover:border-primary/40 relative"
-                >
-                  <CardContent
-                    className={`p-10 bg-gradient-to-br ${item.gradient} relative overflow-hidden`}
-                  >
-                    {/* Overlay for subtle glass effect */}
-                    <div className="absolute inset-0 bg-white/5 backdrop-blur-sm rounded-3xl z-0" />
+            <div ref={scrollRef} className="overflow-hidden relative">
+              <div className="scroll-content flex gap-8 py-8">
+                {roadmapItems.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <Card
+                      key={index}
+                      className="min-w-[500px] min-h-[360px] bg-background/80 border border-muted/40 backdrop-blur-md shadow-lg hover:shadow-[0_16px_40px_rgba(0,0,0,0.25)] hover:scale-[1.03] transition-transform duration-500 ease-in-out rounded-3xl overflow-hidden cursor-pointer hover:border-primary/40 relative"
+                    >
+                      <CardContent
+                        className={`p-10 bg-gradient-to-br ${item.gradient} relative overflow-hidden`}
+                      >
+                        {/* Overlay for subtle glass effect */}
+                        <div className="absolute inset-0 bg-white/5 backdrop-blur-sm rounded-3xl z-0" />
 
-                    <div className="relative z-10">
-                      <div className="flex items-start gap-6">
-                        {/* Icon block with neumorphism effect */}
-                        <div
-                          className={`p-5 rounded-2xl shadow-inner bg-background/90 ${item.iconColor}`}
-                        >
-                          <Icon className="w-8 h-8 text-primary" />
+                        <div className="relative z-10">
+                          <div className="flex items-start gap-6">
+                            {/* Icon block with neumorphism effect */}
+                            <div
+                              className={`p-5 rounded-2xl shadow-inner bg-background/90 ${item.iconColor}`}
+                            >
+                              <Icon className="w-8 h-8 text-primary" />
+                            </div>
+
+                            <div className="flex-1">
+                              <h3 className="text-xl font-semibold text-foreground mb-2 tracking-tight">
+                                {item.title}
+                              </h3>
+                              <p className="text-muted-foreground text-base leading-relaxed">
+                                {item.description}
+                              </p>
+                            </div>
+                          </div>
                         </div>
-
-                        <div className="flex-1">
-                          <h3 className="text-xl font-semibold text-foreground mb-2 tracking-tight">
-                            {item.title}
-                          </h3>
-                          <p className="text-muted-foreground text-base leading-relaxed">
-                            {item.description}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
       </div>
-    </section>
+    </div>
   );
 };
