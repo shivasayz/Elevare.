@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Navbar = () => {
+  const navigate = useNavigate();
   const [scrollY, setScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -86,12 +87,14 @@ export const Navbar = () => {
             variant="ghost"
             size="sm"
             className="text-sm font-medium px-3 hover:text-black"
+            onClick={() => navigate("/login")}
           >
             Sign in
           </Button>
           <Button
             size="sm"
-            className="bg-[#FFD700] hover:bg-[#F0C800] text-black font-semibold px-5 py-2 rounded-xl transition-all duration-300"
+            className="bg-accent hover:bg-accent/90 text-white font-semibold px-5 py-2 rounded-xl transition-all duration-300"
+            onClick={() => navigate("/signup")}
           >
             Try it for free
           </Button>
@@ -132,12 +135,24 @@ export const Navbar = () => {
             </NavLink>
           ))}
           <div className="mt-4 px-4 space-y-2">
-            <Button variant="outline" size="sm" className="w-full">
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="w-full"
+              onClick={() => {
+                navigate("/login");
+                setIsMobileMenuOpen(false);
+              }}
+            >
               Sign in
             </Button>
             <Button
               size="sm"
-              className="w-full bg-[#FFD700] hover:bg-[#F0C800] text-black font-semibold"
+              className="w-full bg-accent hover:bg-accent/90 text-white font-semibold"
+              onClick={() => {
+                navigate("/signup");
+                setIsMobileMenuOpen(false);
+              }}
             >
               Try it for free
             </Button>

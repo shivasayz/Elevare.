@@ -16,7 +16,7 @@ export const Hero = () => {
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
-      <div className="relative container mx-auto px-6 py-72 text-center">
+      <div className="relative w-full max-w-7xl mx-auto px-6 py-20 text-center">
         <div className="animate-fade-in space-y-6 max-w-4xl mx-auto">
           {/* Badge */}
           <div className="inline-flex items-center space-x-2 bg-primary-light/50 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/20">
