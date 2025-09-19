@@ -128,7 +128,7 @@ export const Footer = () => {
                 <Button
                   type="submit"
                   size="icon"
-                  className="bg-primary hover:bg-primary-hover text-primary-foreground"
+                  className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-white"
                 >
                   <Send className="w-4 h-4" />
                 </Button>
@@ -142,7 +142,7 @@ export const Footer = () => {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-10 h-10 rounded-lg bg-secondary-foreground/10 hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all duration-300"
+                  className="w-10 h-10 rounded-lg bg-secondary-foreground/10 hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:text-white flex items-center justify-center transition-all duration-300"
                 >
                   <social.icon className="w-5 h-5" />
                 </a>
