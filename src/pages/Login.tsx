@@ -12,6 +12,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Link } from "react-router-dom";
 import { Mail, Lock, Github, Chrome } from "lucide-react";
+import { Rocket, Lightbulb, Target } from "lucide-react";
 
 const Login = () => {
   return (
@@ -27,44 +28,63 @@ const Login = () => {
 
       {/* Content Layer */}
       <div className="relative min-h-screen flex items-center justify-center p-4">
-        <div className="w-full max-w-6xl flex items-center gap-16">
+        <div className="w-full max-w-6xl flex items-center gap-28">
           {/* Left Side - Motivational Content */}
           <div className="hidden lg:flex flex-col justify-center flex-1 max-w-xl">
-            <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent text-center">
               Where Innovation Meets Community
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Join thousands of tech enthusiasts, developers, and innovators pushing the boundaries of what's possible.
+              Join thousands of tech enthusiasts, developers, and innovators
+              pushing the boundaries of what's possible.
             </p>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <span className="text-primary font-bold">🚀</span>
+                  <Rocket className="text-primary w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">Stay Ahead of the Curve</h3>
-                  <p className="text-muted-foreground text-sm">Get exclusive access to cutting-edge tech news, releases, and career opportunities.</p>
+                  <h3 className="font-semibold text-foreground mb-1">
+                    Stay Ahead of the Curve
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    Get exclusive access to cutting-edge tech news, releases,
+                    and career opportunities.
+                  </p>
                 </div>
               </div>
+
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
-                  <span className="text-accent font-bold">💡</span>
+                  <Lightbulb className="text-accent w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">Learn from the Best</h3>
-                  <p className="text-muted-foreground text-sm">Connect with industry leaders and learn from their experiences and insights.</p>
+                  <h3 className="font-semibold text-foreground mb-1">
+                    Learn from the Best
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    Connect with industry leaders and learn from their
+                    experiences and insights.
+                  </p>
                 </div>
               </div>
+
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <span className="text-primary font-bold">🎯</span>
+                  <Target className="text-primary w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">Build Your Future</h3>
-                  <p className="text-muted-foreground text-sm">Transform your passion for technology into meaningful career opportunities.</p>
+                  <h3 className="font-semibold text-foreground mb-1">
+                    Build Your Future
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    Transform your passion for technology into meaningful career
+                    opportunities.
+                  </p>
                 </div>
               </div>
             </div>
+
             <div className="mt-12 pt-8 border-t border-border/50">
               <p className="text-sm text-muted-foreground italic">
                 "The best way to predict the future is to invent it." - Alan Kay
@@ -74,99 +94,121 @@ const Login = () => {
 
           {/* Right Side - Login Form */}
           <Card className="w-full max-w-md backdrop-blur-xl bg-card/80 border-2 border-border/50 shadow-2xl">
-          <CardHeader className="space-y-1 pb-8">
-            {/* Logo */}
-            <div className="flex justify-center mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-xl">T</span>
+            <CardHeader className="space-y-1 pb-8">
+              {/* Logo */}
+              <div className="flex justify-center mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center shadow-lg">
+                  <span className="text-white font-bold text-xl">T</span>
+                </div>
               </div>
-            </div>
-            <CardTitle className="text-3xl font-bold text-center bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Welcome Back
-            </CardTitle>
-            <CardDescription className="text-center text-muted-foreground">
-              Sign in to continue your tech journey
-            </CardDescription>
-          </CardHeader>
+              <CardTitle className="text-3xl font-bold text-center bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                Welcome Back
+              </CardTitle>
+              <CardDescription className="text-center text-muted-foreground">
+                Sign in to continue your tech journey
+              </CardDescription>
+            </CardHeader>
 
-          <CardContent className="space-y-5">
-            <div className="space-y-2">
-              <Label htmlFor="email" className="text-foreground font-medium">Email</Label>
-              <div className="relative group">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="john@example.com"
-                  className="pl-10 bg-background/50 border-border/50 focus:bg-background/80 transition-all"
-                />
+            <CardContent className="space-y-5">
+              <div className="space-y-2">
+                <Label htmlFor="email" className="text-foreground font-medium">
+                  Email
+                </Label>
+                <div className="relative group">
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="john@example.com"
+                    className="pl-10 bg-background/50 border-border/50 focus:bg-background/80 transition-all"
+                  />
+                </div>
               </div>
-            </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="password" className="text-foreground font-medium">Password</Label>
-              <div className="relative group">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
-                <Input
-                  id="password"
-                  type="password"
-                  placeholder="••••••••"
-                  className="pl-10 bg-background/50 border-border/50 focus:bg-background/80 transition-all"
-                />
+              <div className="space-y-2">
+                <Label
+                  htmlFor="password"
+                  className="text-foreground font-medium"
+                >
+                  Password
+                </Label>
+                <div className="relative group">
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
+                  <Input
+                    id="password"
+                    type="password"
+                    placeholder="••••••••"
+                    className="pl-10 bg-background/50 border-border/50 focus:bg-background/80 transition-all"
+                  />
+                </div>
               </div>
-            </div>
 
-            <div className="flex items-center justify-between">
-              <label className="flex items-center space-x-2 cursor-pointer">
-                <input type="checkbox" className="rounded border-border bg-background/50 text-primary focus:ring-primary" />
-                <span className="text-sm text-muted-foreground">
-                  Remember me
-                </span>
-              </label>
-              <Link to="#" className="text-sm text-primary hover:text-accent transition-colors font-medium">
-                Forgot password?
-              </Link>
-            </div>
-
-            <Button className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-white shadow-lg" size="lg">
-              Sign In
-            </Button>
-
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <Separator className="bg-border/50" />
+              <div className="flex items-center justify-between">
+                <label className="flex items-center space-x-2 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    className="rounded border-border bg-background/50 text-primary focus:ring-primary"
+                  />
+                  <span className="text-sm text-muted-foreground">
+                    Remember me
+                  </span>
+                </label>
+                <Link
+                  to="#"
+                  className="text-sm text-primary hover:text-accent transition-colors font-medium"
+                >
+                  Forgot password?
+                </Link>
               </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-card px-3 text-muted-foreground">
-                  Or continue with
-                </span>
-              </div>
-            </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <Button variant="outline" className="w-full bg-background/50 border-border/50 hover:bg-background/80 hover:border-primary/50 transition-all">
-                <Github className="mr-2 h-4 w-4" />
-                GitHub
-              </Button>
-              <Button variant="outline" className="w-full bg-background/50 border-border/50 hover:bg-background/80 hover:border-primary/50 transition-all">
-                <Chrome className="mr-2 h-4 w-4" />
-                Google
-              </Button>
-            </div>
-          </CardContent>
-
-          <CardFooter className="pt-2 pb-6">
-            <p className="text-center text-sm text-muted-foreground w-full">
-              Don't have an account?{" "}
-              <Link
-                to="/signup"
-                className="text-primary hover:text-accent font-semibold transition-colors"
+              <Button
+                className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-white shadow-lg"
+                size="lg"
               >
-                Sign up
-              </Link>
-            </p>
-          </CardFooter>
-        </Card>
+                Sign In
+              </Button>
+
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <Separator className="bg-border/50" />
+                </div>
+                <div className="relative flex justify-center text-xs uppercase">
+                  <span className="bg-card px-3 text-muted-foreground">
+                    Or continue with
+                  </span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <Button
+                  variant="outline"
+                  className="w-full bg-background/50 border-border/50 hover:bg-background/80 hover:border-primary/50 transition-all"
+                >
+                  <Github className="mr-2 h-4 w-4" />
+                  GitHub
+                </Button>
+                <Button
+                  variant="outline"
+                  className="w-full bg-background/50 border-border/50 hover:bg-background/80 hover:border-primary/50 transition-all"
+                >
+                  <Chrome className="mr-2 h-4 w-4" />
+                  Google
+                </Button>
+              </div>
+            </CardContent>
+
+            <CardFooter className="pt-2 pb-6">
+              <p className="text-center text-sm text-muted-foreground w-full">
+                Don't have an account?{" "}
+                <Link
+                  to="/signup"
+                  className="text-primary hover:text-accent font-semibold transition-colors"
+                >
+                  Sign up
+                </Link>
+              </p>
+            </CardFooter>
+          </Card>
         </div>
       </div>
     </div>
