@@ -137,7 +137,7 @@ export const Roadmap = () => {
     <div className="py-10 px-6">
       <div className="max-w-[84rem] mx-auto">
         <SectionDivider label="Future Features" className="mb-6" />
-        <section className="py-2 bg-gradient-to-b from-background via-muted/20 to-background">
+        <section className="py-2 ">
           <div className="relative max-w-[84rem] mx-auto">
             <div className="text-center mb-12">
               <div className="inline-flex items-center space-x-2 bg-primary/10 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/20 mb-4">
