@@ -128,7 +128,7 @@ export const Footer = () => {
                 <Button
                   type="submit"
                   size="icon"
-                  className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-white"
+                  className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-white w-12"
                 >
                   <Send className="w-4 h-4" />
                 </Button>
