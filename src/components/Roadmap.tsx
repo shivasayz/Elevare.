@@ -169,7 +169,7 @@ export const Roadmap = () => {
                         <div className="absolute inset-0 bg-gradient-to-br from-background/30 via-transparent to-background/20 opacity-50" />
                         
                         {/* Animated glow effect */}
-                        <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-accent/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                        <div className="relative bg-gradient-to-r from-primary/20 to-accent/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
                         <div className="relative z-10 h-full flex flex-col">
                           {/* Icon with premium styling */}
