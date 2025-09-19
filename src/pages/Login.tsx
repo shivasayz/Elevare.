@@ -47,7 +47,7 @@ const Login = () => {
                   <h3 className="font-semibold text-foreground mb-1">
                     Stay Ahead of the Curve
                   </h3>
-                  <p className="text-muted-foreground text-sm">
+                  <p className="text-muted-foreground text-sm whitespace-nowrap">
                     Get exclusive access to cutting-edge tech news, releases,
                     and career opportunities.
                   </p>
@@ -55,8 +55,8 @@ const Login = () => {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
-                  <Lightbulb className="text-accent w-5 h-5" />
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Lightbulb className="text-primary w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">
