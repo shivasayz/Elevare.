@@ -128,7 +128,7 @@ export const Footer = () => {
                 <Button
                   type="submit"
                   size="icon"
-                  className="bg-primary hover:bg-primary-hover text-primary-foreground"
+                  className="bg-primary hover:bg-primary-hover text-primary-foreground w-14"
                 >
                   <Send className="w-4 h-4" />
                 </Button>
