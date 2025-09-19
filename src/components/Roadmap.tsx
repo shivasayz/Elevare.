@@ -19,7 +19,8 @@ const roadmapItems = [
     icon: Brain,
     title: "AI-Powered Job Recommendations",
     description: "Personalized suggestions based on your profile and skills",
-    details: "Machine learning algorithms analyze your experience and preferences",
+    details:
+      "Machine learning algorithms analyze your experience and preferences",
     gradient: "from-primary/20 via-primary/10 to-accent/20",
     iconColor: "text-primary",
   },
@@ -104,7 +105,8 @@ export const Roadmap = () => {
     ) as HTMLElement;
     if (scrollContent) {
       const originalContent = scrollContent.innerHTML;
-      scrollContent.innerHTML = originalContent + originalContent + originalContent;
+      scrollContent.innerHTML =
+        originalContent + originalContent + originalContent;
     }
 
     const animate = () => {
@@ -135,8 +137,8 @@ export const Roadmap = () => {
     <div className="py-10 px-6">
       <div className="max-w-[84rem] mx-auto">
         <SectionDivider label="Future Features" className="mb-6" />
-        <section className="py-2 px-6 bg-gradient-to-b from-background via-muted/20 to-background">
-          <div className="relative max-w-7xl mx-auto">
+        <section className="py-2 bg-gradient-to-b from-background via-muted/20 to-background">
+          <div className="relative max-w-[84rem] mx-auto">
             <div className="text-center mb-12">
               <div className="inline-flex items-center space-x-2 bg-primary/10 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/20 mb-4">
                 <Sparkles className="w-4 h-4 text-primary" />
@@ -154,7 +156,7 @@ export const Roadmap = () => {
             </div>
 
             <div ref={scrollRef} className="overflow-hidden relative">
-              <div className="scroll-content flex gap-6 py-8">
+              <div className="scroll-content flex gap-6 py-8 px-6">
                 {roadmapItems.map((item, index) => {
                   const Icon = item.icon;
                   return (
@@ -167,14 +169,16 @@ export const Roadmap = () => {
                       >
                         {/* Premium glass morphism overlay */}
                         <div className="absolute inset-0 bg-gradient-to-br from-background/30 via-transparent to-background/20 opacity-50" />
-                        
+
                         {/* Animated glow effect */}
                         <div className="relative bg-gradient-to-r from-primary/20 to-accent/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
                         <div className="relative z-10 h-full flex flex-col">
                           {/* Icon with premium styling */}
                           <div className="mb-6">
-                            <div className={`inline-flex p-4 rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 ${item.iconColor} shadow-lg`}>
+                            <div
+                              className={`inline-flex p-4 rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 ${item.iconColor} shadow-lg`}
+                            >
                               <Icon className="w-7 h-7" />
                             </div>
                           </div>
