@@ -1,11 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Building2, Clock, DollarSign, Search, Filter } from "lucide-react";
-import { toast } from "@/hooks/use-toast";
 
 interface Job {
   id: number;
@@ -21,6 +21,7 @@ interface Job {
 }
 
 export default function Jobs() {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [filterLocation, setFilterLocation] = useState("all");
   const [filterType, setFilterType] = useState("all");
@@ -105,11 +106,8 @@ export default function Jobs() {
     return matchesSearch && matchesLocation && matchesType;
   });
 
-  const handleApply = (jobTitle: string) => {
-    toast({
-      title: "Application Submitted!",
-      description: `Your application for ${jobTitle} has been sent.`,
-    });
+  const handleApply = (jobId: number) => {
+    navigate(`/jobs/${jobId}`);
   };
 
   return (
@@ -207,7 +205,7 @@ export default function Jobs() {
                     </div>
                   </div>
                   <Button
-                    onClick={() => handleApply(job.title)}
+                    onClick={() => handleApply(job.id)}
                     className="bg-primary hover:bg-primary-hover text-primary-foreground"
                   >
                     Apply Now

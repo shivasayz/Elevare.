@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useMemo } from "react";
 import Index from "./pages/Index";
 import Jobs from "./pages/Jobs";
+import JobDetails from "./pages/JobDetails";
 import News from "./pages/News";
 import Releases from "./pages/Releases";
 import Login from "./pages/Login";
@@ -43,6 +44,16 @@ const App = () => {
                 <div className="min-h-screen bg-background font-inter">
                   <Navbar />
                   <Jobs />
+                  <Footer />
+                </div>
+              }
+            />
+            <Route
+              path="/jobs/:id"
+              element={
+                <div className="min-h-screen bg-background font-inter">
+                  <Navbar />
+                  <JobDetails />
                   <Footer />
                 </div>
               }
