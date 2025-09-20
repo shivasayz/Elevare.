@@ -19,14 +19,18 @@ import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 
 const App = () => {
-  const queryClient = useMemo(() => new QueryClient({
-    defaultOptions: {
-      queries: {
-        staleTime: 1000 * 60 * 5,
-        refetchOnWindowFocus: false,
-      },
-    },
-  }), []);
+  const queryClient = useMemo(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            staleTime: 1000 * 60 * 5,
+            refetchOnWindowFocus: false,
+          },
+        },
+      }),
+    []
+  );
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -52,7 +56,7 @@ const App = () => {
               path="/jobs/:id"
               element={
                 <div className="min-h-screen bg-background font-inter">
-                  <Navbar />
+                  {/* <Navbar /> */}
                   <JobDetails />
                   <Footer />
                 </div>
