@@ -188,12 +188,11 @@ const Signup = () => {
 
           {/* Right Side - Motivational Content */}
           <div className="hidden lg:flex flex-col justify-center flex-1 max-w-xl">
-            <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent text-center">
-              Where Innovation Meets Community
+            <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Join the Future of Tech Development
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Step into a thriving community where innovation, learning, and
-              opportunity converge.
+              Transform your passion into expertise. Build alongside the brightest minds in technology.
             </p>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
@@ -202,11 +201,10 @@ const Signup = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">
-                    Launch Your Journey
+                    Start Your Tech Career
                   </h3>
-                  <p className="text-muted-foreground text-sm whitespace-nowrap">
-                    From beginner to pro — grow with guidance, support, and
-                    purpose.
+                  <p className="text-muted-foreground text-sm">
+                    Access cutting-edge resources and mentorship from industry leaders.
                   </p>
                 </div>
               </div>
@@ -217,11 +215,10 @@ const Signup = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">
-                    Collaborate & Learn
+                    Build Real Projects
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    Learn from passionate developers, creators, and mentors
-                    worldwide.
+                    Work on production-ready applications and contribute to open source.
                   </p>
                 </div>
               </div>
@@ -232,11 +229,10 @@ const Signup = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">
-                    Shape Your Career
+                    Get Hired Faster
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    Gain visibility, credibility, and access to life-changing
-                    opportunities.
+                    Stand out with a portfolio that showcases your skills to top companies.
                   </p>
                 </div>
               </div>

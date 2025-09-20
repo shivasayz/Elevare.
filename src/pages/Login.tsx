@@ -29,15 +29,13 @@ const Login = () => {
       {/* Content Layer */}
       <div className="relative min-h-screen flex items-center justify-center p-4">
         <div className="w-full max-w-6xl flex items-center gap-28">
-          {/* Left Side - Motivational Content */}
           {/* Left Side - Welcome Back Content */}
           <div className="hidden lg:flex flex-col justify-center flex-1 max-w-xl">
-            <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent text-center">
-              Welcome Back, Innovator!
+            <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Ready to Build Something Amazing?
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed text-center">
-              You’ve been missed. Let’s pick up right where you left off —
-              creating, learning, and connecting.
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+              Your next breakthrough is just a login away. Let's turn ideas into reality together.
             </p>
 
             <div className="space-y-6">
@@ -47,10 +45,10 @@ const Login = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">
-                    Reignite Your Momentum
+                    Continue Your Success Story
                   </h3>
-                  <p className="text-muted-foreground text-sm whitespace-nowrap">
-                    Dive back into your projects and unlock new opportunities.
+                  <p className="text-muted-foreground text-sm">
+                    Your projects are waiting. Every great product started with persistence.
                   </p>
                 </div>
               </div>
@@ -61,11 +59,10 @@ const Login = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">
-                    Refresh Your Mindset
+                    Connect With Innovation
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    Discover fresh insights, ideas, and inspiration tailored to
-                    you.
+                    Join thousands of developers building the future of technology today.
                   </p>
                 </div>
               </div>
@@ -76,18 +73,18 @@ const Login = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">
-                    Keep Moving Forward
+                    Achieve Your Goals
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    Every login is a step toward your goals. Let’s keep going.
+                    The tools you need, the community you deserve, all in one place.
                   </p>
                 </div>
               </div>
             </div>
 
             <div className="mt-12 pt-8 border-t border-border/50">
-              <p className="text-sm text-muted-foreground italic text-center">
-                "Progress happens one login at a time. You’ve got this."
+              <p className="text-sm text-muted-foreground italic">
+                "The best time to code was yesterday. The second best time is now."
               </p>
             </div>
           </div>
