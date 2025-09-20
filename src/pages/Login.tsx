@@ -30,14 +30,16 @@ const Login = () => {
       <div className="relative min-h-screen flex items-center justify-center p-4">
         <div className="w-full max-w-6xl flex items-center gap-28">
           {/* Left Side - Motivational Content */}
+          {/* Left Side - Welcome Back Content */}
           <div className="hidden lg:flex flex-col justify-center flex-1 max-w-xl">
             <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent text-center">
-              Where Innovation Meets Community
+              Welcome Back, Innovator!
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Join thousands of tech enthusiasts, developers, and innovators
-              pushing the boundaries of what's possible.
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed text-center">
+              You’ve been missed. Let’s pick up right where you left off —
+              creating, learning, and connecting.
             </p>
+
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -45,11 +47,10 @@ const Login = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">
-                    Stay Ahead of the Curve
+                    Reignite Your Momentum
                   </h3>
                   <p className="text-muted-foreground text-sm whitespace-nowrap">
-                    Get exclusive access to cutting-edge tech news, releases,
-                    and career opportunities.
+                    Dive back into your projects and unlock new opportunities.
                   </p>
                 </div>
               </div>
@@ -60,11 +61,11 @@ const Login = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">
-                    Learn from the Best
+                    Refresh Your Mindset
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    Connect with industry leaders and learn from their
-                    experiences and insights.
+                    Discover fresh insights, ideas, and inspiration tailored to
+                    you.
                   </p>
                 </div>
               </div>
@@ -75,19 +76,18 @@ const Login = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">
-                    Build Your Future
+                    Keep Moving Forward
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    Transform your passion for technology into meaningful career
-                    opportunities.
+                    Every login is a step toward your goals. Let’s keep going.
                   </p>
                 </div>
               </div>
             </div>
 
             <div className="mt-12 pt-8 border-t border-border/50">
-              <p className="text-sm text-muted-foreground italic">
-                "The best way to predict the future is to invent it." - Alan Kay
+              <p className="text-sm text-muted-foreground italic text-center">
+                "Progress happens one login at a time. You’ve got this."
               </p>
             </div>
           </div>
