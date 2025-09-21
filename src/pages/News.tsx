@@ -1,7 +1,9 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Calendar, Clock, User, ArrowRight, TrendingUp } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Calendar, Clock, User, ArrowRight, TrendingUp, ChevronLeft, ChevronRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface Article {
   id: number;
@@ -16,6 +18,7 @@ interface Article {
 }
 
 export default function News() {
+  const navigate = useNavigate();
   const articles: Article[] = [
     {
       id: 1,
@@ -81,6 +84,7 @@ export default function News() {
     },
   ];
 
+  const trendingArticles = articles.filter(article => article.trending);
   const featuredArticle = articles[0];
   const otherArticles = articles.slice(1);
 
@@ -97,6 +101,85 @@ export default function News() {
             Stay informed with the latest developments in technology
           </p>
         </div>
+
+        {/* Trending Articles Carousel */}
+        {trendingArticles.length > 0 && (
+          <div className="mb-12 animate-fade-in">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
+                <TrendingUp className="w-6 h-6 text-primary" />
+                Trending Now
+              </h2>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <span>{trendingArticles.length} trending articles</span>
+              </div>
+            </div>
+            
+            <Carousel
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {trendingArticles.map((article, index) => (
+                  <CarouselItem key={article.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                    <Card 
+                      className="h-full border-card-border hover:shadow-lg transition-all duration-300 cursor-pointer group"
+                      onClick={() => navigate(`/news/${article.id}`)}
+                    >
+                      <div className="relative h-48 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center overflow-hidden">
+                        <span className="text-4xl font-bold text-primary/20 group-hover:scale-110 transition-transform duration-300">
+                          {article.category.slice(0, 2).toUpperCase()}
+                        </span>
+                        <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">
+                          <TrendingUp className="w-3 h-3 mr-1" />
+                          Trending
+                        </Badge>
+                      </div>
+                      <CardHeader>
+                        <Badge variant="outline" className="mb-2 w-fit border-accent text-accent">
+                          {article.category}
+                        </Badge>
+                        <CardTitle className="text-lg line-clamp-2 group-hover:text-primary transition-colors">
+                          {article.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <CardDescription className="line-clamp-2 mb-4">
+                          {article.description}
+                        </CardDescription>
+                        <div className="flex items-center justify-between text-sm text-muted-foreground">
+                          <span className="flex items-center gap-1">
+                            <Clock className="w-3 h-3" />
+                            {article.readTime}
+                          </span>
+                          <Button variant="ghost" size="sm" className="group/btn">
+                            Read
+                            <ArrowRight className="ml-1 w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden md:flex -left-12" />
+              <CarouselNext className="hidden md:flex -right-12" />
+            </Carousel>
+            
+            {/* Dots Indicator */}
+            <div className="flex justify-center gap-2 mt-6">
+              {Array.from({ length: Math.min(5, trendingArticles.length) }).map((_, index) => (
+                <div
+                  key={index}
+                  className="w-2 h-2 rounded-full bg-muted-foreground/30 transition-all duration-300 hover:bg-primary"
+                />
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Featured Article */}
         <Card className="mb-8 overflow-hidden border-card-border hover:shadow-xl transition-all duration-300 animate-fade-in">
@@ -134,7 +217,10 @@ export default function News() {
                   {featuredArticle.readTime}
                 </span>
               </div>
-              <Button className="bg-primary hover:bg-primary-hover text-primary-foreground group">
+              <Button 
+                className="bg-primary hover:bg-primary-hover text-primary-foreground group"
+                onClick={() => navigate(`/news/${featuredArticle.id}`)}
+              >
                 Read Full Article
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
@@ -184,7 +270,7 @@ export default function News() {
                       {article.readTime}
                     </span>
                   </div>
-                  <Button variant="ghost" size="sm" className="group/btn">
+                  <Button variant="ghost" size="sm" className="group/btn" onClick={() => navigate(`/news/${article.id}`)}>
                     Read
                     <ArrowRight className="ml-1 w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
                   </Button>

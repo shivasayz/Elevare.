@@ -129,13 +129,13 @@ export default function Releases() {
   const getCategoryColor = (category: string) => {
     switch (category) {
       case "framework":
-        return "bg-accent text-accent-foreground";
+        return "bg-blue-500/10 text-blue-600 border-blue-500/20";
       case "library":
-        return "bg-primary text-primary-foreground";
+        return "bg-green-500/10 text-green-600 border-green-500/20";
       case "tool":
-        return "bg-secondary text-secondary-foreground";
+        return "bg-orange-500/10 text-orange-600 border-orange-500/20";
       case "language":
-        return "border-primary text-primary";
+        return "bg-purple-500/10 text-purple-600 border-purple-500/20";
       default:
         return "bg-muted text-muted-foreground";
     }
