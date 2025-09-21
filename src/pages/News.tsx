@@ -120,11 +120,11 @@ export default function News() {
                 align: "start",
                 loop: true,
               }}
-              className="w-full"
+              className="w-full max-w-full"
             >
               <CarouselContent className="-ml-2 md:-ml-4">
-                {trendingArticles.map((article, index) => (
-                  <CarouselItem key={article.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                {trendingArticles.slice(0, 5).map((article, index) => (
+                  <CarouselItem key={article.id} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3">
                     <Card 
                       className="h-full border-card-border hover:shadow-lg transition-all duration-300 cursor-pointer group"
                       onClick={() => navigate(`/news/${article.id}`)}
@@ -169,12 +169,16 @@ export default function News() {
               <CarouselNext className="hidden md:flex -right-12" />
             </Carousel>
             
-            {/* Dots Indicator */}
+            {/* Dots Indicator - Always show 5 dots */}
             <div className="flex justify-center gap-2 mt-6">
-              {Array.from({ length: Math.min(5, trendingArticles.length) }).map((_, index) => (
+              {[0, 1, 2, 3, 4].map((index) => (
                 <div
                   key={index}
-                  className="w-2 h-2 rounded-full bg-muted-foreground/30 transition-all duration-300 hover:bg-primary"
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index < trendingArticles.length 
+                      ? 'bg-primary hover:bg-primary-hover' 
+                      : 'bg-muted-foreground/20'
+                  }`}
                 />
               ))}
             </div>
