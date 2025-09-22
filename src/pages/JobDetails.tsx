@@ -167,23 +167,49 @@ const JobDetails = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <div className="border-b bg-card/50 backdrop-blur-sm sticky top-16 z-10">
-        <div className="max-w-6xl mx-auto px-4 py-3">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => navigate("/jobs")}
-            className="gap-2 hover:bg-accent/10"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to Jobs
-          </Button>
+      {/* Enhanced Header */}
+      <div className="border-b bg-background/95 backdrop-blur-sm sticky top-0 z-20">
+        <div className="max-w-6xl mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => navigate("/jobs")}
+                className="gap-2 hover:bg-accent"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                Back to Jobs
+              </Button>
+              <div className="hidden md:flex items-center gap-2 text-sm text-muted-foreground">
+                <span>/</span>
+                <span>{job.company}</span>
+                <span>/</span>
+                <span className="text-foreground font-medium">{job.title}</span>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <Button 
+                variant="outline" 
+                size="sm"
+                className="hidden sm:flex"
+              >
+                Save Job
+              </Button>
+              <Button 
+                size="sm"
+                onClick={handleApply}
+                className="gap-2"
+              >
+                Apply Now
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-4 pt-24 pb-8">
+      <div className="max-w-6xl mx-auto px-4 pt-8 pb-8">
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Left Column - Main Content */}
           <div className="lg:col-span-2 space-y-8">

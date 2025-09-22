@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -19,6 +20,7 @@ interface Release {
 }
 
 export default function Releases() {
+  const navigate = useNavigate();
   const releases: Release[] = [
     {
       id: 1,
@@ -192,6 +194,7 @@ export default function Releases() {
 }
 
 function ReleaseGrid({ releases, getCategoryColor }: { releases: Release[]; getCategoryColor: (category: string) => string }) {
+  const navigate = useNavigate();
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {releases.map((release, index) => (
@@ -264,7 +267,11 @@ function ReleaseGrid({ releases, getCategoryColor }: { releases: Release[]; getC
 
             {/* Actions */}
             <div className="flex gap-2">
-              <Button size="sm" className="flex-1 bg-primary hover:bg-primary-hover text-primary-foreground">
+              <Button 
+                size="sm" 
+                className="flex-1 bg-primary hover:bg-primary-hover text-primary-foreground"
+                onClick={() => navigate(`/releases/${release.id}`)}
+              >
                 <ExternalLink className="w-4 h-4 mr-1" />
                 View Details
               </Button>

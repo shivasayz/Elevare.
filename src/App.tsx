@@ -8,7 +8,9 @@ import Index from "./pages/Index";
 import Jobs from "./pages/Jobs";
 import JobDetails from "./pages/JobDetails";
 import News from "./pages/News";
+import ArticleDetail from "./pages/ArticleDetail";
 import Releases from "./pages/Releases";
+import ReleaseDetail from "./pages/ReleaseDetail";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
@@ -73,11 +75,31 @@ const App = () => {
               }
             />
             <Route
+              path="/news/:id"
+              element={
+                <div className="min-h-screen bg-background font-inter">
+                  <Navbar />
+                  <ArticleDetail />
+                  <Footer />
+                </div>
+              }
+            />
+            <Route
               path="/releases"
               element={
                 <div className="min-h-screen bg-background font-inter">
                   <Navbar />
                   <Releases />
+                  <Footer />
+                </div>
+              }
+            />
+            <Route
+              path="/releases/:id"
+              element={
+                <div className="min-h-screen bg-background font-inter">
+                  <Navbar />
+                  <ReleaseDetail />
                   <Footer />
                 </div>
               }
