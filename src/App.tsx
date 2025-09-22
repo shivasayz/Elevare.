@@ -98,7 +98,7 @@ const App = () => {
               path="/releases/:id"
               element={
                 <div className="min-h-screen bg-background font-inter">
-                  <Navbar />
+                  {/* <Navbar /> */}
                   <ReleaseDetail />
                   <Footer />
                 </div>
