@@ -26,7 +26,8 @@ const releasesData = [
     date: "Dec 14, 2024",
     category: "framework",
     description: "The library for building user interfaces",
-    fullDescription: "React 19.0.0 brings significant improvements to server-side rendering, concurrent features, and developer experience. This release focuses on stability and performance enhancements while maintaining backward compatibility.",
+    fullDescription:
+      "React 19.0.0 brings significant improvements to server-side rendering, concurrent features, and developer experience. This release focuses on stability and performance enhancements while maintaining backward compatibility.",
     changes: [
       "Server Components now stable",
       "New use() hook for async data fetching",
@@ -45,7 +46,7 @@ const releasesData = [
     github: "https://github.com/facebook/react",
     dependencies: {
       "react-dom": "^19.0.0",
-      "scheduler": "^0.24.0",
+      scheduler: "^0.24.0",
     },
     installation: "npm install react@19.0.0",
   },
@@ -56,7 +57,8 @@ const releasesData = [
     date: "Dec 13, 2024",
     category: "language",
     description: "Typed superset of JavaScript",
-    fullDescription: "TypeScript 5.4.0 brings powerful new type system features, improved performance, and better developer ergonomics. This release includes significant improvements to type inference and introduces new utility types.",
+    fullDescription:
+      "TypeScript 5.4.0 brings powerful new type system features, improved performance, and better developer ergonomics. This release includes significant improvements to type inference and introduces new utility types.",
     changes: [
       "Improved type narrowing in closures",
       "New NoInfer utility type",
@@ -70,7 +72,8 @@ const releasesData = [
     stars: 95000,
     downloads: 80000000,
     breaking: false,
-    documentation: "https://devblogs.microsoft.com/typescript/announcing-typescript-5-4/",
+    documentation:
+      "https://devblogs.microsoft.com/typescript/announcing-typescript-5-4/",
     github: "https://github.com/microsoft/TypeScript",
     dependencies: {},
     installation: "npm install -D typescript@5.4.0",
@@ -82,7 +85,8 @@ const releasesData = [
     date: "Dec 12, 2024",
     category: "tool",
     description: "Next generation frontend tooling",
-    fullDescription: "Vite 5.1.0 introduces enhanced build optimization, improved HMR performance, and better framework integration. This release significantly reduces cold start times and improves the overall development experience.",
+    fullDescription:
+      "Vite 5.1.0 introduces enhanced build optimization, improved HMR performance, and better framework integration. This release significantly reduces cold start times and improves the overall development experience.",
     changes: [
       "Experimental support for .wasm imports",
       "Improved CSS code splitting",
@@ -96,8 +100,8 @@ const releasesData = [
     documentation: "https://vitejs.dev/guide/",
     github: "https://github.com/vitejs/vite",
     dependencies: {
-      "esbuild": "^0.20.0",
-      "rollup": "^4.13.0",
+      esbuild: "^0.20.0",
+      rollup: "^4.13.0",
     },
     installation: "npm create vite@latest",
   },
@@ -108,7 +112,8 @@ const releasesData = [
     date: "Dec 11, 2024",
     category: "framework",
     description: "The React Framework",
-    fullDescription: "Next.js 14.1.0 continues to push the boundaries of React applications with improved performance, better developer experience, and new features for building modern web applications.",
+    fullDescription:
+      "Next.js 14.1.0 continues to push the boundaries of React applications with improved performance, better developer experience, and new features for building modern web applications.",
     changes: [
       "Turbopack improvements",
       "Parallel routes enhancements",
@@ -122,7 +127,7 @@ const releasesData = [
     documentation: "https://nextjs.org/docs",
     github: "https://github.com/vercel/next.js",
     dependencies: {
-      "react": "^18.0.0 || ^19.0.0",
+      react: "^18.0.0 || ^19.0.0",
       "react-dom": "^18.0.0 || ^19.0.0",
     },
     installation: "npx create-next-app@latest",
@@ -134,7 +139,8 @@ const releasesData = [
     date: "Dec 10, 2024",
     category: "library",
     description: "Utility-first CSS framework",
-    fullDescription: "TailwindCSS 3.5.0 brings new utilities and improvements to the world's most popular utility-first CSS framework, making it even easier to build beautiful, responsive designs.",
+    fullDescription:
+      "TailwindCSS 3.5.0 brings new utilities and improvements to the world's most popular utility-first CSS framework, making it even easier to build beautiful, responsive designs.",
     changes: [
       "New color palette options",
       "Improved container queries",
@@ -148,8 +154,8 @@ const releasesData = [
     documentation: "https://tailwindcss.com/docs",
     github: "https://github.com/tailwindlabs/tailwindcss",
     dependencies: {
-      "postcss": "^8.4.0",
-      "autoprefixer": "^10.4.0",
+      postcss: "^8.4.0",
+      autoprefixer: "^10.4.0",
     },
     installation: "npm install -D tailwindcss",
   },
@@ -160,7 +166,8 @@ const releasesData = [
     date: "Dec 9, 2024",
     category: "tool",
     description: "All-in-one JavaScript runtime",
-    fullDescription: "Bun 1.1.0 continues to revolutionize JavaScript development with improved Windows support, better Node.js compatibility, and blazing-fast performance for all your JavaScript needs.",
+    fullDescription:
+      "Bun 1.1.0 continues to revolutionize JavaScript development with improved Windows support, better Node.js compatibility, and blazing-fast performance for all your JavaScript needs.",
     changes: [
       "Windows support improvements",
       "Better Node.js compatibility",
@@ -220,17 +227,29 @@ const ReleaseDetail = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Simple Header */}
-      <div className="border-b">
-        <div className="max-w-5xl mx-auto px-6 py-4">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => navigate("/releases")}
-            className="gap-2 -ml-2"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to Releases
-          </Button>
+      <div className="border-b bg-background/95 backdrop-blur-sm sticky top-0 z-20">
+        <div className="max-w-6xl mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => navigate("/releases")}
+                className="gap-2 hover:bg-accent"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                Back to Releases
+              </Button>
+              <div className="hidden md:flex items-center gap-2 text-sm text-muted-foreground">
+                <span>/</span>
+                <span>{release.name}</span>
+                <span>/</span>
+                <span className="text-foreground font-medium">
+                  {release.version}
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -265,17 +284,23 @@ const ReleaseDetail = () => {
           <div className="flex flex-wrap gap-4 mt-6">
             <div className="flex items-center gap-2 text-sm">
               <Star className="h-4 w-4 text-yellow-500" />
-              <span className="font-medium">{release.stars.toLocaleString()}</span>
+              <span className="font-medium">
+                {release.stars.toLocaleString()}
+              </span>
               <span className="text-muted-foreground">stars</span>
             </div>
             <div className="flex items-center gap-2 text-sm">
               <Download className="h-4 w-4 text-green-500" />
-              <span className="font-medium">{release.downloads.toLocaleString()}</span>
+              <span className="font-medium">
+                {release.downloads.toLocaleString()}
+              </span>
               <span className="text-muted-foreground">downloads</span>
             </div>
             <div className="flex items-center gap-2 text-sm">
               <Calendar className="h-4 w-4 text-muted-foreground" />
-              <span className="text-muted-foreground">Released {release.date}</span>
+              <span className="text-muted-foreground">
+                Released {release.date}
+              </span>
             </div>
           </div>
         </div>
@@ -336,9 +361,14 @@ const ReleaseDetail = () => {
             </h2>
             <div className="space-y-2">
               {Object.entries(release.dependencies).map(([name, version]) => (
-                <div key={name} className="flex items-center justify-between py-2 px-3 bg-muted/50 rounded-lg">
+                <div
+                  key={name}
+                  className="flex items-center justify-between py-2 px-3 bg-muted/50 rounded-lg"
+                >
                   <span className="font-mono text-sm">{name}</span>
-                  <span className="text-sm text-muted-foreground">{version}</span>
+                  <span className="text-sm text-muted-foreground">
+                    {version}
+                  </span>
                 </div>
               ))}
             </div>

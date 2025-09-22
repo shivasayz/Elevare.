@@ -78,7 +78,7 @@ const App = () => {
               path="/news/:id"
               element={
                 <div className="min-h-screen bg-background font-inter">
-                  <Navbar />
+                  {/* <Navbar /> */}
                   <ArticleDetail />
                   <Footer />
                 </div>
