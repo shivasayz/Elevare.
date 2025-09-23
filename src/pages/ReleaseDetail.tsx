@@ -16,6 +16,7 @@ import {
   BookOpen,
   ExternalLink,
 } from "lucide-react";
+import { useEffect } from "react";
 
 // Mock release data - in a real app, this would come from an API
 const releasesData = [
@@ -189,6 +190,10 @@ const ReleaseDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, []);
+
   const release = releasesData.find((r) => r.id === parseInt(id || "0"));
 
   if (!release) {
@@ -235,7 +240,7 @@ const ReleaseDetail = () => {
                 variant="ghost"
                 size="sm"
                 onClick={() => navigate("/releases")}
-                className="gap-2 hover:bg-accent"
+                className="gap-2 hover:bg-transparent hover:underline hover:text-black"
               >
                 <ArrowLeft className="h-4 w-4" />
                 Back to Releases
