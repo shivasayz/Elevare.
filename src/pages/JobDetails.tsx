@@ -176,7 +176,7 @@ const JobDetails = () => {
                 variant="ghost"
                 size="sm"
                 onClick={() => navigate("/jobs")}
-                className="gap-2 hover:bg-accent"
+                className="gap-2 hover:bg-transparent hover:underline hover:text-black"
               >
                 <ArrowLeft className="h-4 w-4" />
                 Back to Jobs
@@ -189,18 +189,10 @@ const JobDetails = () => {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <Button 
-                variant="outline" 
-                size="sm"
-                className="hidden sm:flex"
-              >
+              {/* <Button variant="outline" size="sm" className="hidden sm:flex">
                 Save Job
-              </Button>
-              <Button 
-                size="sm"
-                onClick={handleApply}
-                className="gap-2"
-              >
+              </Button> */}
+              <Button size="sm" onClick={handleApply} className="gap-2">
                 Apply Now
               </Button>
             </div>
