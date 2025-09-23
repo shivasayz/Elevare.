@@ -24,6 +24,9 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 
 interface Article {
   id: number;
@@ -39,6 +42,10 @@ interface Article {
 
 export default function News() {
   const navigate = useNavigate();
+  const autoplayPlugin = useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: true })
+  );
+
   const articles: Article[] = [
     {
       id: 1,
@@ -131,53 +138,78 @@ export default function News() {
         </div>
 
         {/* Featured Article */}
-        <Card className="mb-8 overflow-hidden border-card-border hover:shadow-xl transition-all duration-300 animate-fade-in">
-          <div className="grid md:grid-cols-2 gap-0">
-            <div className="relative h-64 md:h-auto bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
-              <span className="text-6xl font-bold text-primary/30">
-                Featured
-              </span>
-            </div>
-            <div className="p-6 md:p-8">
-              <div className="flex items-center gap-2 mb-4">
-                <Badge className="bg-primary text-primary-foreground">
-                  <TrendingUp className="w-3 h-3 mr-1" />
-                  Trending
-                </Badge>
-                <Badge variant="outline" className="border-accent text-accent">
-                  {featuredArticle.category}
-                </Badge>
-              </div>
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-                {featuredArticle.title}
-              </h2>
-              <p className="text-muted-foreground mb-4 line-clamp-3">
-                {featuredArticle.description}
-              </p>
-              <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
-                <span className="flex items-center gap-1">
-                  <User className="w-4 h-4" />
-                  {featuredArticle.author}
-                </span>
-                <span className="flex items-center gap-1">
-                  <Calendar className="w-4 h-4" />
-                  {featuredArticle.date}
-                </span>
-                <span className="flex items-center gap-1">
-                  <Clock className="w-4 h-4" />
-                  {featuredArticle.readTime}
-                </span>
-              </div>
-              <Button
-                className="bg-primary hover:bg-primary-hover text-primary-foreground group"
-                onClick={() => navigate(`/news/${featuredArticle.id}`)}
-              >
-                Read Full Article
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </div>
-          </div>
-        </Card>
+        <Carousel className="mb-10 animate-fade-in">
+          <CarouselContent>
+            {articles.slice(0, 3).map((article) => (
+              <CarouselItem key={article.id} className="w-full px-2">
+                <Card className="mb-8 overflow-hidden border-card-border hover:shadow-xl transition-all duration-300 animate-fade-in">
+                  <div className="grid md:grid-cols-2 gap-0 h-full">
+                    {/* Left Side - Graphic */}
+                    <div className="relative h-64 md:h-auto bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
+                      <span className="text-6xl font-bold text-primary/30">
+                        Featured
+                      </span>
+                    </div>
+
+                    {/* Right Side - Content */}
+                    <div
+                      className="p-6 md:p-8 flex flex-col"
+                      style={{ minHeight: "350px" }}
+                    >
+                      <div className="flex items-center gap-2 mb-4">
+                        {article.trending && (
+                          <Badge className="bg-primary text-primary-foreground">
+                            <TrendingUp className="w-3 h-3 mr-1" />
+                            Trending
+                          </Badge>
+                        )}
+                        <Badge
+                          variant="outline"
+                          className="border-accent text-accent"
+                        >
+                          {article.category}
+                        </Badge>
+                      </div>
+
+                      <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+                        {article.title}
+                      </h2>
+                      <p className="text-muted-foreground mb-4 line-clamp-3 flex-grow">
+                        {article.description}
+                      </p>
+
+                      <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
+                        <span className="flex items-center gap-1">
+                          <User className="w-4 h-4" />
+                          {article.author}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Calendar className="w-4 h-4" />
+                          {article.date}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Clock className="w-4 h-4" />
+                          {article.readTime}
+                        </span>
+                      </div>
+
+                      <Button
+                        className="bg-primary hover:bg-primary-hover text-primary-foreground group mt-auto"
+                        onClick={() => navigate(`/news/${article.id}`)}
+                      >
+                        Read Full Article
+                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </Button>
+                    </div>
+                  </div>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
 
         {/* Article Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
