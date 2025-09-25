@@ -26,7 +26,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 interface Article {
   id: number;
@@ -45,6 +45,10 @@ export default function News() {
   const autoplayPlugin = useRef(
     Autoplay({ delay: 5000, stopOnInteraction: true })
   );
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, []);
 
   const articles: Article[] = [
     {
@@ -142,7 +146,10 @@ export default function News() {
           <CarouselContent>
             {articles.slice(0, 3).map((article) => (
               <CarouselItem key={article.id} className="w-full px-2">
-                <Card className="mb-8 overflow-hidden border-card-border hover:shadow-xl transition-all duration-300 animate-fade-in">
+                <Card
+                  className="mb-8 overflow-hidden border-card-border hover:shadow-xl transition-all duration-300"
+                  style={{ animation: "fade-in 0.5s ease-out forwards" }}
+                >
                   <div className="grid md:grid-cols-2 gap-0 h-full">
                     {/* Left Side - Graphic */}
                     <div className="relative h-64 md:h-auto bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
