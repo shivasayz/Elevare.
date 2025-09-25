@@ -1,11 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Building2, Clock, DollarSign, Search, Filter } from "lucide-react";
+import {
+  MapPin,
+  Building2,
+  Clock,
+  DollarSign,
+  Search,
+  Filter,
+} from "lucide-react";
 
 interface Job {
   id: number;
@@ -25,6 +44,10 @@ export default function Jobs() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterLocation, setFilterLocation] = useState("all");
   const [filterType, setFilterType] = useState("all");
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, []);
 
   // Mock data
   const jobs: Job[] = [
@@ -99,9 +122,11 @@ export default function Jobs() {
   ];
 
   const filteredJobs = jobs.filter((job) => {
-    const matchesSearch = job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    const matchesSearch =
+      job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       job.company.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesLocation = filterLocation === "all" || job.location.includes(filterLocation);
+    const matchesLocation =
+      filterLocation === "all" || job.location.includes(filterLocation);
     const matchesType = filterType === "all" || job.type === filterType;
     return matchesSearch && matchesLocation && matchesType;
   });
@@ -117,7 +142,10 @@ export default function Jobs() {
         <div className="text-center mb-10 animate-fade-in">
           <h1 className="text-4xl font-bold text-foreground mb-4">
             Discover Your Next
-            <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent"> Tech Opportunity</span>
+            <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+              {" "}
+              Tech Opportunity
+            </span>
           </h1>
           <p className="text-lg text-muted-foreground">
             Browse {jobs.length}+ open positions from top tech companies
@@ -174,7 +202,9 @@ export default function Jobs() {
             <Card
               key={job.id}
               className={`border-card-border hover:shadow-lg transition-all duration-300 animate-fade-in hover:scale-[1.02] ${
-                job.featured ? "border-primary/50 bg-gradient-to-r from-primary-light/10 to-transparent" : ""
+                job.featured
+                  ? "border-primary/50 bg-gradient-to-r from-primary-light/10 to-transparent"
+                  : ""
               }`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
@@ -189,7 +219,9 @@ export default function Jobs() {
                       <CardTitle className="text-xl font-semibold text-foreground flex items-center gap-2">
                         {job.title}
                         {job.featured && (
-                          <Badge className="bg-primary text-primary-foreground">Featured</Badge>
+                          <Badge className="bg-primary text-primary-foreground">
+                            Featured
+                          </Badge>
                         )}
                       </CardTitle>
                       <CardDescription className="flex items-center space-x-4 mt-2">
@@ -214,21 +246,34 @@ export default function Jobs() {
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap items-center gap-4 mb-4">
-                  <Badge variant="secondary" className="flex items-center space-x-1">
+                  <Badge
+                    variant="secondary"
+                    className="flex items-center space-x-1"
+                  >
                     <Clock className="w-3 h-3" />
                     <span>{job.posted}</span>
                   </Badge>
-                  <Badge variant="outline" className="border-accent text-accent">
+                  <Badge
+                    variant="outline"
+                    className="border-accent text-accent"
+                  >
                     {job.type}
                   </Badge>
-                  <Badge variant="outline" className="flex items-center space-x-1">
+                  <Badge
+                    variant="outline"
+                    className="flex items-center space-x-1"
+                  >
                     <DollarSign className="w-3 h-3" />
                     <span>{job.salary}</span>
                   </Badge>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {job.tags.map((tag) => (
-                    <Badge key={tag} variant="secondary" className="bg-muted text-muted-foreground">
+                    <Badge
+                      key={tag}
+                      variant="secondary"
+                      className="bg-muted text-muted-foreground"
+                    >
                       {tag}
                     </Badge>
                   ))}
@@ -240,7 +285,9 @@ export default function Jobs() {
 
         {filteredJobs.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-muted-foreground">No jobs found matching your criteria.</p>
+            <p className="text-muted-foreground">
+              No jobs found matching your criteria.
+            </p>
           </div>
         )}
       </div>
