@@ -1,9 +1,25 @@
 import { useNavigate } from "react-router-dom";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Calendar, Tag, Package, ExternalLink, Star, Download, GitBranch, TrendingUp } from "lucide-react";
+import {
+  Calendar,
+  Tag,
+  Package,
+  ExternalLink,
+  Star,
+  Download,
+  GitBranch,
+  TrendingUp,
+} from "lucide-react";
+import { useEffect } from "react";
 
 interface Release {
   id: number;
@@ -21,6 +37,11 @@ interface Release {
 
 export default function Releases() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, []);
+
   const releases: Release[] = [
     {
       id: 1,
@@ -28,7 +49,8 @@ export default function Releases() {
       version: "19.0.0",
       date: "Dec 14, 2024",
       type: "Major Release",
-      description: "The latest major version of React brings server components to stable, improved performance, and new hooks.",
+      description:
+        "The latest major version of React brings server components to stable, improved performance, and new hooks.",
       changes: [
         "Server Components now stable",
         "New use() hook for async data fetching",
@@ -46,7 +68,8 @@ export default function Releases() {
       version: "5.4.0",
       date: "Dec 13, 2024",
       type: "Minor Release",
-      description: "TypeScript 5.4 introduces new type narrowing capabilities and performance improvements.",
+      description:
+        "TypeScript 5.4 introduces new type narrowing capabilities and performance improvements.",
       changes: [
         "Improved type narrowing in closures",
         "New NoInfer utility type",
@@ -63,7 +86,8 @@ export default function Releases() {
       version: "5.1.0",
       date: "Dec 12, 2024",
       type: "Minor Release",
-      description: "Vite continues to revolutionize frontend tooling with faster builds and better developer experience.",
+      description:
+        "Vite continues to revolutionize frontend tooling with faster builds and better developer experience.",
       changes: [
         "Experimental support for .wasm imports",
         "Improved CSS code splitting",
@@ -80,7 +104,8 @@ export default function Releases() {
       version: "14.1.0",
       date: "Dec 11, 2024",
       type: "Minor Release",
-      description: "Next.js 14.1 brings improved performance and new features for building modern web applications.",
+      description:
+        "Next.js 14.1 brings improved performance and new features for building modern web applications.",
       changes: [
         "Turbopack improvements",
         "Parallel routes enhancements",
@@ -98,7 +123,8 @@ export default function Releases() {
       version: "3.5.0",
       date: "Dec 10, 2024",
       type: "Minor Release",
-      description: "New utilities and improvements to the world's most popular utility-first CSS framework.",
+      description:
+        "New utilities and improvements to the world's most popular utility-first CSS framework.",
       changes: [
         "New color palette options",
         "Improved container queries",
@@ -115,7 +141,8 @@ export default function Releases() {
       version: "1.1.0",
       date: "Dec 9, 2024",
       type: "Minor Release",
-      description: "The all-in-one JavaScript runtime continues to improve with better compatibility and performance.",
+      description:
+        "The all-in-one JavaScript runtime continues to improve with better compatibility and performance.",
       changes: [
         "Windows support improvements",
         "Better Node.js compatibility",
@@ -155,10 +182,14 @@ export default function Releases() {
         <div className="text-center mb-10 animate-fade-in">
           <h1 className="text-4xl font-bold text-foreground mb-4">
             Latest Software
-            <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent"> Releases</span>
+            <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+              {" "}
+              Releases
+            </span>
           </h1>
           <p className="text-lg text-muted-foreground">
-            Track the latest versions of popular frameworks, libraries, and tools
+            Track the latest versions of popular frameworks, libraries, and
+            tools
           </p>
         </div>
 
@@ -173,19 +204,34 @@ export default function Releases() {
           </TabsList>
 
           <TabsContent value="all" className="mt-6">
-            <ReleaseGrid releases={releases} getCategoryColor={getCategoryColor} />
+            <ReleaseGrid
+              releases={releases}
+              getCategoryColor={getCategoryColor}
+            />
           </TabsContent>
           <TabsContent value="framework" className="mt-6">
-            <ReleaseGrid releases={filterByCategory("framework")} getCategoryColor={getCategoryColor} />
+            <ReleaseGrid
+              releases={filterByCategory("framework")}
+              getCategoryColor={getCategoryColor}
+            />
           </TabsContent>
           <TabsContent value="library" className="mt-6">
-            <ReleaseGrid releases={filterByCategory("library")} getCategoryColor={getCategoryColor} />
+            <ReleaseGrid
+              releases={filterByCategory("library")}
+              getCategoryColor={getCategoryColor}
+            />
           </TabsContent>
           <TabsContent value="tool" className="mt-6">
-            <ReleaseGrid releases={filterByCategory("tool")} getCategoryColor={getCategoryColor} />
+            <ReleaseGrid
+              releases={filterByCategory("tool")}
+              getCategoryColor={getCategoryColor}
+            />
           </TabsContent>
           <TabsContent value="language" className="mt-6">
-            <ReleaseGrid releases={filterByCategory("language")} getCategoryColor={getCategoryColor} />
+            <ReleaseGrid
+              releases={filterByCategory("language")}
+              getCategoryColor={getCategoryColor}
+            />
           </TabsContent>
         </Tabs>
       </div>
@@ -193,7 +239,13 @@ export default function Releases() {
   );
 }
 
-function ReleaseGrid({ releases, getCategoryColor }: { releases: Release[]; getCategoryColor: (category: string) => string }) {
+function ReleaseGrid({
+  releases,
+  getCategoryColor,
+}: {
+  releases: Release[];
+  getCategoryColor: (category: string) => string;
+}) {
   const navigate = useNavigate();
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -214,22 +266,23 @@ function ReleaseGrid({ releases, getCategoryColor }: { releases: Release[]; getC
               </Badge>
             </div>
             <div className="flex items-center gap-2">
-              <Badge variant="outline" className="border-accent text-accent font-mono">
+              <Badge
+                variant="outline"
+                className="border-accent text-accent font-mono"
+              >
                 v{release.version}
               </Badge>
               {release.breaking && (
                 <Badge variant="destructive">Breaking Changes</Badge>
               )}
-              <Badge variant="secondary">
-                {release.type}
-              </Badge>
+              <Badge variant="secondary">{release.type}</Badge>
             </div>
           </CardHeader>
           <CardContent>
             <CardDescription className="mb-4">
               {release.description}
             </CardDescription>
-            
+
             {/* Stats */}
             {(release.stars || release.downloads) && (
               <div className="flex items-center gap-4 mb-4 text-sm text-muted-foreground">
@@ -254,10 +307,15 @@ function ReleaseGrid({ releases, getCategoryColor }: { releases: Release[]; getC
 
             {/* Changes */}
             <div className="space-y-1 mb-4">
-              <p className="text-sm font-medium text-foreground mb-2">Key Changes:</p>
+              <p className="text-sm font-medium text-foreground mb-2">
+                Key Changes:
+              </p>
               <ul className="space-y-1">
                 {release.changes.slice(0, 3).map((change, idx) => (
-                  <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
+                  <li
+                    key={idx}
+                    className="text-sm text-muted-foreground flex items-start gap-2"
+                  >
                     <span className="text-primary mt-1">•</span>
                     <span className="line-clamp-1">{change}</span>
                   </li>
@@ -267,8 +325,8 @@ function ReleaseGrid({ releases, getCategoryColor }: { releases: Release[]; getC
 
             {/* Actions */}
             <div className="flex gap-2">
-              <Button 
-                size="sm" 
+              <Button
+                size="sm"
                 className="flex-1 bg-primary hover:bg-primary-hover text-primary-foreground"
                 onClick={() => navigate(`/releases/${release.id}`)}
               >
