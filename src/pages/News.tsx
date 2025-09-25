@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
+  CarouselApi,
   CarouselContent,
   CarouselItem,
   CarouselNext,
@@ -26,7 +27,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface Article {
   id: number;
@@ -41,14 +42,35 @@ interface Article {
 }
 
 export default function News() {
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+  useAutoplayCarousel(carouselApi, 5000);
+
   const navigate = useNavigate();
   const autoplayPlugin = useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: true })
+    Autoplay({
+      delay: 5000,
+      stopOnInteraction: true,
+      stopOnMouseEnter: true, // ✅ Add this line
+    })
   );
 
+  // Scroll to top on component mount
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
   }, []);
+
+  // Custom hook to handle autoplay
+  function useAutoplayCarousel(api: CarouselApi | undefined, delay = 3000) {
+    useEffect(() => {
+      if (!api) return;
+
+      const interval = setInterval(() => {
+        api.scrollNext();
+      }, delay);
+
+      return () => clearInterval(interval);
+    }, [api, delay]);
+  }
 
   const articles: Article[] = [
     {
@@ -126,99 +148,109 @@ export default function News() {
 
   return (
     <div className="min-h-screen bg-background pt-20">
-      <div className="container mx-auto px-6 py-8">
-        {/* Header */}
-        <div className="text-center mb-10 animate-fade-in">
-          <h1 className="text-4xl font-bold text-foreground mb-4">
-            Tech News &
-            <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
-              {" "}
-              Industry Insights
-            </span>
-          </h1>
-          <p className="text-lg text-muted-foreground">
-            Stay informed with the latest developments in technology
-          </p>
-        </div>
+      <div className="container mx-auto px-6 py-6">
+        <section className="relative min-h-screen flex items-center justify-center bg-background">
+          <div className="container mx-auto px-6 py-16">
+            {/* Header */}
+            <div className="text-center mb-16 animate-fade-in px-4 md:px-8">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-tight mb-6">
+                Fuel Your Mind
+                <br />
+                <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                  With Daily Tech Hits
+                </span>
+              </h2>
 
-        {/* Featured Article */}
-        <Carousel className="mb-10 animate-fade-in">
-          <CarouselContent>
-            {articles.slice(0, 3).map((article) => (
-              <CarouselItem key={article.id} className="w-full px-2">
-                <Card
-                  className="mb-8 overflow-hidden border-card-border hover:shadow-xl transition-all duration-300"
-                  style={{ animation: "fade-in 0.5s ease-out forwards" }}
-                >
-                  <div className="grid md:grid-cols-2 gap-0 h-full">
-                    {/* Left Side - Graphic */}
-                    <div className="relative h-64 md:h-auto bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
-                      <span className="text-6xl font-bold text-primary/30">
-                        Featured
-                      </span>
-                    </div>
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl md:max-w-3xl mx-auto mt-4">
+                Trends, breakthroughs, and bold takes — all in one scroll.
+              </p>
+            </div>
 
-                    {/* Right Side - Content */}
-                    <div
-                      className="p-6 md:p-8 flex flex-col"
-                      style={{ minHeight: "350px" }}
+            {/* Featured Carousel */}
+            <Carousel
+              opts={{ loop: true }}
+              setApi={setCarouselApi}
+              className="animate-fade-in"
+            >
+              <CarouselContent>
+                {articles.slice(0, 3).map((article) => (
+                  <CarouselItem key={article.id} className="w-full px-2">
+                    <Card
+                      className="overflow-hidden border-card-border transition-all duration-300"
+                      style={{ animation: "fade-in 0.5s ease-out forwards" }}
                     >
-                      <div className="flex items-center gap-2 mb-4">
-                        {article.trending && (
-                          <Badge className="bg-primary text-primary-foreground">
-                            <TrendingUp className="w-3 h-3 mr-1" />
-                            Trending
-                          </Badge>
-                        )}
-                        <Badge
-                          variant="outline"
-                          className="border-accent text-accent"
-                        >
-                          {article.category}
-                        </Badge>
+                      <div className="grid md:grid-cols-2 gap-0 h-full min-h-[450px]">
+                        {/* Left Side */}
+                        <div className="relative bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
+                          <span className="text-7xl font-black text-primary/30 tracking-tight">
+                            Featured
+                          </span>
+                        </div>
+
+                        {/* Right Side */}
+                        <div className="p-8 flex flex-col justify-between">
+                          <div>
+                            <div className="flex items-center gap-2 mb-4">
+                              {article.trending && (
+                                <Badge className="bg-primary text-primary-foreground">
+                                  <TrendingUp className="w-3 h-3 mr-1" />
+                                  Trending
+                                </Badge>
+                              )}
+                              <Badge
+                                variant="outline"
+                                className="border-accent text-accent"
+                              >
+                                {article.category}
+                              </Badge>
+                            </div>
+                            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                              {article.title}
+                            </h2>
+                            <p className="text-lg text-muted-foreground mb-6 line-clamp-3">
+                              {article.description}
+                            </p>
+                          </div>
+
+                          <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
+                            <span className="flex items-center gap-1">
+                              <User className="w-4 h-4" />
+                              {article.author}
+                            </span>
+                            <span className="flex items-center gap-1">
+                              <Calendar className="w-4 h-4" />
+                              {article.date}
+                            </span>
+                            <span className="flex items-center gap-1">
+                              <Clock className="w-4 h-4" />
+                              {article.readTime}
+                            </span>
+                          </div>
+
+                          <Button
+                            className="bg-primary hover:bg-primary-hover text-primary-foreground group mt-auto w-fit"
+                            onClick={() => navigate(`/news/${article.id}`)}
+                          >
+                            Read Full Article
+                            <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                          </Button>
+                        </div>
                       </div>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
 
-                      <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-                        {article.title}
-                      </h2>
-                      <p className="text-muted-foreground mb-4 line-clamp-3 flex-grow">
-                        {article.description}
-                      </p>
-
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
-                        <span className="flex items-center gap-1">
-                          <User className="w-4 h-4" />
-                          {article.author}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <Calendar className="w-4 h-4" />
-                          {article.date}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <Clock className="w-4 h-4" />
-                          {article.readTime}
-                        </span>
-                      </div>
-
-                      <Button
-                        className="bg-primary hover:bg-primary-hover text-primary-foreground group mt-auto"
-                        onClick={() => navigate(`/news/${article.id}`)}
-                      >
-                        Read Full Article
-                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </div>
-                  </div>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </div>
+        </section>
 
         {/* Article Grid */}
+        <h2 className="text-2xl font-semibold text-foreground mb-6">
+          Latest Articles
+        </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {otherArticles.map((article, index) => (
             <Card
