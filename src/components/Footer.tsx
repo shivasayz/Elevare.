@@ -35,30 +35,35 @@ export const Footer = () => {
   ];
 
   return (
-    <footer className="bg-secondary text-secondary-foreground mt-20">
-      <div className="container mx-auto px-6 py-12">
+    <footer className="bg-gradient-to-br from-accent/20 via-primary/10 to-background rounded-t-3xl border border-border mt-8">
+      {/* Footer content */}
+      <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-accent to-primary rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">T</span>
               </div>
-              <span className="font-bold text-xl">TechHub</span>
+              <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+                TechHub
+              </span>
             </div>
-            <p className="text-sm text-secondary-foreground/80">
+            <p className="text-sm text-muted-foreground font-medium tracking-wide">
               Your gateway to tech opportunities, news, and innovation.
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Quick Links</h3>
+            <h3 className="font-semibold text-lg bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+              Quick Links
+            </h3>
             <ul className="space-y-2">
               <li>
                 <a
                   href="/jobs"
-                  className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors"
+                  className="text-sm text-muted-foreground font-medium tracking-wide"
                 >
                   Job Openings
                 </a>
@@ -66,7 +71,7 @@ export const Footer = () => {
               <li>
                 <a
                   href="/news"
-                  className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors"
+                  className="text-sm text-muted-foreground font-medium tracking-wide"
                 >
                   Tech News
                 </a>
@@ -74,7 +79,7 @@ export const Footer = () => {
               <li>
                 <a
                   href="/releases"
-                  className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors"
+                  className="text-sm text-muted-foreground font-medium tracking-wide"
                 >
                   Software Releases
                 </a>
@@ -82,7 +87,7 @@ export const Footer = () => {
               <li>
                 <a
                   href="#"
-                  className="text-sm text-secondary-foreground/80 hover:text-primary transition-colors"
+                  className="text-sm text-muted-foreground font-medium tracking-wide"
                 >
                   About Us
                 </a>
@@ -92,17 +97,19 @@ export const Footer = () => {
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Contact</h3>
+            <h3 className="font-semibold text-lg bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+              Contact
+            </h3>
             <ul className="space-y-2">
               <li className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-primary" />
-                <span className="text-sm text-secondary-foreground/80">
+                <span className="text-sm text-muted-foreground font-medium tracking-wide">
                   hello@techhub.com
                 </span>
               </li>
               <li className="flex items-center space-x-2">
                 <MapPin className="w-4 h-4 text-primary" />
-                <span className="text-sm text-secondary-foreground/80">
+                <span className="text-sm text-muted-foreground font-medium tracking-wide">
                   Hyderabad, India
                 </span>
               </li>
@@ -111,29 +118,32 @@ export const Footer = () => {
 
           {/* Newsletter */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Newsletter</h3>
-            <p className="text-sm text-secondary-foreground/80">
+            <h3 className="font-semibold text-lg bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+              Newsletter
+            </h3>
+            <p className="text-sm text-muted-foreground font-medium tracking-wide">
               Subscribe to get the latest updates
             </p>
-            <form onSubmit={handleNewsletterSubmit} className="space-y-2">
+            <div className="space-y-2">
               <div className="flex space-x-2">
                 <Input
                   type="email"
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="bg-secondary-foreground/10 border-secondary-foreground/20 text-secondary-foreground placeholder:text-secondary-foreground/50"
+                  className="bg-white/50 border-gray-100/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
                   required
                 />
                 <Button
                   type="submit"
                   size="icon"
-                  className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-white w-12"
+                  className="bg-gradient-to-r from-primary to-accent text-white w-12"
+                  onClick={handleNewsletterSubmit}
                 >
                   <Send className="w-4 h-4" />
                 </Button>
               </div>
-            </form>
+            </div>
 
             {/* Social Links */}
             <div className="flex space-x-3 pt-2">
@@ -142,9 +152,9 @@ export const Footer = () => {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-10 h-10 rounded-lg bg-secondary-foreground/10 hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:text-white flex items-center justify-center transition-all duration-300"
+                  className="w-10 h-10 rounded-lg bg-white/50 border border-gray-100/50 flex items-center justify-center"
                 >
-                  <social.icon className="w-5 h-5" />
+                  <social.icon className="w-5 h-5 text-primary" />
                 </a>
               ))}
             </div>
@@ -152,9 +162,9 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-secondary-foreground/10 mt-8 pt-8 text-center">
-          <p className="text-sm text-secondary-foreground/60">
-            © 2025 TechHub. All rights reserved.
+        <div className="border-t border-gray-100/50 mt-8 pt-8 text-center">
+          <p className="text-sm text-muted-foreground font-medium tracking-wide">
+            © {new Date().getFullYear()} TechHub. All rights reserved.
           </p>
         </div>
       </div>
