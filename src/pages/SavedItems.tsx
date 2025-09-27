@@ -1,10 +1,26 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { Bookmark, Briefcase, Newspaper, Package, MapPin, Building2, Clock, ExternalLink, Trash2 } from "lucide-react";
+import { Footer } from "@/features/Home/Footer";
+import {
+  Bookmark,
+  Briefcase,
+  Newspaper,
+  Package,
+  MapPin,
+  Building2,
+  Clock,
+  ExternalLink,
+  Trash2,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 const SavedItems = () => {
@@ -16,7 +32,7 @@ const SavedItems = () => {
       location: "San Francisco, CA",
       type: "Full-time",
       remote: true,
-      savedDate: "2 days ago"
+      savedDate: "2 days ago",
     },
     {
       id: 2,
@@ -25,7 +41,7 @@ const SavedItems = () => {
       location: "New York, NY",
       type: "Full-time",
       remote: false,
-      savedDate: "1 week ago"
+      savedDate: "1 week ago",
     },
     {
       id: 3,
@@ -34,8 +50,8 @@ const SavedItems = () => {
       location: "Remote",
       type: "Contract",
       remote: true,
-      savedDate: "2 weeks ago"
-    }
+      savedDate: "2 weeks ago",
+    },
   ];
 
   const savedArticles = [
@@ -46,7 +62,8 @@ const SavedItems = () => {
       source: "TechBlog",
       readTime: "5 min read",
       savedDate: "1 day ago",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400"
+      image:
+        "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400",
     },
     {
       id: 2,
@@ -55,7 +72,8 @@ const SavedItems = () => {
       source: "Dev Weekly",
       readTime: "8 min read",
       savedDate: "3 days ago",
-      image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400"
+      image:
+        "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400",
     },
     {
       id: 3,
@@ -64,8 +82,9 @@ const SavedItems = () => {
       source: "Code Magazine",
       readTime: "10 min read",
       savedDate: "5 days ago",
-      image: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=400"
-    }
+      image:
+        "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=400",
+    },
   ];
 
   const savedReleases = [
@@ -75,7 +94,7 @@ const SavedItems = () => {
       version: "v21.5.0",
       releaseDate: "December 19, 2023",
       type: "Major Release",
-      savedDate: "3 days ago"
+      savedDate: "3 days ago",
     },
     {
       id: 2,
@@ -83,7 +102,7 @@ const SavedItems = () => {
       version: "5.3.3",
       releaseDate: "December 5, 2023",
       type: "Patch Release",
-      savedDate: "1 week ago"
+      savedDate: "1 week ago",
     },
     {
       id: 3,
@@ -91,8 +110,8 @@ const SavedItems = () => {
       version: "18.3.0-canary",
       releaseDate: "December 15, 2023",
       type: "Canary",
-      savedDate: "2 weeks ago"
-    }
+      savedDate: "2 weeks ago",
+    },
   ];
 
   return (
@@ -104,7 +123,9 @@ const SavedItems = () => {
             <Bookmark className="h-8 w-8" />
             Saved Items
           </h1>
-          <p className="text-muted-foreground mt-2">Manage your bookmarked jobs, articles, and releases</p>
+          <p className="text-muted-foreground mt-2">
+            Manage your bookmarked jobs, articles, and releases
+          </p>
         </div>
 
         <Tabs defaultValue="jobs" className="space-y-6">
@@ -167,11 +188,14 @@ const SavedItems = () => {
 
           <TabsContent value="articles" className="space-y-4">
             {savedArticles.map((article) => (
-              <Card key={article.id} className="hover:shadow-lg transition-shadow">
+              <Card
+                key={article.id}
+                className="hover:shadow-lg transition-shadow"
+              >
                 <CardContent className="p-6">
                   <div className="flex gap-4">
-                    <img 
-                      src={article.image} 
+                    <img
+                      src={article.image}
                       alt={article.title}
                       className="w-24 h-24 object-cover rounded-lg"
                     />
@@ -210,12 +234,17 @@ const SavedItems = () => {
 
           <TabsContent value="releases" className="space-y-4">
             {savedReleases.map((release) => (
-              <Card key={release.id} className="hover:shadow-lg transition-shadow">
+              <Card
+                key={release.id}
+                className="hover:shadow-lg transition-shadow"
+              >
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div className="space-y-2">
                       <div className="flex items-center gap-3">
-                        <h3 className="text-xl font-semibold text-foreground">{release.name}</h3>
+                        <h3 className="text-xl font-semibold text-foreground">
+                          {release.name}
+                        </h3>
                         <Badge>{release.version}</Badge>
                         <Badge variant="outline">{release.type}</Badge>
                       </div>

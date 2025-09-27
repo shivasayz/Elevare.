@@ -5,12 +5,12 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useMemo } from "react";
 import Index from "./pages/Index";
-import Jobs from "./pages/Jobs";
-import JobDetails from "./pages/JobDetails";
-import News from "./pages/News";
-import ArticleDetail from "./pages/ArticleDetail";
-import Releases from "./pages/Releases";
-import ReleaseDetail from "./pages/ReleaseDetail";
+import Jobs from "./features/Jobs/Jobs";
+import JobDetails from "./features/Jobs/JobDetails";
+import News from "./features/Articles/News";
+import ArticleDetail from "./features/Articles/ArticleDetail";
+import Releases from "./features/Releases/Releases";
+import ReleaseDetail from "./features/Releases/ReleaseDetail";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
@@ -18,7 +18,7 @@ import Settings from "./pages/Settings";
 import SavedItems from "./pages/SavedItems";
 import NotFound from "./pages/NotFound";
 import { Navbar } from "./components/Navbar";
-import { Footer } from "./components/Footer";
+import { Footer } from "./features/Home/Footer";
 
 const App = () => {
   const queryClient = useMemo(
