@@ -8,7 +8,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "../components/Navbar";
 import { Footer } from "@/features/Home/Footer";
 import {
   Bookmark,

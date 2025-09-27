@@ -13,7 +13,7 @@ import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
-import { Navbar } from "@/components/Navbar";
+import { Navbar } from "../components/Navbar";
 import { Footer } from "@/features/Home/Footer";
 import {
   Camera,
