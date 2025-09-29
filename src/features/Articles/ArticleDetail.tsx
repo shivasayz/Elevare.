@@ -78,7 +78,7 @@ const ArticleDetail = () => {
     articles.find((a) => a.id === parseInt(id || "1")) || articles[0];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-100/30 text-foreground flex flex-col">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Sticky Header */}
       <div className="sticky top-0 z-30 bg-background/95 backdrop-blur-lg border-b shadow-sm">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -154,24 +154,16 @@ const ArticleDetail = () => {
         {/* Right - Sidebar */}
         <div className="space-y-6 sticky top-20 self-start">
           {/* Quick Actions */}
-          <Card className="p-6 bg-white/90 backdrop-blur-lg rounded-xl shadow-2xl border border-gray-100/30 transition-all duration-300 hover:shadow-3xl hover:-translate-y-1 flex flex-col gap-4">
-            <h3 className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+          <Card className="p-6 bg-primary/5 border border-primary/10 rounded-md shadow-sm">
+            <h3 className="text-lg font-semibold text-foreground mb-4">
               Quick Actions
             </h3>
             <div className="flex gap-2">
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full gap-2 hover:bg-primary/10 hover:border-primary transition-all duration-300"
-              >
+              <Button variant="outline" size="sm" className="w-full gap-2">
                 <Share2 className="w-4 h-4" />
                 Share
               </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full gap-2 hover:bg-primary/10 hover:border-primary transition-all duration-300"
-              >
+              <Button variant="outline" size="sm" className="w-full gap-2">
                 <Bookmark className="w-4 h-4" />
                 Save
               </Button>
@@ -179,24 +171,24 @@ const ArticleDetail = () => {
           </Card>
 
           {/* Article Info */}
-          <Card className="p-6 bg-white/90 backdrop-blur-lg rounded-xl shadow-2xl border border-gray-100/30 transition-all duration-300 hover:shadow-3xl hover:-translate-y-1">
-            <h3 className="text-lg font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+          <Card className="p-6 bg-background border border-border rounded-md shadow-sm">
+            <h3 className="text-lg font-semibold text-foreground mb-4">
               Article Info
             </h3>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li className="flex justify-between hover:text-primary transition-colors duration-300">
+              <li className="flex justify-between">
                 <span>Category:</span>
                 <span className="font-medium text-foreground">
                   {article.category}
                 </span>
               </li>
-              <li className="flex justify-between hover:text-primary transition-colors duration-300">
+              <li className="flex justify-between">
                 <span>Published:</span>
                 <span className="font-medium text-foreground">
                   {article.date}
                 </span>
               </li>
-              <li className="flex justify-between hover:text-primary transition-colors duration-300">
+              <li className="flex justify-between">
                 <span>Reading Time:</span>
                 <span className="font-medium text-foreground">
                   {article.readTime}
@@ -206,18 +198,17 @@ const ArticleDetail = () => {
           </Card>
 
           {/* Author Card */}
-          <Card className="p-6 bg-white/90 backdrop-blur-lg rounded-xl shadow-2xl border border-gray-100/30 transition-all duration-300 hover:shadow-3xl hover:-translate-y-1">
-            {/* Top Row: Avatar + Name */}
+          <Card className="p-6 border border-primary/10 bg-background rounded-md shadow-sm">
             <div className="flex items-center gap-4 mb-4">
-              <div className="flex-shrink-0 relative group">
+              <div className="flex-shrink-0 relative">
                 {img ? (
                   <img
                     src={img}
                     alt={article.author}
-                    className="w-20 h-20 rounded-full object-cover shadow-lg ring-2 ring-primary/20 transition-all duration-300 group-hover:ring-primary/40 group-hover:scale-105"
+                    className="w-20 h-20 rounded-full object-cover shadow ring-2 ring-primary/20"
                   />
                 ) : (
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent text-white flex items-center justify-center text-2xl font-bold shadow-lg ring-2 ring-primary/20 transition-all duration-300 group-hover:ring-primary/40 group-hover:scale-105">
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent text-white flex items-center justify-center text-2xl font-bold ring-2 ring-primary/20">
                     {article.author
                       .split(" ")
                       .map((n) => n[0])
@@ -225,13 +216,11 @@ const ArticleDetail = () => {
                   </div>
                 )}
               </div>
-              <p className="text-xl font-bold text-foreground leading-tight tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+              <p className="text-xl font-bold text-foreground">
                 {article.author}
               </p>
             </div>
-
-            {/* Description below */}
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-xs font-medium tracking-wide">
+            <p className="text-sm text-muted-foreground leading-relaxed">
               {article.authorBio}
             </p>
           </Card>
