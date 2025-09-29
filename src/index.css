@@ -139,6 +139,88 @@ All colors MUST be HSL.
   }
 }
 
+/* Article Content Styles */
+.article-content {
+  @apply text-foreground;
+}
+
+.article-content .prose-content {
+  @apply space-y-6;
+}
+
+.article-content .lead-paragraph {
+  @apply text-xl text-muted-foreground leading-relaxed font-medium mb-8 border-l-4 border-primary pl-6 bg-primary/5 py-4 rounded-r-lg;
+}
+
+.article-content h2 {
+  @apply text-3xl font-bold text-foreground mt-12 mb-6 pb-2 border-b border-border/50;
+}
+
+.article-content h3 {
+  @apply text-2xl font-semibold text-foreground mt-8 mb-4;
+}
+
+.article-content p {
+  @apply text-muted-foreground leading-relaxed mb-6 text-lg;
+}
+
+.article-content .modern-quote {
+  @apply my-8 p-6 bg-gradient-to-r from-accent/10 to-primary/10 border-l-4 border-accent rounded-r-lg italic text-lg;
+}
+
+.article-content .modern-quote cite {
+  @apply block mt-4 text-sm font-medium text-primary not-italic;
+}
+
+.article-content .highlight-box {
+  @apply my-8 p-6 bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/20 rounded-xl;
+}
+
+.article-content .highlight-box h3 {
+  @apply text-xl font-bold text-primary mb-4 mt-0;
+}
+
+.article-content .highlight-box ul {
+  @apply space-y-3 mb-0;
+}
+
+.article-content .highlight-box li {
+  @apply flex items-start gap-3 text-muted-foreground;
+}
+
+.article-content .highlight-box li::before {
+  content: "✓";
+  @apply text-accent font-bold mt-0.5 flex-shrink-0;
+}
+
+.article-content .stats-grid {
+  @apply grid grid-cols-3 gap-6 my-12 p-6 bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 rounded-xl border border-border/50;
+}
+
+.article-content .stat-item {
+  @apply text-center;
+}
+
+.article-content .stat-number {
+  @apply text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+}
+
+.article-content .stat-label {
+  @apply text-sm text-muted-foreground font-medium mt-1;
+}
+
+.article-content ul:not(.highlight-box ul) {
+  @apply space-y-2 mb-6;
+}
+
+.article-content li:not(.highlight-box li) {
+  @apply text-muted-foreground leading-relaxed;
+}
+
+.article-content strong {
+  @apply text-foreground font-semibold;
+}
+
 @layer base {
   * {
     @apply border-border;
