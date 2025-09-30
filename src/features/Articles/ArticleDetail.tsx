@@ -310,7 +310,7 @@ const ArticleDetail = () => {
         <div className="space-y-6 sticky top-24 self-start max-w-md">
           {/* Author Card */}
           <Card className="p-6 rounded-xl border border-primary/10 bg-gradient-to-br from-accent/10 via-primary/5 to-background">
-            <h3 className="font-semibold text-foreground mb-4">Author</h3>
+            <h3 className="font-semibold text-foreground mb-4">About Author</h3>
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <div className="relative shrink-0">
