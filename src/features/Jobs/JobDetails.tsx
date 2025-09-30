@@ -291,7 +291,7 @@ const JobDetails = () => {
           </div>
 
           {/* Right Column - Sidebar */}
-          <div className="space-y-6">
+          <div className="space-y-6 sticky top-24 self-start max-w-md">
             {/* Apply Card */}
             <Card className="p-6 border-primary/20 bg-primary/5">
               <Button onClick={handleApply} className="w-full mb-4" size="lg">

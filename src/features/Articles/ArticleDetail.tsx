@@ -101,7 +101,7 @@ const articles: Article[] = [
         <p>The rollout is expected to begin in early 2025, with enterprise customers getting first access, followed by a broader public release. OpenAI has indicated that pricing will remain competitive while ensuring sustainable development of future iterations.</p>
       </div>
     `,
-    author: "Sirivennala Sitarama Sastry",
+    author: "Sitarama Sastry",
     authorBio:
       "Senior AI Researcher and Tech Journalist with over 10 years of experience covering breakthrough technologies. Specializes in machine learning, natural language processing, and the societal impact of AI.",
     date: "Dec 15, 2024",
@@ -143,10 +143,12 @@ const ArticleDetail = () => {
             </Button>
             <div className="hidden md:flex items-center gap-2 text-sm text-muted-foreground">
               <span>/</span>
-              <span className="truncate max-w-md font-medium">{article.title}</span>
+              <span className="truncate max-w-md font-medium">
+                {article.title}
+              </span>
             </div>
           </div>
-          
+
           {/* Social Share Buttons */}
           <div className="flex items-center gap-2">
             <Button variant="ghost" size="sm" className="gap-2">
@@ -167,14 +169,14 @@ const ArticleDetail = () => {
           <div className="space-y-6">
             {/* Category and Trending Badge */}
             <div className="flex items-center gap-3">
-              <Badge 
-                variant="outline" 
+              <Badge
+                variant="outline"
                 className="border-primary/30 text-primary bg-primary/10 px-3 py-1"
               >
                 {article.category}
               </Badge>
               {article.trending && (
-                <Badge className="bg-gradient-to-r from-accent to-primary text-white px-3 py-1">
+                <Badge className="bg-gradient-to-r from-accent to-primary text-white px-3 py-1 rounded-full bg-clip-padding">
                   <TrendingUp className="w-3 h-3 mr-1" />
                   Trending
                 </Badge>
@@ -182,7 +184,7 @@ const ArticleDetail = () => {
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent">
+            <h1 className="text-4xl pb-2 md:text-5xl lg:text-6xl font-bold leading-tight bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent">
               {article.title}
             </h1>
 
@@ -193,16 +195,32 @@ const ArticleDetail = () => {
 
             {/* Article Meta */}
             <div className="flex flex-wrap items-center gap-6 pt-4">
+              {/* Author info */}
               <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                  <User className="w-5 h-5 text-white" />
+                {/* ✅ Avatar/image first */}
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shrink-0 overflow-hidden">
+                  <img
+                    src={img}
+                    alt="Author"
+                    className="w-full h-full object-cover rounded-full"
+                  />
                 </div>
-                <div>
-                  <p className="font-medium text-foreground">{article.author}</p>
-                  <p className="text-sm text-muted-foreground">{article.date}</p>
+
+                {/* ✅ Author name and date */}
+                <div className="min-w-0">
+                  <p
+                    className="font-medium text-foreground truncate"
+                    title={article.author}
+                  >
+                    {article.author}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {article.date}
+                  </p>
                 </div>
               </div>
-              
+
+              {/* Meta info */}
               <div className="flex items-center gap-4 text-sm text-muted-foreground">
                 <span className="flex items-center gap-1">
                   <Clock className="w-4 h-4" />
@@ -223,7 +241,7 @@ const ArticleDetail = () => {
       </div>
 
       {/* Main Content Grid */}
-      <div className="max-w-6xl mx-auto px-4 py-12 grid lg:grid-cols-4 gap-12">
+      <div className="max-w-7xl mx-auto px-4 py-12 grid lg:grid-cols-4 gap-12">
         {/* Left - Article Content */}
         <div className="lg:col-span-3 space-y-8">
           {/* Content */}
@@ -236,7 +254,13 @@ const ArticleDetail = () => {
           <div className="border-t pt-8 space-y-6">
             {/* Tags */}
             <div className="flex flex-wrap gap-2">
-              {['AI', 'GPT-5', 'Machine Learning', 'Technology', 'Innovation'].map((tag) => (
+              {[
+                "AI",
+                "GPT-5",
+                "Machine Learning",
+                "Technology",
+                "Innovation",
+              ].map((tag) => (
                 <Badge key={tag} variant="secondary" className="px-3 py-1">
                   #{tag}
                 </Badge>
@@ -246,7 +270,9 @@ const ArticleDetail = () => {
             {/* Social Share */}
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
-                <span className="text-sm font-medium text-muted-foreground">Share this article:</span>
+                <span className="text-sm font-medium text-muted-foreground">
+                  Share this article:
+                </span>
                 <div className="flex gap-2">
                   <Button size="sm" variant="outline" className="gap-2">
                     <Twitter className="w-4 h-4" />
@@ -265,7 +291,7 @@ const ArticleDetail = () => {
                   </Button>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-4">
                 <Button variant="ghost" size="sm" className="gap-2">
                   <Heart className="w-4 h-4" />
@@ -281,20 +307,21 @@ const ArticleDetail = () => {
         </div>
 
         {/* Right - Sidebar */}
-        <div className="space-y-6 sticky top-24 self-start">
+        <div className="space-y-6 sticky top-24 self-start max-w-md">
           {/* Author Card */}
-          <Card className="p-6 border border-primary/10 bg-gradient-to-br from-primary/5 to-accent/5">
+          <Card className="p-6 rounded-xl border border-primary/10 bg-gradient-to-br from-accent/10 via-primary/5 to-background">
+            <h3 className="font-semibold text-foreground mb-4">Author</h3>
             <div className="space-y-4">
               <div className="flex items-center gap-4">
-                <div className="relative">
+                <div className="relative shrink-0">
                   {img ? (
                     <img
                       src={img}
                       alt={article.author}
-                      className="w-16 h-16 rounded-full object-cover shadow-lg ring-2 ring-primary/20"
+                      className="w-16 h-16 object-cover rounded-full shadow-lg ring-2 ring-primary/20"
                     />
                   ) : (
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent text-white flex items-center justify-center text-xl font-bold ring-2 ring-primary/20">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent text-white flex items-center justify-center text-2xl font-bold ring-2 ring-primary/20">
                       {article.author
                         .split(" ")
                         .map((n) => n[0])
@@ -305,30 +332,45 @@ const ArticleDetail = () => {
                     <div className="w-2 h-2 bg-white rounded-full"></div>
                   </div>
                 </div>
-                <div>
-                  <h3 className="font-bold text-foreground">{article.author}</h3>
-                  <p className="text-sm text-muted-foreground">Senior AI Researcher</p>
+                <div className="min-w-0 group relative">
+                  <h3 className="font-bold text-foreground truncate">
+                    {article.author}
+                  </h3>
+                  {/* Custom tooltip for author name */}
+                  {article.author.length > 20 && (
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-foreground text-background text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
+                      {article.author}
+                    </div>
+                  )}
+
+                  <p className="text-sm text-muted-foreground">AI Researcher</p>
                 </div>
               </div>
+
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {article.authorBio}
               </p>
-              <Button className="w-full bg-gradient-to-r from-primary to-accent text-white">
+              {/* <Button className="w-full bg-gradient-to-r from-primary to-accent text-white">
                 Follow Author
-              </Button>
+              </Button> */}
             </div>
           </Card>
 
           {/* Article Stats */}
-          <Card className="p-6">
-            <h3 className="font-semibold text-foreground mb-4">Article Stats</h3>
+          <Card className="p-6 rounded-xl border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background">
+            {" "}
+            <h3 className="font-semibold text-foreground mb-4">
+              Article Stats
+            </h3>
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <span className="text-sm text-muted-foreground flex items-center gap-2">
                   <Eye className="w-4 h-4" />
                   Views
                 </span>
-                <span className="font-medium">{article.views?.toLocaleString()}</span>
+                <span className="font-medium">
+                  {article.views?.toLocaleString()}
+                </span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-muted-foreground flex items-center gap-2">
@@ -355,14 +397,25 @@ const ArticleDetail = () => {
           </Card>
 
           {/* Quick Actions */}
-          <Card className="p-6 bg-gradient-to-br from-accent/10 to-primary/10 border border-accent/20">
-            <h3 className="font-semibold text-foreground mb-4">Quick Actions</h3>
+          <Card className="p-6 rounded-xl border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background">
+            {/* Card content */}{" "}
+            <h3 className="font-semibold text-foreground mb-4">
+              Quick Actions
+            </h3>
             <div className="space-y-3">
-              <Button variant="outline" size="sm" className="w-full gap-2 border-accent/30 hover:bg-accent/10">
+              <Button
+                variant="outline"
+                size="sm"
+                className="w-full gap-2 border-accent/30 hover:bg-accent/10"
+              >
                 <Share2 className="w-4 h-4" />
                 Share Article
               </Button>
-              <Button variant="outline" size="sm" className="w-full gap-2 border-primary/30 hover:bg-primary/10">
+              <Button
+                variant="outline"
+                size="sm"
+                className="w-full gap-2 border-primary/30 hover:bg-primary/10"
+              >
                 <Bookmark className="w-4 h-4" />
                 Save for Later
               </Button>
