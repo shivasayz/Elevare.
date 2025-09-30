@@ -174,14 +174,14 @@ export default function News() {
             >
               <CarouselContent>
                 {articles.slice(0, 3).map((article) => (
-                  <CarouselItem key={article.id} className="w-full px-2">
+                  <CarouselItem key={article.id} className="w-full px-4">
                     <Card
                       className="overflow-hidden border-card-border transition-all duration-300"
                       style={{ animation: "fade-in 0.5s ease-out forwards" }}
                     >
-                      <div className="grid md:grid-cols-2 gap-0 h-full min-h-[450px]">
+                      <div className="grid md:grid-cols-2 gap-0 h-full min-h-[450px] overflow-hidden rounded-lg">
                         {/* Left Side */}
-                        <div className="relative bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center">
+                        <div className="relative bg-gradient-to-br from-accent/20 to-primary/20 flex items-center justify-center rounded-l-lg overflow-hidden">
                           <span className="text-7xl font-black text-primary/30 tracking-tight">
                             Featured
                           </span>
