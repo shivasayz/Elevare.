@@ -24,7 +24,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useEffect, useRef, useState } from "react";
@@ -251,62 +251,77 @@ export default function News() {
         <h2 className="text-2xl font-semibold text-foreground mb-6">
           Latest Articles
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
           {otherArticles.map((article, index) => (
-            <Card
+            <Link
               key={article.id}
-              className="border-card-border hover:shadow-lg transition-all duration-300 animate-fade-in hover:scale-[1.02] overflow-hidden group"
+              to={`/news/${article.id}`}
+              className="group"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="relative h-48 bg-gradient-to-br from-accent/10 to-primary/10 flex items-center justify-center overflow-hidden">
-                <span className="text-4xl font-bold text-primary/20 group-hover:scale-110 transition-transform duration-300">
-                  {article.category.slice(0, 2).toUpperCase()}
-                </span>
-                {article.trending && (
-                  <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">
-                    <TrendingUp className="w-3 h-3 mr-1" />
-                    Trending
-                  </Badge>
-                )}
-              </div>
-              <CardHeader>
-                <Badge
-                  variant="outline"
-                  className="mb-2 w-fit border-accent text-accent"
-                >
-                  {article.category}
-                </Badge>
-                <CardTitle className="text-lg line-clamp-2 group-hover:text-primary transition-colors">
-                  {article.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="line-clamp-3 mb-4">
-                  {article.description}
-                </CardDescription>
-                <div className="flex items-center justify-between text-sm text-muted-foreground">
-                  <div className="flex items-center gap-3">
-                    <span className="flex items-center gap-1">
-                      <User className="w-3 h-3" />
-                      {article.author}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
-                      {article.readTime}
-                    </span>
-                  </div>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="group/btn"
-                    onClick={() => navigate(`/news/${article.id}`)}
-                  >
-                    Read
-                    <ArrowRight className="ml-1 w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
-                  </Button>
+              <Card
+                className="flex flex-col h-full border border-card-border hover:shadow-lg transition-all duration-300 animate-fade-in hover:scale-[1.02] overflow-hidden group"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {/* Header */}
+                <div className="relative h-48 bg-gradient-to-br from-accent/10 to-primary/10 flex items-center justify-center overflow-hidden">
+                  <span className="text-4xl font-bold text-primary/20 group-hover:scale-110 transition-transform duration-300">
+                    {article.category.slice(0, 2).toUpperCase()}
+                  </span>
+                  {article.trending && (
+                    <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">
+                      <TrendingUp className="w-3 h-3 mr-1" />
+                      Trending
+                    </Badge>
+                  )}
                 </div>
-              </CardContent>
-            </Card>
+
+                <CardHeader>
+                  <Badge
+                    variant="outline"
+                    className="mb-2 w-fit border-accent text-accent text-xs"
+                  >
+                    {article.category}
+                  </Badge>
+                  <CardTitle className="text-base font-semibold line-clamp-2 group-hover:text-primary transition-colors">
+                    {article.title}
+                  </CardTitle>
+                </CardHeader>
+
+                <CardContent className="flex flex-col flex-grow">
+                  <CardDescription className="text-sm line-clamp-3 mb-4">
+                    {article.description}
+                  </CardDescription>
+
+                  <div className="flex items-center justify-between text-xs text-muted-foreground mt-auto">
+                    <div className="flex items-center gap-3">
+                      <span className="flex items-center gap-1">
+                        <User className="w-3 h-3" />
+                        {article.author}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-3 h-3" />
+                        {article.readTime}
+                      </span>
+                    </div>
+
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="group/btn"
+                      onClick={(e) => {
+                        e.stopPropagation(); // prevent bubbling
+                        e.preventDefault(); // prevent Link navigation here
+                        navigate(`/news/${article.id}`);
+                      }}
+                    >
+                      Read
+                      <ArrowRight className="ml-1 w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
 
