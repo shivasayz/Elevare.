@@ -248,11 +248,11 @@ function ReleaseGrid({
 }) {
   const navigate = useNavigate();
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
       {releases.map((release, index) => (
         <Card
           key={release.id}
-          className="border-card-border hover:shadow-lg transition-all duration-300 animate-fade-in hover:scale-[1.02] overflow-hidden"
+          className="flex flex-col h-full border border-card-border hover:shadow-lg transition-all duration-300 animate-fade-in hover:scale-[1.02] overflow-hidden"
           style={{ animationDelay: `${index * 0.1}s` }}
         >
           <CardHeader>
@@ -265,6 +265,7 @@ function ReleaseGrid({
                 {release.category}
               </Badge>
             </div>
+
             <div className="flex items-center gap-2">
               <Badge
                 variant="outline"
@@ -278,12 +279,12 @@ function ReleaseGrid({
               <Badge variant="secondary">{release.type}</Badge>
             </div>
           </CardHeader>
-          <CardContent>
-            <CardDescription className="mb-4">
+
+          <CardContent className="flex flex-col flex-grow">
+            <CardDescription className="mb-4 text-sm text-muted-foreground">
               {release.description}
             </CardDescription>
 
-            {/* Stats */}
             {(release.stars || release.downloads) && (
               <div className="flex items-center gap-4 mb-4 text-sm text-muted-foreground">
                 {release.stars && (
@@ -305,7 +306,6 @@ function ReleaseGrid({
               </div>
             )}
 
-            {/* Changes */}
             <div className="space-y-1 mb-4">
               <p className="text-sm font-medium text-foreground mb-2">
                 Key Changes:
@@ -314,17 +314,17 @@ function ReleaseGrid({
                 {release.changes.slice(0, 3).map((change, idx) => (
                   <li
                     key={idx}
-                    className="text-sm text-muted-foreground flex items-start gap-2"
+                    className="text-sm text-muted-foreground flex items-center gap-2"
                   >
-                    <span className="text-primary mt-1">•</span>
+                    <span className="text-primary">•</span>
                     <span className="line-clamp-1">{change}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Actions */}
-            <div className="flex gap-2">
+            {/* Buttons fixed to bottom */}
+            <div className="flex gap-2 mt-auto pt-4">
               <Button
                 size="sm"
                 className="flex-1 bg-primary hover:bg-primary-hover text-primary-foreground"
