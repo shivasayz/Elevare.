@@ -136,7 +136,7 @@ const ArticleDetail = () => {
               variant="ghost"
               size="sm"
               onClick={() => navigate("/news")}
-              className="gap-2 hover:bg-accent/10"
+              className="gap-2 hover:bg-transparent hover:underline hover:text-black"
             >
               <ArrowLeft className="h-4 w-4" />
               Back to Articles
@@ -403,19 +403,11 @@ const ArticleDetail = () => {
               Quick Actions
             </h3>
             <div className="space-y-3">
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full gap-2 border-accent/30 hover:bg-accent/10"
-              >
+              <Button variant="outline" size="sm" className="w-full gap-2 ">
                 <Share2 className="w-4 h-4" />
                 Share Article
               </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                className="w-full gap-2 border-primary/30 hover:bg-primary/10"
-              >
+              <Button variant="outline" size="sm" className="w-full gap-2">
                 <Bookmark className="w-4 h-4" />
                 Save for Later
               </Button>

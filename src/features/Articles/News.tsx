@@ -312,11 +312,7 @@ export default function News() {
 
         {/* Load More */}
         <div className="text-center mt-8">
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-2 border-border hover:bg-muted"
-          >
+          <Button variant="outline" size="lg" className="border-2">
             Load More Articles
           </Button>
         </div>
