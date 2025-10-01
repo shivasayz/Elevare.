@@ -192,7 +192,8 @@ const Signup = () => {
               Join the Future of Tech Development
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Transform your passion into expertise. Build alongside the brightest minds in technology.
+              Transform your passion into expertise. Build alongside the
+              brightest minds in technology.
             </p>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
@@ -204,7 +205,8 @@ const Signup = () => {
                     Start Your Tech Career
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    Access cutting-edge resources and mentorship from industry leaders.
+                    Access cutting-edge resources and mentorship from industry
+                    leaders.
                   </p>
                 </div>
               </div>
@@ -218,7 +220,8 @@ const Signup = () => {
                     Build Real Projects
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    Work on production-ready applications and contribute to open source.
+                    Work on production-ready applications and contribute to open
+                    source.
                   </p>
                 </div>
               </div>
@@ -232,7 +235,8 @@ const Signup = () => {
                     Get Hired Faster
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    Stand out with a portfolio that showcases your skills to top companies.
+                    Stand out with a portfolio that showcases your skills to top
+                    companies.
                   </p>
                 </div>
               </div>
