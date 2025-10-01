@@ -11,17 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/features/Home/Footer";
-import {
-  Mail,
-  MapPin,
-  Briefcase,
-  Calendar,
-  Link2,
-  Github,
-  Linkedin,
-  Twitter,
-  Edit,
-} from "lucide-react";
+import { Mail, MapPin, Briefcase, Calendar, Link2, Github, Linkedin, Twitter, CreditCard as Edit } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Profile = () => {
