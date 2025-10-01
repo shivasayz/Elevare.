@@ -409,7 +409,7 @@ const ReleaseDetail = () => {
         </div>
 
         {/* Changelog Section */}
-        <Card id="changelog" className="overflow-hidden mt-8">
+        {/* <Card id="changelog" className="overflow-hidden mt-8">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <GitBranch className="h-5 w-5" />
@@ -448,7 +448,7 @@ const ReleaseDetail = () => {
               </div>
             </div>
           </CardContent>
-        </Card>
+        </Card> */}
       </div>
     </div>
   );

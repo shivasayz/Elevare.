@@ -334,7 +334,7 @@ function ReleaseGrid({
                 <ExternalLink className="w-4 h-4 mr-1" />
                 View Details
               </Button>
-              <Button 
+              {/* <Button 
                 size="sm" 
                 variant="outline" 
                 className="flex-1"
@@ -342,7 +342,7 @@ function ReleaseGrid({
               >
                 <GitBranch className="w-4 h-4 mr-1" />
                 Changelog
-              </Button>
+              </Button> */}
             </div>
           </CardContent>
         </Card>
