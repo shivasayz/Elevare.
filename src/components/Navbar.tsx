@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { ThemeToggle } from "./ThemeToggle";
 
 export const Navbar = () => {
   const navigate = useNavigate();
@@ -91,6 +92,9 @@ export const Navbar = () => {
 
         {/* Right actions */}
         <div className="hidden md:flex items-center gap-3 justify-end">
+          {/* Theme Toggle */}
+          <ThemeToggle />
+          
           {/* User Menu */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>

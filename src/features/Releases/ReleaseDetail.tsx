@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -407,6 +407,48 @@ const ReleaseDetail = () => {
             <ExternalLink className="h-3 w-3" />
           </Button>
         </div>
+
+        {/* Changelog Section */}
+        <Card id="changelog" className="overflow-hidden mt-8">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <GitBranch className="h-5 w-5" />
+              Changelog
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            <div className="space-y-4">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-2 h-2 rounded-full bg-primary mt-2"></div>
+                <div className="space-y-1">
+                  <p className="font-medium">Added new API endpoints for authentication</p>
+                  <p className="text-sm text-muted-foreground">Includes OAuth2 support and JWT token management</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-2 h-2 rounded-full bg-primary mt-2"></div>
+                <div className="space-y-1">
+                  <p className="font-medium">Improved performance by 40%</p>
+                  <p className="text-sm text-muted-foreground">Optimized database queries and caching mechanisms</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-2 h-2 rounded-full bg-primary mt-2"></div>
+                <div className="space-y-1">
+                  <p className="font-medium">Fixed critical security vulnerability</p>
+                  <p className="text-sm text-muted-foreground">Addressed XSS vulnerability in user input handling</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-2 h-2 rounded-full bg-destructive mt-2"></div>
+                <div className="space-y-1">
+                  <p className="font-medium">Deprecated legacy API v1</p>
+                  <p className="text-sm text-muted-foreground">Users should migrate to v2 before next major release</p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

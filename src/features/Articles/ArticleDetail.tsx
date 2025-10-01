@@ -169,7 +169,7 @@ const ArticleDetail = () => {
 
       {/* Hero Section */}
       <div className="relative bg-gradient-to-br from-primary/5 via-accent/5 to-background border-b">
-        <div className="max-w-4xl mx-auto px-6 py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16">
           <div className="space-y-6">
             {/* Category and Trending Badge */}
             <div className="flex items-center gap-3">
@@ -188,12 +188,12 @@ const ArticleDetail = () => {
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl pb-2 md:text-5xl lg:text-6xl font-bold leading-tight bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent">
+            <h1 className="text-2xl sm:text-3xl pb-2 md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent">
               {article.title}
             </h1>
 
             {/* Description */}
-            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl">
+            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-3xl">
               {article.description}
             </p>
 
@@ -245,9 +245,9 @@ const ArticleDetail = () => {
       </div>
 
       {/* Main Content Grid */}
-      <div className="max-w-7xl mx-auto px-4 py-12 grid lg:grid-cols-4 gap-12">
+      <div className="max-w-7xl mx-auto px-4 py-8 md:py-12 grid lg:grid-cols-4 gap-8 lg:gap-12">
         {/* Left - Article Content */}
-        <div className="lg:col-span-3 space-y-8">
+        <div className="lg:col-span-3 space-y-8 order-2 lg:order-1">
           {/* Content */}
           <div
             className="article-content prose prose-lg max-w-none"
@@ -311,9 +311,42 @@ const ArticleDetail = () => {
         </div>
 
         {/* Right - Sidebar */}
-        <div className="space-y-6 sticky top-24 self-start max-w-md">
+        <div className="space-y-6 lg:sticky lg:top-24 self-start order-1 lg:order-2">
+          {/* Save and Share Card - Similar to JobDetails */}
+          <Card className="p-4 md:p-6 rounded-xl border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background">
+            <h3 className="font-semibold text-foreground mb-4">Actions</h3>
+            <div className="space-y-3">
+              <Button className="w-full justify-start" variant="outline">
+                <Bookmark className="w-4 h-4 mr-2" />
+                Save for Later
+              </Button>
+              <Separator />
+              <div className="space-y-2">
+                <p className="text-sm font-medium text-muted-foreground mb-2">Share Article</p>
+                <div className="grid grid-cols-2 gap-2">
+                  <Button size="sm" variant="outline" className="justify-start">
+                    <Twitter className="w-4 h-4 mr-2" />
+                    Twitter
+                  </Button>
+                  <Button size="sm" variant="outline" className="justify-start">
+                    <Linkedin className="w-4 h-4 mr-2" />
+                    LinkedIn
+                  </Button>
+                  <Button size="sm" variant="outline" className="justify-start">
+                    <Facebook className="w-4 h-4 mr-2" />
+                    Facebook
+                  </Button>
+                  <Button size="sm" variant="outline" className="justify-start">
+                    <Link className="w-4 h-4 mr-2" />
+                    Copy Link
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </Card>
+
           {/* Author Card */}
-          <Card className="p-6 rounded-xl border border-primary/10 bg-gradient-to-br from-accent/10 via-primary/5 to-background">
+          <Card className="p-4 md:p-6 rounded-xl border border-primary/10 bg-gradient-to-br from-accent/10 via-primary/5 to-background">
             <h3 className="font-semibold text-foreground mb-4">About Author</h3>
             <div className="space-y-4">
               <div className="flex items-center gap-4">
@@ -361,8 +394,7 @@ const ArticleDetail = () => {
           </Card>
 
           {/* Article Stats */}
-          <Card className="p-6 rounded-xl border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background">
-            {" "}
+          <Card className="p-4 md:p-6 rounded-xl border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background">
             <h3 className="font-semibold text-foreground mb-4">
               Article Stats
             </h3>
