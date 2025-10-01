@@ -10,12 +10,18 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/features/Home/Footer";
-import { Mail, MapPin, Calendar, CreditCard as Edit, ArrowLeft } from "lucide-react";
+import {
+  Mail,
+  MapPin,
+  Calendar,
+  CreditCard as Edit,
+  ArrowLeft,
+} from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const navigate = useNavigate();
-  
+
   const user = {
     name: "John Doe",
     email: "john.doe@example.com",
@@ -41,7 +47,7 @@ const Profile = () => {
             variant="ghost"
             size="sm"
             onClick={() => navigate(-1)}
-            className="gap-2 hover:bg-transparent hover:underline"
+            className="gap-2 hover:bg-transparent hover:underline hover:text-black"
           >
             <ArrowLeft className="h-4 w-4" />
             Back

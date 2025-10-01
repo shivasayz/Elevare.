@@ -15,14 +15,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "@/features/Home/Footer";
 import { useNavigate } from "react-router-dom";
-import {
-  Camera,
-  User,
-  Mail,
-  ArrowLeft,
-  Moon,
-  Sun,
-} from "lucide-react";
+import { Camera, User, Mail, ArrowLeft, Moon, Sun } from "lucide-react";
 import { useState } from "react";
 
 const Settings = () => {
@@ -39,7 +32,7 @@ const Settings = () => {
               variant="ghost"
               size="sm"
               onClick={() => navigate(-1)}
-              className="gap-2 hover:bg-transparent hover:underline"
+              className="gap-2 hover:bg-transparent hover:underline hover:text-black"
             >
               <ArrowLeft className="h-4 w-4" />
               Back
@@ -157,10 +150,7 @@ const Settings = () => {
                     Switch between light and dark themes
                   </p>
                 </div>
-                <Switch
-                  checked={darkMode}
-                  onCheckedChange={setDarkMode}
-                />
+                <Switch checked={darkMode} onCheckedChange={setDarkMode} />
               </div>
 
               <Separator />
@@ -219,9 +209,7 @@ const Settings = () => {
                 </div>
 
                 <div className="grid gap-2">
-                  <Label htmlFor="confirm-password">
-                    Confirm New Password
-                  </Label>
+                  <Label htmlFor="confirm-password">Confirm New Password</Label>
                   <Input id="confirm-password" type="password" />
                 </div>
               </div>
