@@ -24,6 +24,7 @@ import {
   DollarSign,
   Search,
   Filter,
+  Bookmark,
 } from "lucide-react";
 
 interface Job {
@@ -236,12 +237,20 @@ export default function Jobs() {
                       </CardDescription>
                     </div>
                   </div>
-                  <Button
-                    onClick={() => handleApply(job.id)}
-                    className="bg-primary hover:bg-primary-hover text-primary-foreground"
-                  >
-                    Apply Now
-                  </Button>
+          <div className="flex gap-2">
+            <Button
+              variant="outline"
+              className="border-accent text-accent hover:bg-accent/10"
+            >
+              <Bookmark className="h-4 w-4" />
+            </Button>
+            <Button
+              onClick={() => handleApply(job.id)}
+              className="bg-primary hover:bg-primary-hover text-primary-foreground"
+            >
+              Apply Now
+            </Button>
+          </div>
                 </div>
               </CardHeader>
               <CardContent>

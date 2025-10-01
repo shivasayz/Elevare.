@@ -18,6 +18,7 @@ import {
   Download,
   GitBranch,
   TrendingUp,
+  Bookmark,
 } from "lucide-react";
 import { useEffect } from "react";
 
@@ -325,6 +326,13 @@ function ReleaseGrid({
 
             {/* Buttons fixed to bottom */}
             <div className="flex gap-2 mt-auto pt-4">
+              <Button
+                size="sm"
+                variant="outline"
+                className="border-accent text-accent hover:bg-accent/10"
+              >
+                <Bookmark className="w-4 h-4" />
+              </Button>
               <Button
                 size="sm"
                 className="flex-1 bg-primary hover:bg-primary-hover text-primary-foreground"

@@ -15,6 +15,7 @@ import {
   Code2,
   BookOpen,
   ExternalLink,
+  Bookmark,
 } from "lucide-react";
 import { useEffect } from "react";
 
@@ -253,6 +254,12 @@ const ReleaseDetail = () => {
                   {release.version}
                 </span>
               </div>
+            </div>
+            <div className="flex gap-2">
+              <Button size="sm" variant="outline">
+                <Bookmark className="h-4 w-4 mr-1" />
+                Save Release
+              </Button>
             </div>
           </div>
         </div>

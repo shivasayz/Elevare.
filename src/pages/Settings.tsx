@@ -25,7 +25,7 @@ const Settings = () => {
   return (
     <div className="min-h-screen bg-background font-inter">
       <Navbar />
-      <main className="container mx-auto px-4 py-8 pt-28 max-w-4xl">
+      <main className="container mx-auto px-4 py-8 pt-28 max-w-6xl">
         <div className="mb-8">
           <div className="flex items-center gap-4 mb-4">
             <Button

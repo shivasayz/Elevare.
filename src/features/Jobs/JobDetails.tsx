@@ -12,6 +12,7 @@ import {
   Clock,
   CheckCircle2,
   ArrowLeft,
+  Bookmark,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -189,9 +190,10 @@ const JobDetails = () => {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              {/* <Button variant="outline" size="sm" className="hidden sm:flex">
+              <Button variant="outline" size="sm" className="hidden sm:flex">
+                <Bookmark className="h-4 w-4 mr-1" />
                 Save Job
-              </Button> */}
+              </Button>
               <Button size="sm" onClick={handleApply} className="gap-2">
                 Apply Now
               </Button>
