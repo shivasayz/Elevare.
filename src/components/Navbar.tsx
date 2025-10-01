@@ -94,37 +94,41 @@ export const Navbar = () => {
           {/* User Menu */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-                <Avatar className="h-8 w-8">
+              <Button variant="ghost" className="relative h-10 w-10 rounded-full p-0 hover:bg-transparent">
+                <Avatar className="h-10 w-10 border-2 border-primary/20 hover:border-primary/40 transition-colors">
                   <AvatarImage src="/author.jpeg" alt="User" />
-                  <AvatarFallback>JD</AvatarFallback>
+                  <AvatarFallback className="bg-gradient-to-br from-primary to-accent text-white font-semibold">JD</AvatarFallback>
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56" align="end" forceMount>
+            <DropdownMenuContent className="w-64 p-2" align="end" forceMount>
               <div className="flex items-center justify-start gap-2 p-2">
+                <Avatar className="h-10 w-10">
+                  <AvatarImage src="/author.jpeg" alt="User" />
+                  <AvatarFallback className="bg-gradient-to-br from-primary to-accent text-white font-semibold">JD</AvatarFallback>
+                </Avatar>
                 <div className="flex flex-col space-y-1 leading-none">
                   <p className="font-medium">John Doe</p>
-                  <p className="w-[200px] truncate text-sm text-muted-foreground">
+                  <p className="w-[180px] truncate text-sm text-muted-foreground">
                     john.doe@example.com
                   </p>
                 </div>
               </div>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={() => navigate("/profile")}>
+              <DropdownMenuItem onClick={() => navigate("/profile")} className="cursor-pointer">
                 <User className="mr-2 h-4 w-4" />
                 <span>Profile</span>
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => navigate("/saved")}>
+              <DropdownMenuItem onClick={() => navigate("/saved")} className="cursor-pointer">
                 <Bookmark className="mr-2 h-4 w-4" />
                 <span>Saved Articles</span>
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => navigate("/settings")}>
+              <DropdownMenuItem onClick={() => navigate("/settings")} className="cursor-pointer">
                 <Settings className="mr-2 h-4 w-4" />
                 <span>Settings</span>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer text-destructive focus:text-destructive">
                 <LogOut className="mr-2 h-4 w-4" />
                 <span>Log out</span>
               </DropdownMenuItem>

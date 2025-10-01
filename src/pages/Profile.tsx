@@ -7,14 +7,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/features/Home/Footer";
-import { Mail, MapPin, Briefcase, Calendar, Link2, Github, Linkedin, Twitter, CreditCard as Edit } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Mail, MapPin, Calendar, Edit, ArrowLeft } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate();
+  
   const user = {
     name: "John Doe",
     email: "john.doe@example.com",
@@ -23,7 +24,6 @@ const Profile = () => {
     location: "San Francisco, CA",
     joinDate: "January 2024",
     bio: "Passionate about building scalable web applications and exploring new technologies. Always learning, always growing.",
-    skills: ["React", "TypeScript", "Node.js", "Python", "AWS", "Docker"],
     stats: {
       savedJobs: 12,
       savedArticles: 28,
@@ -35,6 +35,19 @@ const Profile = () => {
     <div className="min-h-screen bg-background font-inter">
       <Navbar />
       <main className="container mx-auto px-4 py-8 pt-28 max-w-6xl">
+        {/* Back Button */}
+        <div className="mb-6">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => navigate(-1)}
+            className="gap-2 hover:bg-transparent hover:underline"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back
+          </Button>
+        </div>
+
         {/* Profile Header */}
         <Card className="mb-8 animate-fade-in">
           <CardContent className="p-8">
@@ -77,29 +90,6 @@ const Profile = () => {
                     <Calendar className="h-4 w-4" />
                     Joined {user.joinDate}
                   </div>
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {user.skills.map((skill) => (
-                    <Badge key={skill} variant="secondary">
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-
-                <div className="flex gap-3">
-                  <Button variant="ghost" size="icon">
-                    <Github className="h-5 w-5" />
-                  </Button>
-                  <Button variant="ghost" size="icon">
-                    <Linkedin className="h-5 w-5" />
-                  </Button>
-                  <Button variant="ghost" size="icon">
-                    <Twitter className="h-5 w-5" />
-                  </Button>
-                  <Button variant="ghost" size="icon">
-                    <Link2 className="h-5 w-5" />
-                  </Button>
                 </div>
               </div>
             </div>
