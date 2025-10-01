@@ -13,6 +13,7 @@ import {
   CheckCircle2,
   ArrowLeft,
   Bookmark,
+  Share2,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -189,7 +190,7 @@ const JobDetails = () => {
                 <span className="text-foreground font-medium">{job.title}</span>
               </div>
             </div>
-            <div className="flex items-center gap-3">
+            {/* <div className="flex items-center gap-3">
               <Button variant="outline" size="sm" className="hidden sm:flex">
                 <Bookmark className="h-4 w-4 mr-1" />
                 Save Job
@@ -197,7 +198,7 @@ const JobDetails = () => {
               <Button size="sm" onClick={handleApply} className="gap-2">
                 Apply Now
               </Button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -296,12 +297,23 @@ const JobDetails = () => {
           <div className="space-y-6 sticky top-24 self-start max-w-md">
             {/* Apply Card */}
             <Card className="p-6 border-primary/20 bg-primary/5">
+              <p className="text-sm mb-4 text-center text-muted-foreground">
+                Join our team and make an impact
+              </p>
               <Button onClick={handleApply} className="w-full mb-4" size="lg">
                 Apply Now
               </Button>
-              <p className="text-sm text-center text-muted-foreground">
-                Join our team and make an impact
-              </p>
+              <div className="space-y-3">
+                <Button variant="outline" size="sm" className="w-full gap-2">
+                  <Bookmark className="w-4 h-4" />
+                  Save for Later
+                </Button>
+
+                <Button variant="outline" size="sm" className="w-full gap-2 ">
+                  <Share2 className="w-4 h-4" />
+                  Share Article
+                </Button>
+              </div>
             </Card>
 
             {/* Job Details Card */}

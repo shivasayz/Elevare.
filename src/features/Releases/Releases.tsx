@@ -328,13 +328,6 @@ function ReleaseGrid({
             <div className="flex gap-2 mt-auto pt-4">
               <Button
                 size="sm"
-                variant="outline"
-                className="border-accent text-accent hover:bg-accent/10"
-              >
-                <Bookmark className="w-4 h-4" />
-              </Button>
-              <Button
-                size="sm"
                 className="flex-1 bg-primary hover:bg-primary-hover text-primary-foreground"
                 onClick={() => navigate(`/releases/${release.id}`)}
               >
