@@ -104,6 +104,30 @@ const App = () => {
                 </div>
               }
             />
+            <Route
+              path="/profile"
+              element={
+                <div className="min-h-screen bg-background font-inter">
+                  <Profile />
+                </div>
+              }
+            />
+            <Route
+              path="/settings"
+              element={
+                <div className="min-h-screen bg-background font-inter">
+                  <Settings />
+                </div>
+              }
+            />
+            <Route
+              path="/saved"
+              element={
+                <div className="min-h-screen bg-background font-inter">
+                  <SavedItems />
+                </div>
+              }
+            />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -27,9 +27,9 @@ import {
 
 const Settings = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background font-inter">
       <Navbar />
-      <main className="container mx-auto px-4 py-8 max-w-4xl">
+      <main className="container mx-auto px-4 py-8 pt-28 max-w-4xl">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-foreground">
             Account Settings
@@ -39,8 +39,8 @@ const Settings = () => {
           </p>
         </div>
 
-        <Tabs defaultValue="profile" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-4">
+        <Tabs defaultValue="profile" className="space-y-6 animate-fade-in">
+          <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 bg-muted/50">
             <TabsTrigger value="profile" className="flex items-center gap-2">
               <User className="h-4 w-4" />
               <span className="hidden sm:inline">Profile</span>

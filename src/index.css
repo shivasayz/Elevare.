@@ -221,6 +221,39 @@ All colors MUST be HSL.
   @apply text-foreground font-semibold;
 }
 
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .article-content h1 {
+    @apply text-3xl;
+  }
+  
+  .article-content h2 {
+    @apply text-2xl mt-8 mb-4;
+  }
+  
+  .article-content .lead-paragraph {
+    @apply text-lg pl-4 py-3;
+  }
+  
+  .article-content .stats-grid {
+    @apply grid-cols-1 gap-4 p-4;
+  }
+  
+  .article-content .modern-quote {
+    @apply p-4 text-base;
+  }
+  
+  .article-content .highlight-box {
+    @apply p-4;
+  }
+}
+
+/* Better mobile navigation */
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
+  }
+}
 @layer base {
   * {
     @apply border-border;

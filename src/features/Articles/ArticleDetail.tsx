@@ -152,6 +152,10 @@ const ArticleDetail = () => {
           {/* Social Share Buttons */}
           <div className="flex items-center gap-2">
             <Button variant="ghost" size="sm" className="gap-2">
+              <Bookmark className="h-4 w-4" />
+              <span className="hidden sm:inline">Save</span>
+            </Button>
+            <Button variant="ghost" size="sm" className="gap-2">
               <Heart className="h-4 w-4" />
               <span className="hidden sm:inline">{article.likes}</span>
             </Button>

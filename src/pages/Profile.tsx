@@ -28,7 +28,7 @@ const Profile = () => {
   const user = {
     name: "John Doe",
     email: "john.doe@example.com",
-    avatar: "https://github.com/shadcn.png",
+    avatar: "/author.jpeg",
     title: "Senior Software Engineer",
     location: "San Francisco, CA",
     joinDate: "January 2024",
@@ -42,11 +42,11 @@ const Profile = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background font-inter">
       <Navbar />
-      <main className="container mx-auto px-4 py-8 max-w-6xl">
+      <main className="container mx-auto px-4 py-8 pt-28 max-w-6xl">
         {/* Profile Header */}
-        <Card className="mb-8">
+        <Card className="mb-8 animate-fade-in">
           <CardContent className="p-8">
             <div className="flex flex-col md:flex-row items-start gap-6">
               <Avatar className="h-24 w-24 border-4 border-background shadow-lg">
