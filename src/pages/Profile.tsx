@@ -10,7 +10,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/features/Home/Footer";
-import { Mail, MapPin, Calendar, Edit, ArrowLeft } from "lucide-react";
+import { Mail, MapPin, Calendar, CreditCard as Edit, ArrowLeft } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Profile = () => {
