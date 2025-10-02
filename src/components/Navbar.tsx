@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ThemeToggle } from "./ThemeToggle";
+import logo from "../assests/logo.png";
 
 export const Navbar = () => {
   const navigate = useNavigate();
@@ -27,11 +28,12 @@ export const Navbar = () => {
   const progress = Math.min(scrollY / 120, 1);
 
   // Interpolated styles
-  const contentPadding = 20 - progress * 4; // tighter padding after scroll
-  const bgOpacity = 0.85 + progress * 0.15; // slightly more solid on scroll
-  const borderRadius = 28 - progress * 12; // round → semi-round
+  const horizontalPadding = 24 - progress * 4; // 24px → 20px
+  const verticalPadding = 20 - progress * 4; // 20px → 16px
+  const bgOpacity = 0.85 + progress * 0.15;
+  const borderRadius = 28 - progress * 12;
   const shadow = progress > 0.05 ? "shadow-lg" : "shadow-md";
-  const height = 72 - progress * 12; // shrink height smoothly
+  const height = 80 - progress * 12; // 80px → 68px
 
   const navLinks = [
     { path: "/jobs", label: "Jobs" },
@@ -46,7 +48,7 @@ export const Navbar = () => {
           scrollY > 0 ? shadow : ""
         }`}
         style={{
-          padding: `0 ${contentPadding}px`,
+          padding: `${verticalPadding}px ${horizontalPadding}px`,
           height: `${height}px`,
           borderRadius: scrollY > 0 ? `${borderRadius}px` : "0px",
           backgroundColor:
@@ -57,28 +59,23 @@ export const Navbar = () => {
       >
         {/* Logo */}
         <NavLink to="/" className="flex items-center gap-2">
-          <div className="w-9 h-9 bg-black rounded-md flex items-center justify-center transition-all duration-300">
-            <span className="text-white font-bold text-lg">T</span>
+          <div className="w-56 h-20 pl-3 flex items-center justify-center transition-all duration-300">
+            <img
+              src={logo}
+              alt="Logo"
+              className="h-full object-contain -ml-1"
+            />
           </div>
-          <span
-            className="text-black font-semibold"
-            style={{
-              fontSize: `${1 + 0.125 * progress}rem`, // 1rem → 1.125rem
-              transition: "font-size 0.3s ease",
-            }}
-          >
-            TechHub
-          </span>
         </NavLink>
 
         {/* Center nav */}
-        <div className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+        <div className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
           {navLinks.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
               className={({ isActive }) =>
-                `text-sm font-medium transition-colors duration-300 ${
+                `text-lg font-medium transition-colors duration-300 ${
                   isActive
                     ? "text-black"
                     : "text-muted-foreground hover:text-black"
@@ -93,15 +90,20 @@ export const Navbar = () => {
         {/* Right actions */}
         <div className="hidden md:flex items-center gap-3 justify-end">
           {/* Theme Toggle */}
-          <ThemeToggle />
-          
+          {/* <ThemeToggle /> */}
+
           {/* User Menu */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="relative h-10 w-10 rounded-full p-0 hover:bg-transparent">
+              <Button
+                variant="ghost"
+                className="relative h-12 w-12 rounded-full p-0 hover:bg-transparent"
+              >
                 <Avatar className="h-10 w-10 border-2 border-primary/20 hover:border-primary/40 transition-colors">
                   <AvatarImage src="/author.jpeg" alt="User" />
-                  <AvatarFallback className="bg-gradient-to-br from-primary to-accent text-white font-semibold">JD</AvatarFallback>
+                  <AvatarFallback className="bg-gradient-to-br from-primary to-accent text-white font-semibold">
+                    JD
+                  </AvatarFallback>
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
@@ -109,7 +111,9 @@ export const Navbar = () => {
               <div className="flex items-center justify-start gap-2 p-2">
                 <Avatar className="h-10 w-10">
                   <AvatarImage src="/author.jpeg" alt="User" />
-                  <AvatarFallback className="bg-gradient-to-br from-primary to-accent text-white font-semibold">JD</AvatarFallback>
+                  <AvatarFallback className="bg-gradient-to-br from-primary to-accent text-white font-semibold">
+                    JD
+                  </AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col space-y-1 leading-none">
                   <p className="font-medium">John Doe</p>
@@ -119,15 +123,24 @@ export const Navbar = () => {
                 </div>
               </div>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={() => navigate("/profile")} className="cursor-pointer">
+              <DropdownMenuItem
+                onClick={() => navigate("/profile")}
+                className="cursor-pointer"
+              >
                 <User className="mr-2 h-4 w-4" />
                 <span>Profile</span>
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => navigate("/saved")} className="cursor-pointer">
+              <DropdownMenuItem
+                onClick={() => navigate("/saved")}
+                className="cursor-pointer"
+              >
                 <Bookmark className="mr-2 h-4 w-4" />
                 <span>Saved Articles</span>
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => navigate("/settings")} className="cursor-pointer">
+              <DropdownMenuItem
+                onClick={() => navigate("/settings")}
+                className="cursor-pointer"
+              >
                 <Settings className="mr-2 h-4 w-4" />
                 <span>Settings</span>
               </DropdownMenuItem>
@@ -138,17 +151,17 @@ export const Navbar = () => {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          
+
           <Button
             variant="ghost"
-            size="sm"
+            size="lg"
             className="text-sm font-medium px-3"
             onClick={() => navigate("/login")}
           >
             Sign in
           </Button>
           <Button
-            size="sm"
+            size="lg"
             className="bg-accent hover:bg-accent/90 text-white font-semibold px-5 py-2 rounded-xl transition-all duration-300"
             onClick={() => navigate("/signup")}
           >

@@ -12,7 +12,6 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
-import { Navbar } from "../components/Navbar";
 import { Footer } from "@/features/Home/Footer";
 import { useNavigate } from "react-router-dom";
 import { Camera, User, Mail, ArrowLeft, Moon, Sun } from "lucide-react";
@@ -24,7 +23,6 @@ const Settings = () => {
 
   return (
     <div className="min-h-screen bg-background font-inter">
-      <Navbar />
       <main className="container mx-auto px-4 py-8 pt-28 max-w-6xl">
         <div className="mb-8">
           <div className="flex items-center gap-4 mb-4">

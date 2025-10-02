@@ -61,7 +61,8 @@ const SavedItems = () => {
       source: "TechBlog",
       readTime: "5 min read",
       savedDate: "1 day ago",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400",
+      image:
+        "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400",
       category: "AI",
     },
     {
@@ -71,7 +72,8 @@ const SavedItems = () => {
       source: "Dev Weekly",
       readTime: "8 min read",
       savedDate: "3 days ago",
-      image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400",
+      image:
+        "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400",
       category: "React",
     },
     {
@@ -81,7 +83,8 @@ const SavedItems = () => {
       source: "Code Magazine",
       readTime: "10 min read",
       savedDate: "5 days ago",
-      image: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=400",
+      image:
+        "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=400",
       category: "TypeScript",
     },
   ];
@@ -115,7 +118,6 @@ const SavedItems = () => {
 
   return (
     <div className="min-h-screen bg-background font-inter">
-      <Navbar />
       <main className="container mx-auto px-4 py-8 pt-28 max-w-6xl">
         <div className="mb-8 animate-fade-in">
           <h1 className="text-3xl font-bold text-foreground flex items-center gap-2">
@@ -165,10 +167,16 @@ const SavedItems = () => {
                               {article.category}
                             </Badge>
                             <h3 className="text-xl font-semibold text-foreground hover:text-primary transition-colors line-clamp-2">
-                              <Link to={`/news/${article.id}`}>{article.title}</Link>
+                              <Link to={`/news/${article.id}`}>
+                                {article.title}
+                              </Link>
                             </h3>
                           </div>
-                          <Button size="sm" variant="ghost" className="text-destructive hover:text-destructive">
+                          <Button
+                            size="sm"
+                            variant="ghost"
+                            className="text-destructive hover:text-destructive"
+                          >
                             <Trash2 className="h-4 w-4" />
                           </Button>
                         </div>
@@ -204,46 +212,48 @@ const SavedItems = () => {
           <TabsContent value="jobs" className="space-y-4">
             <div className="grid gap-4">
               {savedJobs.map((job, index) => (
-                <Card 
-                  key={job.id} 
+                <Card
+                  key={job.id}
                   className="hover:shadow-lg transition-all duration-300 animate-fade-in"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                <CardContent className="p-6">
-                  <div className="flex items-start justify-between">
-                    <div className="space-y-3 flex-1">
-                      <div>
-                        <h3 className="text-xl font-semibold text-foreground hover:text-primary">
-                          <Link to="#">{job.title}</Link>
-                        </h3>
-                        <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
-                          <span className="flex items-center gap-1">
-                            <Building2 className="h-4 w-4" />
-                            {job.company}
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <MapPin className="h-4 w-4" />
-                            {job.location}
+                  <CardContent className="p-6">
+                    <div className="flex items-start justify-between">
+                      <div className="space-y-3 flex-1">
+                        <div>
+                          <h3 className="text-xl font-semibold text-foreground hover:text-primary">
+                            <Link to="#">{job.title}</Link>
+                          </h3>
+                          <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
+                            <span className="flex items-center gap-1">
+                              <Building2 className="h-4 w-4" />
+                              {job.company}
+                            </span>
+                            <span className="flex items-center gap-1">
+                              <MapPin className="h-4 w-4" />
+                              {job.location}
+                            </span>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Badge variant="secondary">{job.type}</Badge>
+                          {job.remote && (
+                            <Badge variant="outline">Remote</Badge>
+                          )}
+                          <span className="text-xs text-muted-foreground ml-auto flex items-center gap-1">
+                            <Clock className="h-3 w-3" />
+                            Saved {job.savedDate}
                           </span>
                         </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Badge variant="secondary">{job.type}</Badge>
-                        {job.remote && <Badge variant="outline">Remote</Badge>}
-                        <span className="text-xs text-muted-foreground ml-auto flex items-center gap-1">
-                          <Clock className="h-3 w-3" />
-                          Saved {job.savedDate}
-                        </span>
+                      <div className="flex gap-2 ml-4">
+                        <Button size="sm">Apply Now</Button>
+                        <Button size="sm" variant="ghost">
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
                       </div>
                     </div>
-                    <div className="flex gap-2 ml-4">
-                      <Button size="sm">Apply Now</Button>
-                      <Button size="sm" variant="ghost">
-                        <Trash2 className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
+                  </CardContent>
                 </Card>
               ))}
             </div>
@@ -257,35 +267,35 @@ const SavedItems = () => {
                   className="hover:shadow-lg transition-all duration-300 animate-fade-in"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between">
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-3">
-                        <h3 className="text-xl font-semibold text-foreground">
-                          {release.name}
-                        </h3>
-                        <Badge>{release.version}</Badge>
-                        <Badge variant="outline">{release.type}</Badge>
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between">
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-3">
+                          <h3 className="text-xl font-semibold text-foreground">
+                            {release.name}
+                          </h3>
+                          <Badge>{release.version}</Badge>
+                          <Badge variant="outline">{release.type}</Badge>
+                        </div>
+                        <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                          <span>Released on {release.releaseDate}</span>
+                          <span className="flex items-center gap-1">
+                            <Clock className="h-3 w-3" />
+                            Saved {release.savedDate}
+                          </span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                        <span>Released on {release.releaseDate}</span>
-                        <span className="flex items-center gap-1">
-                          <Clock className="h-3 w-3" />
-                          Saved {release.savedDate}
-                        </span>
+                      <div className="flex gap-2">
+                        <Button size="sm" variant="outline">
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          View Details
+                        </Button>
+                        <Button size="sm" variant="ghost">
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
                       </div>
                     </div>
-                    <div className="flex gap-2">
-                      <Button size="sm" variant="outline">
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        View Details
-                      </Button>
-                      <Button size="sm" variant="ghost">
-                        <Trash2 className="h-4 w-4" />
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
+                  </CardContent>
                 </Card>
               ))}
             </div>

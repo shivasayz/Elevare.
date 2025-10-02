@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
+import logo from "../../assests/logo.png";
 
 export const Footer = () => {
   const [email, setEmail] = useState("");
@@ -40,17 +41,17 @@ export const Footer = () => {
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">T</span>
-              </div>
-              <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-                TechHub
-              </span>
+          <div className="space-y-5">
+            <div className="w-52 h-20 flex items-center justify-center transition-all duration-300">
+              <img
+                src={logo}
+                alt="Logo"
+                className="h-full object-contain -ml-1"
+              />
             </div>
             <p className="text-sm text-muted-foreground font-medium tracking-wide">
-              Your gateway to tech opportunities, news, and innovation.
+              {" "}
+              Your gateway to tech opportunities, news, and innovation.{" "}
             </p>
           </div>
 

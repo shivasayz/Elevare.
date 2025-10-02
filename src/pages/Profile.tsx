@@ -39,7 +39,6 @@ const Profile = () => {
 
   return (
     <div className="min-h-screen bg-background font-inter">
-      <Navbar />
       <main className="container mx-auto px-4 py-8 pt-28 max-w-6xl">
         {/* Back Button */}
         <div className="mb-6">
