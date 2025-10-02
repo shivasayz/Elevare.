@@ -41,11 +41,7 @@ const Signup = () => {
           <Card className="w-full max-w-md backdrop-blur-xl bg-card/80 border-2 border-border/50 shadow-2xl">
             <CardHeader className="space-y-1 pb-6">
               {/* Logo */}
-              <div className="flex justify-center mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center shadow-lg">
-                  <span className="text-white font-bold text-xl">T</span>
-                </div>
-              </div>
+
               <CardTitle className="text-3xl font-bold text-center bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Create Account
               </CardTitle>
@@ -103,24 +99,6 @@ const Signup = () => {
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <Label
-                  htmlFor="confirmPassword"
-                  className="text-foreground font-medium"
-                >
-                  Confirm Password
-                </Label>
-                <div className="relative group">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
-                  <Input
-                    id="confirmPassword"
-                    type="password"
-                    placeholder="••••••••"
-                    className="pl-10 bg-background/50 border-border/50 focus:bg-background/80 transition-all"
-                  />
-                </div>
-              </div>
-
               <div className="flex items-center space-x-2">
                 <input
                   type="checkbox"
@@ -158,14 +136,16 @@ const Signup = () => {
               <div className="grid grid-cols-2 gap-4">
                 <Button
                   variant="outline"
-                  className="w-full bg-background/50 border-border/50 hover:bg-background/80 hover:border-primary/50 transition-all"
+                  className="w-full bg-background/50 border-border/50"
+                  disabled={true}
                 >
                   <Github className="mr-2 h-4 w-4" />
                   GitHub
                 </Button>
                 <Button
                   variant="outline"
-                  className="w-full bg-background/50 border-border/50 hover:bg-background/80 hover:border-primary/50 transition-all"
+                  className="w-full bg-background/50 border-border/50"
+                  disabled={true}
                 >
                   <Chrome className="mr-2 h-4 w-4" />
                   Google

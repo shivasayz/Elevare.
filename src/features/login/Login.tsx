@@ -35,7 +35,8 @@ const Login = () => {
               Ready to Build Something Amazing?
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Your next breakthrough is just a login away. Let's turn ideas into reality together.
+              Your next breakthrough is just a login away. Let's turn ideas into
+              reality together.
             </p>
 
             <div className="space-y-6">
@@ -48,7 +49,8 @@ const Login = () => {
                     Continue Your Success Story
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    Your projects are waiting. Every great product started with persistence.
+                    Your projects are waiting. Every great product started with
+                    persistence.
                   </p>
                 </div>
               </div>
@@ -62,7 +64,8 @@ const Login = () => {
                     Connect With Innovation
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    Join thousands of developers building the future of technology today.
+                    Join thousands of developers building the future of
+                    technology today.
                   </p>
                 </div>
               </div>
@@ -76,7 +79,8 @@ const Login = () => {
                     Achieve Your Goals
                   </h3>
                   <p className="text-muted-foreground text-sm">
-                    The tools you need, the community you deserve, all in one place.
+                    The tools you need, the community you deserve, all in one
+                    place.
                   </p>
                 </div>
               </div>
@@ -84,7 +88,8 @@ const Login = () => {
 
             <div className="mt-12 pt-8 border-t border-border/50">
               <p className="text-sm text-muted-foreground italic">
-                "The best time to code was yesterday. The second best time is now."
+                "The best time to code was yesterday. The second best time is
+                now."
               </p>
             </div>
           </div>
@@ -93,11 +98,7 @@ const Login = () => {
           <Card className="w-full max-w-md backdrop-blur-xl bg-card/80 border-2 border-border/50 shadow-2xl">
             <CardHeader className="space-y-1 pb-8">
               {/* Logo */}
-              <div className="flex justify-center mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center shadow-lg">
-                  <span className="text-white font-bold text-xl">T</span>
-                </div>
-              </div>
+              <div className="flex justify-center mb-4"></div>
               <CardTitle className="text-3xl font-bold text-center bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Welcome Back
               </CardTitle>
@@ -179,14 +180,16 @@ const Login = () => {
               <div className="grid grid-cols-2 gap-4">
                 <Button
                   variant="outline"
-                  className="w-full bg-background/50 border-border/50 hover:bg-background/80 hover:border-primary/50 transition-all"
+                  className="w-full bg-background/50 border-border/50"
+                  disabled={true}
                 >
                   <Github className="mr-2 h-4 w-4" />
                   GitHub
                 </Button>
                 <Button
                   variant="outline"
-                  className="w-full bg-background/50 border-border/50 hover:bg-background/80 hover:border-primary/50 transition-all"
+                  className="w-full bg-background/50 border-border/50"
+                  disabled={true}
                 >
                   <Chrome className="mr-2 h-4 w-4" />
                   Google
