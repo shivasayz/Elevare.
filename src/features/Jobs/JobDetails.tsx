@@ -227,7 +227,7 @@ const JobDetails = () => {
                   </div>
                 </div>
                 {job.featured && (
-                  <Badge className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/10 hover:text-primary hover:border-primary/20">
+                  <Badge className="bg-primary text-primary-foreground border-primary/20 hover:bg-primary/10 hover:bg-primary hover:border-primary/20">
                     Featured
                   </Badge>
                 )}
@@ -236,7 +236,11 @@ const JobDetails = () => {
               {/* Tags */}
               <div className="flex flex-wrap gap-2">
                 {job.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary">
+                  <Badge
+                    key={tag}
+                    variant="secondary"
+                    className="border border-black-300"
+                  >
                     {tag}
                   </Badge>
                 ))}
