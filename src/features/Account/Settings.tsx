@@ -15,7 +15,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Footer } from "@/features/Home/Footer";
 import { useNavigate } from "react-router-dom";
 import { Camera, User, Mail, ArrowLeft, Moon, Sun } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const cardStyle =
   "border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background hover:shadow-lg transition-all duration-300 animate-fade-in";
@@ -23,6 +23,10 @@ const cardStyle =
 const Settings = () => {
   const navigate = useNavigate();
   const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  });
 
   return (
     <div className="min-h-screen bg-background font-inter">

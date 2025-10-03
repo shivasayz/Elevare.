@@ -18,9 +18,14 @@ import {
   ArrowLeft,
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Profile = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  });
 
   const user = {
     name: "John Doe",

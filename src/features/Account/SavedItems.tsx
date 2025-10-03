@@ -8,7 +8,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Navbar } from "../components/Navbar";
+import { Navbar } from "../../components/Navbar";
 import { Footer } from "@/features/Home/Footer";
 import {
   Bookmark,
@@ -23,10 +23,15 @@ import {
   ArrowLeft,
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const SavedItems = () => {
   const navigate = useNavigate();
-  
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  });
+
   const savedJobs = [
     {
       id: 1,
@@ -134,7 +139,7 @@ const SavedItems = () => {
             Back
           </Button>
         </div>
-        
+
         <div className="mb-8 animate-fade-in">
           <h1 className="text-3xl font-bold text-foreground flex items-center gap-2">
             <Bookmark className="h-8 w-8" />
