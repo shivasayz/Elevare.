@@ -16,6 +16,7 @@ import {
   Share2,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useEffect } from "react";
 
 // Mock job data - in a real app, this would come from an API
 const jobsData = [
@@ -139,6 +140,10 @@ const JobDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { toast } = useToast();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  });
 
   const job = jobsData.find((j) => j.id === parseInt(id || "0"));
 
