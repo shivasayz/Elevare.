@@ -15,7 +15,15 @@ import { Textarea } from "@/components/ui/textarea";
 import { Footer } from "@/features/Home/Footer";
 import { Navbar } from "@/components/Navbar";
 import { useNavigate } from "react-router-dom";
-import { Camera, User, Mail, ArrowLeft, Moon, Sun } from "lucide-react";
+import {
+  Camera,
+  User,
+  Mail,
+  ArrowLeft,
+  Moon,
+  Sun,
+  Settings as SettingsIcon,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 
 const cardStyle =
@@ -45,12 +53,17 @@ const Settings = () => {
               Back
             </Button>
           </div>
-          <h1 className="text-3xl font-bold text-foreground">
-            Account Settings
-          </h1>
-          <p className="text-muted-foreground mt-2">
-            Manage your account settings and preferences
-          </p>
+
+          <div className="mb-8 animate-fade-in">
+            <h1 className="text-3xl font-bold text-foreground flex items-center gap-2">
+              <SettingsIcon className="h-8 w-8" />
+              Profile Settings
+            </h1>
+            <p className="text-muted-foreground mt-2">
+              Manage your account, update your profile picture, and view saved
+              items.
+            </p>
+          </div>
         </div>
 
         <div className="space-y-6 animate-fade-in">

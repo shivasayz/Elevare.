@@ -23,6 +23,7 @@ import {
   Search,
   Bookmark,
   Settings as SettingsIcon,
+  User,
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -63,6 +64,17 @@ const Profile = () => {
             <ArrowLeft className="h-4 w-4" />
             Back
           </Button>
+        </div>
+
+        <div className="mb-8 animate-fade-in">
+          <h1 className="text-3xl font-bold text-foreground flex items-center gap-2">
+            <User className="h-8 w-8" />
+            Profile
+          </h1>
+          <p className="text-muted-foreground mt-2">
+            Manage your account, update your profile picture, and view saved
+            items.
+          </p>
         </div>
 
         {/* Profile Header */}
@@ -237,9 +249,7 @@ const Profile = () => {
         <Card className="border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300">
           <CardHeader>
             <CardTitle>Quick Actions</CardTitle>
-            <CardDescription>
-              Common tasks and shortcuts
-            </CardDescription>
+            <CardDescription>Common tasks and shortcuts</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
