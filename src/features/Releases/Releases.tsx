@@ -159,15 +159,15 @@ export default function Releases() {
   const getCategoryColor = (category: string) => {
     switch (category) {
       case "framework":
-        return "bg-blue-500/10 text-blue-600 border-blue-500/20";
+        return "bg-blue-500/10 text-blue-600 border-blue-500/20 hover:bg-blue-500/10 hover:text-blue-600 hover:border-blue-500/20";
       case "library":
-        return "bg-green-500/10 text-green-600 border-green-500/20";
+        return "bg-green-500/10 text-green-600 border-green-500/20 hover:bg-green-500/10 hover:text-green-600 hover:border-green-500/20";
       case "tool":
-        return "bg-orange-500/10 text-orange-600 border-orange-500/20";
+        return "bg-orange-500/10 text-orange-600 border-orange-500/20 hover:bg-orange-500/10 hover:text-orange-600 hover:border-orange-500/20";
       case "language":
-        return "bg-purple-500/10 text-purple-600 border-purple-500/20";
+        return "bg-purple-500/10 text-purple-600 border-purple-500/20 hover:bg-purple-500/10 hover:text-purple-600 hover:border-purple-500/20";
       default:
-        return "bg-muted text-muted-foreground";
+        return "bg-muted text-muted-foreground hover:bg-muted hover:text-muted-foreground";
     }
   };
 
@@ -195,8 +195,8 @@ export default function Releases() {
         </div>
 
         {/* Category Tabs */}
-        <Tabs defaultValue="all" className="mb-8">
-          <TabsList className="grid w-full md:w-auto md:inline-grid grid-cols-2 md:grid-cols-5 bg-muted">
+        <Tabs defaultValue="all" className="mb-8 ">
+          <TabsList className="grid w-full md:w-auto md:inline-grid grid-cols-2 md:grid-cols-5 bg-muted border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background">
             <TabsTrigger value="all">All Releases</TabsTrigger>
             <TabsTrigger value="framework">Frameworks</TabsTrigger>
             <TabsTrigger value="library">Libraries</TabsTrigger>
@@ -253,7 +253,7 @@ function ReleaseGrid({
       {releases.map((release, index) => (
         <Card
           key={release.id}
-          className="flex flex-col h-full border border-card-border hover:shadow-lg transition-all duration-300 animate-fade-in hover:scale-[1.02] overflow-hidden"
+          className="flex flex-col h-full border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300 animate-fade-in hover:scale-[1.02] overflow-hidden"
           style={{ animationDelay: `${index * 0.1}s` }}
         >
           <CardHeader>
@@ -334,10 +334,15 @@ function ReleaseGrid({
                 <ExternalLink className="w-4 h-4 mr-1" />
                 View Details
               </Button>
-              <Button size="sm" variant="outline" className="flex-1">
+              {/* <Button 
+                size="sm" 
+                variant="outline" 
+                className="flex-1"
+                onClick={() => navigate(`/releases/${release.id}#changelog`)}
+              >
                 <GitBranch className="w-4 h-4 mr-1" />
                 Changelog
-              </Button>
+              </Button> */}
             </div>
           </CardContent>
         </Card>

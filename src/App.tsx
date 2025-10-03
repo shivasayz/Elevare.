@@ -11,11 +11,11 @@ import News from "./features/Articles/News";
 import ArticleDetail from "./features/Articles/ArticleDetail";
 import Releases from "./features/Releases/Releases";
 import ReleaseDetail from "./features/Releases/ReleaseDetail";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import Profile from "./pages/Profile";
-import Settings from "./pages/Settings";
-import SavedItems from "./pages/SavedItems";
+import Login from "./features/login/Login";
+import Signup from "./features/login/Signup";
+import Profile from "./features/Account/Profile";
+import Settings from "./features/Account/Settings";
+import SavedItems from "./features/Account/SavedItems";
 import NotFound from "./pages/NotFound";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./features/Home/Footer";
@@ -108,6 +108,7 @@ const App = () => {
               path="/profile"
               element={
                 <div className="min-h-screen bg-background font-inter">
+                  <Navbar />
                   <Profile />
                 </div>
               }
@@ -116,6 +117,7 @@ const App = () => {
               path="/settings"
               element={
                 <div className="min-h-screen bg-background font-inter">
+                  <Navbar />
                   <Settings />
                 </div>
               }
@@ -124,6 +126,7 @@ const App = () => {
               path="/saved"
               element={
                 <div className="min-h-screen bg-background font-inter">
+                  <Navbar />
                   <SavedItems />
                 </div>
               }

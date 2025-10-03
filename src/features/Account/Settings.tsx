@@ -12,15 +12,30 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
-import { Navbar } from "../components/Navbar";
 import { Footer } from "@/features/Home/Footer";
+import { Navbar } from "@/components/Navbar";
 import { useNavigate } from "react-router-dom";
-import { Camera, User, Mail, ArrowLeft, Moon, Sun } from "lucide-react";
-import { useState } from "react";
+import {
+  Camera,
+  User,
+  Mail,
+  ArrowLeft,
+  Moon,
+  Sun,
+  Settings as SettingsIcon,
+} from "lucide-react";
+import { useEffect, useState } from "react";
+
+const cardStyle =
+  "border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background hover:shadow-lg transition-all duration-300 animate-fade-in";
 
 const Settings = () => {
   const navigate = useNavigate();
   const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  });
 
   return (
     <div className="min-h-screen bg-background font-inter">
@@ -32,23 +47,28 @@ const Settings = () => {
               variant="ghost"
               size="sm"
               onClick={() => navigate(-1)}
-              className="gap-2 hover:bg-transparent hover:underline hover:text-black"
+              className="gap-2 hover:bg-transparent hover:underline"
             >
               <ArrowLeft className="h-4 w-4" />
               Back
             </Button>
           </div>
-          <h1 className="text-3xl font-bold text-foreground">
-            Account Settings
-          </h1>
-          <p className="text-muted-foreground mt-2">
-            Manage your account settings and preferences
-          </p>
+
+          <div className="mb-8 animate-fade-in">
+            <h1 className="text-3xl font-bold text-foreground flex items-center gap-2">
+              <SettingsIcon className="h-8 w-8" />
+              Profile Settings
+            </h1>
+            <p className="text-muted-foreground mt-2">
+              Manage your account, update your profile picture, and view saved
+              items.
+            </p>
+          </div>
         </div>
 
         <div className="space-y-6 animate-fade-in">
           {/* Profile Settings */}
-          <Card>
+          <Card className={cardStyle}>
             <CardHeader>
               <CardTitle>Profile Information</CardTitle>
               <CardDescription>
@@ -56,7 +76,6 @@ const Settings = () => {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
-              {/* Avatar Section */}
               <div className="flex items-center gap-6">
                 <Avatar className="h-20 w-20">
                   <AvatarImage src="/author.jpeg" />
@@ -75,7 +94,6 @@ const Settings = () => {
 
               <Separator />
 
-              {/* Form Fields */}
               <div className="grid gap-4">
                 <div className="grid gap-2">
                   <Label htmlFor="name">Full Name</Label>
@@ -128,7 +146,7 @@ const Settings = () => {
           </Card>
 
           {/* Appearance Settings */}
-          <Card>
+          <Card className={cardStyle}>
             <CardHeader>
               <CardTitle>Appearance</CardTitle>
               <CardDescription>
@@ -189,7 +207,7 @@ const Settings = () => {
           </Card>
 
           {/* Security Settings */}
-          <Card>
+          <Card className={cardStyle}>
             <CardHeader>
               <CardTitle>Security</CardTitle>
               <CardDescription>
@@ -237,7 +255,7 @@ const Settings = () => {
         </div>
 
         {/* Danger Zone */}
-        <Card className="mt-8 border-destructive/50">
+        <Card className={`${cardStyle} mt-8 border-destructive/50`}>
           <CardHeader>
             <CardTitle className="text-destructive">Danger Zone</CardTitle>
             <CardDescription>

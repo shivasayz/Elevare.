@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -218,15 +218,15 @@ const ReleaseDetail = () => {
   const getCategoryColor = (category: string) => {
     switch (category) {
       case "framework":
-        return "bg-blue-500/10 text-blue-600 border-blue-500/20";
+        return "bg-blue-500/10 text-blue-600 border-blue-500/20 hover:bg-blue-500/10 hover:text-blue-600 hover:border-blue-500/20";
       case "library":
-        return "bg-green-500/10 text-green-600 border-green-500/20";
+        return "bg-green-500/10 text-green-600 border-green-500/20 hover:bg-green-500/10 hover:text-green-600 hover:border-green-500/20";
       case "tool":
-        return "bg-orange-500/10 text-orange-600 border-orange-500/20";
+        return "bg-orange-500/10 text-orange-600 border-orange-500/20 hover:bg-orange-500/10 hover:text-orange-600 hover:border-orange-500/20";
       case "language":
-        return "bg-purple-500/10 text-purple-600 border-purple-500/20";
+        return "bg-purple-500/10 text-purple-600 border-purple-500/20 hover:bg-purple-500/10 hover:text-purple-600 hover:border-purple-500/20";
       default:
-        return "bg-muted text-muted-foreground";
+        return "bg-muted text-muted-foreground hover:bg-muted hover:text-muted-foreground";
     }
   };
 
@@ -320,7 +320,7 @@ const ReleaseDetail = () => {
         <Separator className="mb-8" />
 
         {/* Installation */}
-        <Card className="p-6 mb-6">
+        <Card className="p-6 mb-6 border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background">
           <h2 className="text-lg font-semibold mb-3 flex items-center gap-2">
             <Package className="h-5 w-5" />
             Installation
@@ -331,7 +331,7 @@ const ReleaseDetail = () => {
         </Card>
 
         {/* What's New */}
-        <Card className="p-6 mb-6">
+        <Card className="p-6 mb-6 border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background">
           <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
             <CheckCircle2 className="h-5 w-5 text-green-500" />
             What's New
@@ -366,7 +366,7 @@ const ReleaseDetail = () => {
 
         {/* Dependencies */}
         {Object.keys(release.dependencies).length > 0 && (
-          <Card className="p-6 mb-6">
+          <Card className="p-6 mb-6 border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background">
             <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
               <GitBranch className="h-5 w-5" />
               Dependencies
@@ -407,6 +407,48 @@ const ReleaseDetail = () => {
             <ExternalLink className="h-3 w-3" />
           </Button>
         </div>
+
+        {/* Changelog Section */}
+        {/* <Card id="changelog" className="overflow-hidden mt-8">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <GitBranch className="h-5 w-5" />
+              Changelog
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            <div className="space-y-4">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-2 h-2 rounded-full bg-primary mt-2"></div>
+                <div className="space-y-1">
+                  <p className="font-medium">Added new API endpoints for authentication</p>
+                  <p className="text-sm text-muted-foreground">Includes OAuth2 support and JWT token management</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-2 h-2 rounded-full bg-primary mt-2"></div>
+                <div className="space-y-1">
+                  <p className="font-medium">Improved performance by 40%</p>
+                  <p className="text-sm text-muted-foreground">Optimized database queries and caching mechanisms</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-2 h-2 rounded-full bg-primary mt-2"></div>
+                <div className="space-y-1">
+                  <p className="font-medium">Fixed critical security vulnerability</p>
+                  <p className="text-sm text-muted-foreground">Addressed XSS vulnerability in user input handling</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-2 h-2 rounded-full bg-destructive mt-2"></div>
+                <div className="space-y-1">
+                  <p className="font-medium">Deprecated legacy API v1</p>
+                  <p className="text-sm text-muted-foreground">Users should migrate to v2 before next major release</p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card> */}
       </div>
     </div>
   );

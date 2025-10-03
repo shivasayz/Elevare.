@@ -93,11 +93,78 @@ All colors MUST be HSL.
 
   .dark {
     /* Dark mode - Navy dominant with sapphire accents */
-    --background: 233 38% 12%; /* Dark Navy */
+    --background: 233 38% 8%; /* Dark Navy */
     --foreground: 40 7% 94%; /* Light Platinum */
 
-    --card: 233 38% 15%; /* Slightly lighter Navy */
+    --card: 233 38% 12%; /* Slightly lighter Navy */
     --card-foreground: 40 7% 94%; /* Light Platinum */
+    --card-border: 233 38% 20%;
+    --card-shadow: 0 4px 6px -1px hsl(0 0% 0% / 0.3);
+    --card-shadow-hover: 0 10px 15px -3px hsl(0 0% 0% / 0.4);
+
+    --popover: 233 38% 12%;
+    --popover-foreground: 40 7% 94%;
+
+    /* Primary - Light Platinum for dark mode */
+    --primary: 40 7% 89%; /* Platinum */
+    --primary-foreground: 233 38% 12%; /* Dark Navy */
+    --primary-hover: 40 7% 85%;
+    --primary-light: 233 38% 20%;
+
+    /* Secondary - Navy tones */
+    --secondary: 233 38% 20%;
+    --secondary-foreground: 40 7% 94%;
+    --secondary-hover: 233 38% 25%;
+
+    /* Muted */
+    --muted: 233 38% 20%;
+    --muted-foreground: 40 7% 65%;
+
+    /* Accent - Sapphire remains bright */
+    --accent: 201 59% 50%; /* Brighter Sapphire */
+    --accent-foreground: 233 38% 12%;
+    --accent-hover: 201 59% 55%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 40 7% 94%;
+
+    --border: 233 38% 20%;
+    --input: 233 38% 20%;
+    --ring: 201 59% 50%;
+
+    /* Gradients for dark mode */
+    --gradient-hero: linear-gradient(135deg, hsl(233 38% 12%), hsl(201 59% 35%));
+    --gradient-card: linear-gradient(145deg, hsl(233 38% 15%), hsl(233 38% 18%));
+    --gradient-navy: linear-gradient(135deg, hsl(233 38% 12%), hsl(233 38% 18%));
+    --gradient-sapphire: linear-gradient(135deg, hsl(201 59% 40%), hsl(201 59% 50%));
+
+    /* Shadows for dark mode */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.25);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.3);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.35);
+    --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.4);
+    --shadow-glow: 0 0 30px hsl(201 59% 50% / 0.25);
+
+    /* Glass effect for dark mode */
+    --glass-bg: hsl(233 38% 15% / 0.95);
+    --glass-border: hsl(233 38% 25% / 0.5);
+
+    /* Chart colors for dark mode */
+    --chart-1: 40 7% 89%;
+    --chart-2: 201 59% 50%;
+    --chart-3: 233 38% 25%;
+    --chart-4: 40 7% 75%;
+    --chart-5: 201 59% 40%;
+
+    /* Sidebar for dark mode */
+    --sidebar-background: 233 38% 12%;
+    --sidebar-foreground: 40 7% 94%;
+    --sidebar-primary: 40 7% 89%;
+    --sidebar-primary-foreground: 233 38% 12%;
+    --sidebar-accent: 201 59% 50%;
+    --sidebar-accent-foreground: 233 38% 12%;
+    --sidebar-border: 233 38% 20%;
+    --sidebar-ring: 201 59% 50%;
     --card-border: 233 38% 20%;
     --card-shadow: 0 4px 6px -1px hsl(0 0% 0% / 0.3);
     --card-shadow-hover: 0 10px 15px -3px hsl(0 0% 0% / 0.4);

@@ -154,7 +154,7 @@ export default function Jobs() {
         </div>
 
         {/* Filters */}
-        <div className="bg-card rounded-xl shadow-sm p-6 mb-8 animate-fade-in">
+        <div className="border border-primary/10 bg-gradient-to-br from-accent/10 via-primary/5 to-background rounded-xl shadow-sm p-6 mb-8 animate-fade-in">
           <div className="flex flex-col md:flex-row gap-4">
             <div className="flex-1">
               <div className="relative">
@@ -172,7 +172,7 @@ export default function Jobs() {
                 <MapPin className="w-4 h-4 mr-2" />
                 <SelectValue placeholder="Location" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="border border-primary/10 bg-gradient-to-br from-accent/10 via-primary/5 to-background">
                 <SelectItem value="all">All Locations</SelectItem>
                 <SelectItem value="San Francisco">San Francisco</SelectItem>
                 <SelectItem value="New York">New York</SelectItem>
@@ -187,7 +187,7 @@ export default function Jobs() {
                 <Filter className="w-4 h-4 mr-2" />
                 <SelectValue placeholder="Job Type" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background">
                 <SelectItem value="all">All Types</SelectItem>
                 <SelectItem value="Remote">Remote</SelectItem>
                 <SelectItem value="Hybrid">Hybrid</SelectItem>
@@ -202,9 +202,9 @@ export default function Jobs() {
           {filteredJobs.map((job, index) => (
             <Card
               key={job.id}
-              className={`border-card-border hover:shadow-lg transition-all duration-300 animate-fade-in hover:scale-[1.02] ${
+              className={`border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300 animate-fade-in hover:scale-[1.02] ${
                 job.featured
-                  ? "border-primary/50 bg-gradient-to-r from-primary-light/10 to-transparent"
+                  ? "border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background"
                   : ""
               }`}
               style={{ animationDelay: `${index * 0.1}s` }}
@@ -251,7 +251,7 @@ export default function Jobs() {
                 <div className="flex flex-wrap items-center gap-4 mb-4">
                   <Badge
                     variant="secondary"
-                    className="flex items-center space-x-1"
+                    className="flex items-center space-x-1 border border-black-300"
                   >
                     <Clock className="w-3 h-3" />
                     <span>{job.posted}</span>
@@ -275,7 +275,7 @@ export default function Jobs() {
                     <Badge
                       key={tag}
                       variant="secondary"
-                      className="bg-muted text-muted-foreground"
+                      className="bg-muted text-muted-foreground border border-black-300"
                     >
                       {tag}
                     </Badge>
