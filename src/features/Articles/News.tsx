@@ -176,7 +176,7 @@ export default function News() {
                 {articles.slice(0, 3).map((article) => (
                   <CarouselItem key={article.id} className="w-full px-4">
                     <Card
-                      className="overflow-hidden border-card-border transition-all duration-300"
+                      className="overflow-hidden border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300"
                       style={{ animation: "fade-in 0.5s ease-out forwards" }}
                     >
                       <div className="grid md:grid-cols-2 gap-0 h-full min-h-[450px] overflow-hidden rounded-lg">
@@ -260,7 +260,7 @@ export default function News() {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <Card
-                className="flex flex-col h-full border border-card-border hover:shadow-lg transition-all duration-300 animate-fade-in hover:scale-[1.02] overflow-hidden group"
+                className="flex flex-col h-full overflow-hidden border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300 hover:shadow-lg hover:scale-[1.02] group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Header */}
