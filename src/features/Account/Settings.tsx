@@ -13,6 +13,7 @@ import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { Footer } from "@/features/Home/Footer";
+import { Navbar } from "@/components/Navbar";
 import { useNavigate } from "react-router-dom";
 import { Camera, User, Mail, ArrowLeft, Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -30,6 +31,7 @@ const Settings = () => {
 
   return (
     <div className="min-h-screen bg-background font-inter">
+      <Navbar />
       <main className="container mx-auto px-4 py-8 pt-28 max-w-6xl">
         <div className="mb-8">
           <div className="flex items-center gap-4 mb-4">
@@ -37,7 +39,7 @@ const Settings = () => {
               variant="ghost"
               size="sm"
               onClick={() => navigate(-1)}
-              className="gap-2 hover:bg-transparent hover:underline hover:text-black"
+              className="gap-2 hover:bg-transparent hover:underline"
             >
               <ArrowLeft className="h-4 w-4" />
               Back
