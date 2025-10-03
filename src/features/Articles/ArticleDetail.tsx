@@ -148,22 +148,6 @@ const ArticleDetail = () => {
               </span>
             </div>
           </div>
-
-          {/* Social Share Buttons */}
-          <div className="flex items-center gap-2">
-            <Button variant="ghost" size="sm" className="gap-2">
-              <Bookmark className="h-4 w-4" />
-              <span className="hidden sm:inline">Save</span>
-            </Button>
-            <Button variant="ghost" size="sm" className="gap-2">
-              <Heart className="h-4 w-4" />
-              <span className="hidden sm:inline">{article.likes}</span>
-            </Button>
-            <Button variant="ghost" size="sm" className="gap-2">
-              <Share2 className="h-4 w-4" />
-              <span className="hidden sm:inline">Share</span>
-            </Button>
-          </div>
         </div>
       </div>
 
@@ -297,12 +281,23 @@ const ArticleDetail = () => {
               </div>
 
               <div className="flex items-center gap-4">
-                <Button variant="ghost" size="sm" className="gap-2">
-                  <Heart className="w-4 h-4" />
-                  {article.likes}
+                {/* Heart Button */}
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="gap-2 group hover:bg-transparent hover:text-black hover:border hover:border-black-100 focus-visible:ring-0"
+                >
+                  <Heart className="w-4 h-4 text-muted-foreground group-hover:fill-red-500" />
+                  <span> {article.likes}</span>
                 </Button>
-                <Button variant="ghost" size="sm" className="gap-2">
-                  <Bookmark className="w-4 h-4" />
+
+                {/* Save Button */}
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="gap-2 group hover:bg-transparent hover:text-black hover:border hover:border-black-100 focus-visible:ring-0"
+                >
+                  <Bookmark className="w-4 h-4 text-muted-foreground group-hover:fill-current" />
                   Save
                 </Button>
               </div>
