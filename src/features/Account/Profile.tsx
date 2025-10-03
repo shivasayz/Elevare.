@@ -16,6 +16,13 @@ import {
   Calendar,
   CreditCard as Edit,
   ArrowLeft,
+  Briefcase,
+  Newspaper,
+  Package,
+  FileText,
+  Search,
+  Bookmark,
+  Settings as SettingsIcon,
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -153,46 +160,161 @@ const Profile = () => {
           </Card>
         </div>
 
-        {/* Activity Tabs */}
-        <Card className="border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300">
+        {/* Recent Saved Items */}
+        <Card className="mb-8 border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300">
           <CardHeader>
-            <CardTitle>Activity</CardTitle>
+            <CardTitle>Recent Saved Items</CardTitle>
             <CardDescription>
-              Your recent activity and interactions
+              Your latest bookmarked jobs, articles, and releases
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Tabs defaultValue="overview" className="w-full ">
-              <TabsList className="grid w-full grid-cols-3 border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300">
-                <TabsTrigger value="overview">Overview</TabsTrigger>
-                <TabsTrigger value="applications">Applications</TabsTrigger>
-                <TabsTrigger value="contributions">Contributions</TabsTrigger>
-              </TabsList>
-              <TabsContent value="overview" className="space-y-4">
-                <div className="text-sm text-muted-foreground">
-                  <p>
-                    Recent activity will appear here including job applications,
-                    saved items, and more.
-                  </p>
+            <div className="space-y-4">
+              {/* Saved Job */}
+              <Link to="/jobs/1" className="block group">
+                <div className="flex items-start gap-4 p-4 rounded-lg border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300 hover:shadow-md hover:border-primary/20">
+                  <div className="p-2 rounded-lg bg-primary/10">
+                    <Briefcase className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                      Senior React Developer
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      Tech Corp • Remote • Saved 2 days ago
+                    </p>
+                  </div>
+                  <Bookmark className="h-5 w-5 text-primary fill-primary" />
                 </div>
-              </TabsContent>
-              <TabsContent value="applications" className="space-y-4">
-                <div className="text-sm text-muted-foreground">
-                  <p>
-                    Your job application history and status updates will be
-                    displayed here.
-                  </p>
+              </Link>
+
+              {/* Saved Article */}
+              <Link to="/news/1" className="block group">
+                <div className="flex items-start gap-4 p-4 rounded-lg border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300 hover:shadow-md hover:border-primary/20">
+                  <div className="p-2 rounded-lg bg-primary/10">
+                    <Newspaper className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                      The Future of AI in Web Development
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      Tech News • Saved 3 days ago
+                    </p>
+                  </div>
+                  <Bookmark className="h-5 w-5 text-primary fill-primary" />
                 </div>
-              </TabsContent>
-              <TabsContent value="contributions" className="space-y-4">
-                <div className="text-sm text-muted-foreground">
-                  <p>
-                    Your contributions, comments, and community interactions
-                    will be shown here.
-                  </p>
+              </Link>
+
+              {/* Saved Release */}
+              <Link to="/releases/1" className="block group">
+                <div className="flex items-start gap-4 p-4 rounded-lg border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300 hover:shadow-md hover:border-primary/20">
+                  <div className="p-2 rounded-lg bg-primary/10">
+                    <Package className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                      React 19.0 Released
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      Facebook • Saved 5 days ago
+                    </p>
+                  </div>
+                  <Bookmark className="h-5 w-5 text-primary fill-primary" />
                 </div>
-              </TabsContent>
-            </Tabs>
+              </Link>
+
+              <Link to="/saved">
+                <Button variant="outline" className="w-full mt-2">
+                  View All Saved Items
+                </Button>
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Actions */}
+        <Card className="border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300">
+          <CardHeader>
+            <CardTitle>Quick Actions</CardTitle>
+            <CardDescription>
+              Common tasks and shortcuts
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <Link to="/jobs">
+                <div className="p-4 rounded-lg border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300 hover:shadow-md hover:border-primary/20 cursor-pointer group">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                      <Search className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                        Browse Jobs
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        Find your next opportunity
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              <Link to="/news">
+                <div className="p-4 rounded-lg border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300 hover:shadow-md hover:border-primary/20 cursor-pointer group">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                      <Newspaper className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                        Latest News
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        Stay updated with tech
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              <Link to="/releases">
+                <div className="p-4 rounded-lg border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300 hover:shadow-md hover:border-primary/20 cursor-pointer group">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                      <Package className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                        New Releases
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        Discover latest updates
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              <Link to="/settings">
+                <div className="p-4 rounded-lg border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300 hover:shadow-md hover:border-primary/20 cursor-pointer group">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                      <SettingsIcon className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                        Settings
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        Manage your profile
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
           </CardContent>
         </Card>
       </main>
