@@ -17,6 +17,9 @@ import { useNavigate } from "react-router-dom";
 import { Camera, User, Mail, ArrowLeft, Moon, Sun } from "lucide-react";
 import { useState } from "react";
 
+const cardStyle =
+  "border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background hover:shadow-lg transition-all duration-300 animate-fade-in";
+
 const Settings = () => {
   const navigate = useNavigate();
   const [darkMode, setDarkMode] = useState(false);
@@ -46,7 +49,7 @@ const Settings = () => {
 
         <div className="space-y-6 animate-fade-in">
           {/* Profile Settings */}
-          <Card>
+          <Card className={cardStyle}>
             <CardHeader>
               <CardTitle>Profile Information</CardTitle>
               <CardDescription>
@@ -54,7 +57,6 @@ const Settings = () => {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
-              {/* Avatar Section */}
               <div className="flex items-center gap-6">
                 <Avatar className="h-20 w-20">
                   <AvatarImage src="/author.jpeg" />
@@ -73,7 +75,6 @@ const Settings = () => {
 
               <Separator />
 
-              {/* Form Fields */}
               <div className="grid gap-4">
                 <div className="grid gap-2">
                   <Label htmlFor="name">Full Name</Label>
@@ -126,7 +127,7 @@ const Settings = () => {
           </Card>
 
           {/* Appearance Settings */}
-          <Card>
+          <Card className={cardStyle}>
             <CardHeader>
               <CardTitle>Appearance</CardTitle>
               <CardDescription>
@@ -187,7 +188,7 @@ const Settings = () => {
           </Card>
 
           {/* Security Settings */}
-          <Card>
+          <Card className={cardStyle}>
             <CardHeader>
               <CardTitle>Security</CardTitle>
               <CardDescription>
@@ -235,7 +236,7 @@ const Settings = () => {
         </div>
 
         {/* Danger Zone */}
-        <Card className="mt-8 border-destructive/50">
+        <Card className={`${cardStyle} mt-8 border-destructive/50`}>
           <CardHeader>
             <CardTitle className="text-destructive">Danger Zone</CardTitle>
             <CardDescription>

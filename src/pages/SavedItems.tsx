@@ -53,6 +53,7 @@ const SavedItems = () => {
       savedDate: "2 weeks ago",
     },
   ];
+
   const savedArticles = [
     {
       id: 1,
@@ -130,7 +131,7 @@ const SavedItems = () => {
         </div>
 
         <Tabs defaultValue="articles" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-3 bg-muted/50">
+          <TabsList className="grid w-full grid-cols-3 bg-muted/50 border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300">
             <TabsTrigger value="articles" className="flex items-center gap-2">
               <Newspaper className="h-4 w-4" />
               Articles ({savedArticles.length})
@@ -145,12 +146,13 @@ const SavedItems = () => {
             </TabsTrigger>
           </TabsList>
 
+          {/* ARTICLES */}
           <TabsContent value="articles" className="space-y-4">
             <div className="grid gap-4">
               {savedArticles.map((article, index) => (
                 <Card
                   key={article.id}
-                  className="hover:shadow-lg transition-all duration-300 animate-fade-in"
+                  className="border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background hover:shadow-lg transition-all duration-300 animate-fade-in"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <CardContent className="p-6">
@@ -175,7 +177,7 @@ const SavedItems = () => {
                           <Button
                             size="sm"
                             variant="ghost"
-                            className="text-destructive hover:text-destructive"
+                            className="text-destructive hover:bg-destructive/100"
                           >
                             <Trash2 className="h-4 w-4" />
                           </Button>
@@ -209,15 +211,16 @@ const SavedItems = () => {
             </div>
           </TabsContent>
 
+          {/* JOBS */}
           <TabsContent value="jobs" className="space-y-4">
             <div className="grid gap-4">
               {savedJobs.map((job, index) => (
                 <Card
                   key={job.id}
-                  className="hover:shadow-lg transition-all duration-300 animate-fade-in"
+                  className="border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background hover:shadow-lg transition-all duration-300 animate-fade-in"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <CardContent className="p-6">
+                  <CardContent className="p-6 ">
                     <div className="flex items-start justify-between">
                       <div className="space-y-3 flex-1">
                         <div>
@@ -248,7 +251,11 @@ const SavedItems = () => {
                       </div>
                       <div className="flex gap-2 ml-4">
                         <Button size="sm">Apply Now</Button>
-                        <Button size="sm" variant="ghost">
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          className="text-destructive hover:bg-destructive/100"
+                        >
                           <Trash2 className="h-4 w-4" />
                         </Button>
                       </div>
@@ -259,12 +266,13 @@ const SavedItems = () => {
             </div>
           </TabsContent>
 
+          {/* RELEASES */}
           <TabsContent value="releases" className="space-y-4">
             <div className="grid gap-4">
               {savedReleases.map((release, index) => (
                 <Card
                   key={release.id}
-                  className="hover:shadow-lg transition-all duration-300 animate-fade-in"
+                  className="border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background hover:shadow-lg transition-all duration-300 animate-fade-in"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <CardContent className="p-6">
@@ -290,7 +298,11 @@ const SavedItems = () => {
                           <ExternalLink className="h-4 w-4 mr-2" />
                           View Details
                         </Button>
-                        <Button size="sm" variant="ghost">
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          className="text-destructive hover:bg-destructive/100"
+                        >
                           <Trash2 className="h-4 w-4" />
                         </Button>
                       </div>
@@ -301,15 +313,6 @@ const SavedItems = () => {
             </div>
           </TabsContent>
         </Tabs>
-
-        {/* Empty State Example (commented out, shown when no items) */}
-        {/* <Card className="text-center py-12">
-          <CardContent>
-            <Bookmark className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-            <h3 className="text-lg font-semibold mb-2">No saved items yet</h3>
-            <p className="text-muted-foreground">Start saving jobs, articles, and releases to access them here</p>
-          </CardContent>
-        </Card> */}
       </main>
       <Footer />
     </div>

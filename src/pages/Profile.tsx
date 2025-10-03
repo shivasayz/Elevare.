@@ -54,7 +54,7 @@ const Profile = () => {
         </div>
 
         {/* Profile Header */}
-        <Card className="mb-8 animate-fade-in">
+        <Card className="mb-8 animate-fade-in border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300">
           <CardContent className="p-8">
             <div className="flex flex-col md:flex-row items-start gap-6">
               <Avatar className="h-24 w-24 border-4 border-background shadow-lg">
@@ -103,7 +103,7 @@ const Profile = () => {
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          <Card>
+          <Card className="border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300">
             <CardHeader className="pb-3">
               <CardTitle className="text-base font-medium">
                 Saved Jobs
@@ -118,7 +118,7 @@ const Profile = () => {
               </p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300">
             <CardHeader className="pb-3">
               <CardTitle className="text-base font-medium">
                 Saved Articles
@@ -133,7 +133,7 @@ const Profile = () => {
               </p>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300">
             <CardHeader className="pb-3">
               <CardTitle className="text-base font-medium">
                 Saved Releases
@@ -149,7 +149,7 @@ const Profile = () => {
         </div>
 
         {/* Activity Tabs */}
-        <Card>
+        <Card className="border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300">
           <CardHeader>
             <CardTitle>Activity</CardTitle>
             <CardDescription>
@@ -157,8 +157,8 @@ const Profile = () => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Tabs defaultValue="overview" className="w-full">
-              <TabsList className="grid w-full grid-cols-3">
+            <Tabs defaultValue="overview" className="w-full ">
+              <TabsList className="grid w-full grid-cols-3 border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300">
                 <TabsTrigger value="overview">Overview</TabsTrigger>
                 <TabsTrigger value="applications">Applications</TabsTrigger>
                 <TabsTrigger value="contributions">Contributions</TabsTrigger>

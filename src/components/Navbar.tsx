@@ -107,7 +107,11 @@ export const Navbar = () => {
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-64 p-2" align="end" forceMount>
+            <DropdownMenuContent
+              className="w-64 p-2 border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background transition-all duration-300"
+              align="end"
+              forceMount
+            >
               <div className="flex items-center justify-start gap-2 p-2">
                 <Avatar className="h-10 w-10">
                   <AvatarImage src="/author.jpeg" alt="User" />
