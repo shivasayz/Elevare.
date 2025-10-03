@@ -38,7 +38,7 @@ const Signup = () => {
       <div className="relative min-h-screen flex items-center justify-center p-4">
         <div className="w-full max-w-6xl flex items-center gap-28">
           {/* Left Side - Signup Form */}
-          <Card className="w-full max-w-md backdrop-blur-xl bg-card/80 border-2 border-border/50 shadow-2xl">
+          <Card className="w-full max-w-md backdrop-blur-xl border-black-300 shadow-2xl bg-gradient-to-br from-accent/10 via-primary/5 to-background">
             <CardHeader className="space-y-1 pb-6">
               {/* Logo */}
 
@@ -136,15 +136,16 @@ const Signup = () => {
               <div className="grid grid-cols-2 gap-4">
                 <Button
                   variant="outline"
-                  className="w-full bg-background/50 border-border/50"
+                  className="w-full bg-background/50 border border-black"
                   disabled={true}
                 >
                   <Github className="mr-2 h-4 w-4" />
                   GitHub
                 </Button>
+
                 <Button
                   variant="outline"
-                  className="w-full bg-background/50 border-border/50"
+                  className="w-full bg-background/50 border border-black"
                   disabled={true}
                 >
                   <Chrome className="mr-2 h-4 w-4" />

@@ -95,7 +95,7 @@ const Login = () => {
           </div>
 
           {/* Right Side - Login Form */}
-          <Card className="w-full max-w-md backdrop-blur-xl bg-card/80 border-2 border-border/50 shadow-2xl">
+          <Card className="w-full max-w-md backdrop-blur-xl bg-card/80 border-black-300 shadow-2xl bg-gradient-to-br from-accent/10 via-primary/5 to-background">
             <CardHeader className="space-y-1 pb-8">
               {/* Logo */}
               <div className="flex justify-center mb-4"></div>
@@ -166,29 +166,25 @@ const Login = () => {
                 Sign In
               </Button>
 
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <Separator className="bg-border/50" />
-                </div>
-                <div className="relative flex justify-center text-xs uppercase">
-                  <span className="bg-card px-3 text-muted-foreground">
-                    Or continue with
-                  </span>
-                </div>
+              <div className="flex items-center gap-4 text-xs uppercase text-muted-foreground">
+                <div className="flex-1 h-px bg-border/100" />
+                <span>Or continue with</span>
+                <div className="flex-1 h-px bg-border/100" />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <Button
                   variant="outline"
-                  className="w-full bg-background/50 border-border/50"
+                  className="w-full bg-background/50 border border-black"
                   disabled={true}
                 >
                   <Github className="mr-2 h-4 w-4" />
                   GitHub
                 </Button>
+
                 <Button
                   variant="outline"
-                  className="w-full bg-background/50 border-border/50"
+                  className="w-full bg-background/50 border border-black"
                   disabled={true}
                 >
                   <Chrome className="mr-2 h-4 w-4" />
