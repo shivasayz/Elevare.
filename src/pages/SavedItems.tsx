@@ -20,10 +20,13 @@ import {
   Clock,
   ExternalLink,
   Trash2,
+  ArrowLeft,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SavedItems = () => {
+  const navigate = useNavigate();
+  
   const savedJobs = [
     {
       id: 1,
@@ -120,6 +123,18 @@ const SavedItems = () => {
   return (
     <div className="min-h-screen bg-background font-inter">
       <main className="container mx-auto px-4 py-8 pt-28 max-w-6xl">
+        <div className="mb-6">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => navigate(-1)}
+            className="gap-2 hover:bg-transparent hover:underline hover:text-black"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back
+          </Button>
+        </div>
+        
         <div className="mb-8 animate-fade-in">
           <h1 className="text-3xl font-bold text-foreground flex items-center gap-2">
             <Bookmark className="h-8 w-8" />

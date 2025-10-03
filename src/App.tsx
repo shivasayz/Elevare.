@@ -108,6 +108,7 @@ const App = () => {
               path="/profile"
               element={
                 <div className="min-h-screen bg-background font-inter">
+                  <Navbar />
                   <Profile />
                 </div>
               }
@@ -116,6 +117,7 @@ const App = () => {
               path="/settings"
               element={
                 <div className="min-h-screen bg-background font-inter">
+                  <Navbar />
                   <Settings />
                 </div>
               }
@@ -124,6 +126,7 @@ const App = () => {
               path="/saved"
               element={
                 <div className="min-h-screen bg-background font-inter">
+                  <Navbar />
                   <SavedItems />
                 </div>
               }
