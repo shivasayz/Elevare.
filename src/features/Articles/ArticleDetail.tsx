@@ -313,37 +313,6 @@ const ArticleDetail = () => {
         {/* Right - Sidebar */}
         <div className="space-y-6 lg:sticky lg:top-24 self-start order-1 lg:order-2">
           {/* Save and Share Card - Similar to JobDetails */}
-          <Card className="p-4 md:p-6 rounded-xl border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background">
-            <h3 className="font-semibold text-foreground mb-4">Actions</h3>
-            <div className="space-y-3">
-              <Button className="w-full justify-start" variant="outline">
-                <Bookmark className="w-4 h-4 mr-2" />
-                Save for Later
-              </Button>
-              <Separator />
-              <div className="space-y-2">
-                <p className="text-sm font-medium text-muted-foreground mb-2">Share Article</p>
-                <div className="grid grid-cols-2 gap-2">
-                  <Button size="sm" variant="outline" className="justify-start">
-                    <Twitter className="w-4 h-4 mr-2" />
-                    Twitter
-                  </Button>
-                  <Button size="sm" variant="outline" className="justify-start">
-                    <Linkedin className="w-4 h-4 mr-2" />
-                    LinkedIn
-                  </Button>
-                  <Button size="sm" variant="outline" className="justify-start">
-                    <Facebook className="w-4 h-4 mr-2" />
-                    Facebook
-                  </Button>
-                  <Button size="sm" variant="outline" className="justify-start">
-                    <Link className="w-4 h-4 mr-2" />
-                    Copy Link
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </Card>
 
           {/* Author Card */}
           <Card className="p-4 md:p-6 rounded-xl border border-primary/10 bg-gradient-to-br from-accent/10 via-primary/5 to-background">

@@ -227,7 +227,7 @@ const JobDetails = () => {
                   </div>
                 </div>
                 {job.featured && (
-                  <Badge className="bg-primary/10 text-primary border-primary/20">
+                  <Badge className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/10 hover:text-primary hover:border-primary/20">
                     Featured
                   </Badge>
                 )}
@@ -244,7 +244,7 @@ const JobDetails = () => {
             </div>
 
             {/* Job Description */}
-            <Card className="p-6">
+            <Card className="p-6 border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background">
               <h2 className="text-xl font-semibold mb-4">About the Role</h2>
               <p className="text-muted-foreground leading-relaxed">
                 {job.description}
@@ -252,7 +252,7 @@ const JobDetails = () => {
             </Card>
 
             {/* Responsibilities */}
-            <Card className="p-6">
+            <Card className="p-6 border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background">
               <h2 className="text-xl font-semibold mb-4">
                 Key Responsibilities
               </h2>
@@ -267,7 +267,7 @@ const JobDetails = () => {
             </Card>
 
             {/* Requirements */}
-            <Card className="p-6">
+            <Card className="p-6 border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background">
               <h2 className="text-xl font-semibold mb-4">Requirements</h2>
               <ul className="space-y-3">
                 {job.requirements.map((item, index) => (
@@ -280,7 +280,7 @@ const JobDetails = () => {
             </Card>
 
             {/* Benefits */}
-            <Card className="p-6">
+            <Card className="p-6 border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background">
               <h2 className="text-xl font-semibold mb-4">Benefits & Perks</h2>
               <ul className="space-y-3">
                 {job.benefits.map((item, index) => (
@@ -317,7 +317,7 @@ const JobDetails = () => {
             </Card>
 
             {/* Job Details Card */}
-            <Card className="p-6">
+            <Card className="p-6 border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background">
               <h3 className="font-semibold mb-4">Job Details</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
@@ -349,7 +349,7 @@ const JobDetails = () => {
             </Card>
 
             {/* Company Info Card */}
-            <Card className="p-6">
+            <Card className="p-6 border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background">
               <h3 className="font-semibold mb-4">About {job.company}</h3>
               <p className="text-sm text-muted-foreground mb-4">
                 {job.aboutCompany}

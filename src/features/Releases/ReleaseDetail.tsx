@@ -320,7 +320,7 @@ const ReleaseDetail = () => {
         <Separator className="mb-8" />
 
         {/* Installation */}
-        <Card className="p-6 mb-6">
+        <Card className="p-6 mb-6 border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background">
           <h2 className="text-lg font-semibold mb-3 flex items-center gap-2">
             <Package className="h-5 w-5" />
             Installation
@@ -331,7 +331,7 @@ const ReleaseDetail = () => {
         </Card>
 
         {/* What's New */}
-        <Card className="p-6 mb-6">
+        <Card className="p-6 mb-6 border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background">
           <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
             <CheckCircle2 className="h-5 w-5 text-green-500" />
             What's New
@@ -366,7 +366,7 @@ const ReleaseDetail = () => {
 
         {/* Dependencies */}
         {Object.keys(release.dependencies).length > 0 && (
-          <Card className="p-6 mb-6">
+          <Card className="p-6 mb-6 border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background">
             <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
               <GitBranch className="h-5 w-5" />
               Dependencies
