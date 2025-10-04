@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -11,10 +12,21 @@ import {
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Link } from "react-router-dom";
-import { Mail, Lock, Github, Chrome } from "lucide-react";
-import { Rocket, Lightbulb, Target } from "lucide-react";
+import {
+  Mail,
+  Lock,
+  Github,
+  Chrome,
+  Eye,
+  EyeOff,
+  Rocket,
+  Lightbulb,
+  Target,
+} from "lucide-react";
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false); // 👈 Password visibility state
+
   return (
     <div className="relative min-h-screen overflow-hidden">
       {/* Premium gradient background matching hero */}
@@ -97,7 +109,6 @@ const Login = () => {
           {/* Right Side - Login Form */}
           <Card className="w-full max-w-md backdrop-blur-xl bg-card/80 border-black-300 shadow-2xl bg-gradient-to-br from-accent/10 via-primary/5 to-background">
             <CardHeader className="space-y-1 pb-8">
-              {/* Logo */}
               <div className="flex justify-center mb-4"></div>
               <CardTitle className="text-3xl font-bold text-center bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Welcome Back
@@ -108,6 +119,7 @@ const Login = () => {
             </CardHeader>
 
             <CardContent className="space-y-5">
+              {/* Email Input */}
               <div className="space-y-2">
                 <Label htmlFor="email" className="text-foreground font-medium">
                   Email
@@ -123,6 +135,7 @@ const Login = () => {
                 </div>
               </div>
 
+              {/* Password Input with Eye Toggle */}
               <div className="space-y-2">
                 <Label
                   htmlFor="password"
@@ -132,15 +145,31 @@ const Login = () => {
                 </Label>
                 <div className="relative group">
                   <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
+
                   <Input
                     id="password"
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     placeholder="••••••••"
-                    className="pl-10 bg-background/50 border-border/50 focus:bg-background/80 transition-all"
+                    className="pl-10 pr-10 bg-background/50 border-border/50 focus:bg-background/80 transition-all"
                   />
+
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword((prev) => !prev)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-primary transition-colors"
+                    tabIndex={-1}
+                    aria-label="Toggle password visibility"
+                  >
+                    {showPassword ? (
+                      <EyeOff className="h-4 w-4" />
+                    ) : (
+                      <Eye className="h-4 w-4" />
+                    )}
+                  </button>
                 </div>
               </div>
 
+              {/* Remember Me & Forgot Password */}
               <div className="flex items-center justify-between">
                 <label className="flex items-center space-x-2 cursor-pointer">
                   <input
@@ -159,6 +188,7 @@ const Login = () => {
                 </Link>
               </div>
 
+              {/* Sign In Button */}
               <Button
                 className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-white shadow-lg"
                 size="lg"
@@ -166,12 +196,14 @@ const Login = () => {
                 Sign In
               </Button>
 
+              {/* Divider */}
               <div className="flex items-center gap-4 text-xs uppercase text-muted-foreground">
                 <div className="flex-1 h-px bg-border/100" />
                 <span>Or continue with</span>
                 <div className="flex-1 h-px bg-border/100" />
               </div>
 
+              {/* OAuth Buttons */}
               <div className="grid grid-cols-2 gap-4">
                 <Button
                   variant="outline"
@@ -193,6 +225,7 @@ const Login = () => {
               </div>
             </CardContent>
 
+            {/* Footer */}
             <CardFooter className="pt-2 pb-6">
               <p className="text-center text-sm text-muted-foreground w-full">
                 Don't have an account?{" "}
