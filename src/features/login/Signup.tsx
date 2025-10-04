@@ -185,7 +185,7 @@ const Signup = () => {
               <div className="grid grid-cols-2 gap-4">
                 <Button
                   variant="outline"
-                  className="w-full bg-background/50 border border-black hover:bg-gray-300 hover:text-black-200"
+                  className="w-full bg-background/50 border border-transparent hover:border-black hover:bg-gray-300 hover:text-black transition-all"
                   // disabled={true}
                 >
                   <img src={githubLogo} alt="Google" className="mr-2 h-6 w-6" />
@@ -194,7 +194,7 @@ const Signup = () => {
 
                 <Button
                   variant="outline"
-                  className="w-full bg-background/50 border border-black hover:bg-gray-300 hover:text-black-200"
+                  className="w-full bg-background/50 border border-transparent hover:border-black hover:bg-gray-300 hover:text-black transition-all"
                   // disabled={true}
                 >
                   <img src={googleLogo} alt="Google" className="mr-2 h-6 w-6" />
