@@ -23,6 +23,8 @@ import {
   Lightbulb,
   Target,
 } from "lucide-react";
+import googleLogo from "../../assests/google.svg";
+import githubLogo from "../../assests/github.svg";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false); // 👈 Password visibility state
@@ -207,19 +209,19 @@ const Login = () => {
               <div className="grid grid-cols-2 gap-4">
                 <Button
                   variant="outline"
-                  className="w-full bg-background/50 border border-black"
-                  disabled={true}
+                  className="w-full bg-background/50 border border-black hover:bg-gray-300 hover:text-black-200"
+                  // disabled={true}
                 >
-                  <Github className="mr-2 h-4 w-4" />
+                  <img src={githubLogo} alt="Google" className="mr-2 h-6 w-6" />
                   GitHub
                 </Button>
 
                 <Button
                   variant="outline"
-                  className="w-full bg-background/50 border border-black"
-                  disabled={true}
+                  className="w-full bg-background/50 border border-black hover:bg-gray-300 hover:text-black-200"
+                  // disabled={true}
                 >
-                  <Chrome className="mr-2 h-4 w-4" />
+                  <img src={googleLogo} alt="Google" className="mr-2 h-6 w-6" />
                   Google
                 </Button>
               </div>
