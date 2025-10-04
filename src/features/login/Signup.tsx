@@ -20,9 +20,14 @@ import {
   Rocket,
   Lightbulb,
   Target,
+  EyeOff,
+  Eye,
 } from "lucide-react";
+import { useState } from "react";
 
 const Signup = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <div className="relative min-h-screen overflow-hidden">
       {/* Premium gradient background matching hero */}
@@ -51,21 +56,48 @@ const Signup = () => {
             </CardHeader>
 
             <CardContent className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="name" className="text-foreground font-medium">
-                  Full Name
-                </Label>
-                <div className="relative group">
-                  <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
-                  <Input
-                    id="name"
-                    type="text"
-                    placeholder="John Doe"
-                    className="pl-10 bg-background/50 border-border/50 focus:bg-background/80 transition-all"
-                  />
+              {/* First & Last Name - side by side */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* First Name */}
+                <div className="space-y-2">
+                  <Label
+                    htmlFor="firstName"
+                    className="text-foreground font-medium"
+                  >
+                    First Name
+                  </Label>
+                  <div className="relative group">
+                    <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
+                    <Input
+                      id="firstName"
+                      type="text"
+                      placeholder="John"
+                      className="pl-10 bg-background/50 border-border/50 focus:bg-background/80 transition-all"
+                    />
+                  </div>
+                </div>
+
+                {/* Last Name */}
+                <div className="space-y-2">
+                  <Label
+                    htmlFor="lastName"
+                    className="text-foreground font-medium"
+                  >
+                    Last Name
+                  </Label>
+                  <div className="relative group">
+                    <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
+                    <Input
+                      id="lastName"
+                      type="text"
+                      placeholder="Doe"
+                      className="pl-10 bg-background/50 border-border/50 focus:bg-background/80 transition-all"
+                    />
+                  </div>
                 </div>
               </div>
 
+              {/* Email */}
               <div className="space-y-2">
                 <Label htmlFor="email" className="text-foreground font-medium">
                   Email
@@ -81,6 +113,7 @@ const Signup = () => {
                 </div>
               </div>
 
+              {/* Password */}
               <div className="space-y-2">
                 <Label
                   htmlFor="password"
@@ -90,15 +123,31 @@ const Signup = () => {
                 </Label>
                 <div className="relative group">
                   <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
+
+                  {/* Password input with toggle button */}
                   <Input
                     id="password"
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     placeholder="••••••••"
-                    className="pl-10 bg-background/50 border-border/50 focus:bg-background/80 transition-all"
+                    className="pl-10 pr-10 bg-background/50 border-border/50 focus:bg-background/80 transition-all"
                   />
+
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword((prev) => !prev)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-primary transition-colors"
+                    tabIndex={-1}
+                  >
+                    {showPassword ? (
+                      <EyeOff className="h-4 w-4" />
+                    ) : (
+                      <Eye className="h-4 w-4" />
+                    )}
+                  </button>
                 </div>
               </div>
 
+              {/* Terms Checkbox */}
               <div className="flex items-center space-x-2">
                 <input
                   type="checkbox"
@@ -115,6 +164,7 @@ const Signup = () => {
                 </span>
               </div>
 
+              {/* Create Account Button */}
               <Button
                 className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity text-white shadow-lg"
                 size="lg"
@@ -122,17 +172,14 @@ const Signup = () => {
                 Create Account
               </Button>
 
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <Separator className="bg-border/50" />
-                </div>
-                <div className="relative flex justify-center text-xs uppercase">
-                  <span className="bg-card px-3 text-muted-foreground">
-                    Or continue with
-                  </span>
-                </div>
+              {/* Separator */}
+              <div className="flex items-center gap-4 text-xs uppercase text-muted-foreground">
+                <div className="flex-1 h-px bg-border/100" />
+                <span>Or continue with</span>
+                <div className="flex-1 h-px bg-border/100" />
               </div>
 
+              {/* OAuth Buttons */}
               <div className="grid grid-cols-2 gap-4">
                 <Button
                   variant="outline"
