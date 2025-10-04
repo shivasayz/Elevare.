@@ -31,7 +31,7 @@ const Login = () => {
         <div className="w-full max-w-6xl flex items-center gap-28">
           {/* Left Side - Welcome Back Content */}
           <div className="hidden lg:flex flex-col justify-center flex-1 max-w-xl">
-            <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <h1 className="text-5xl font-bold mb-6 pb-2 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               Ready to Build Something Amazing?
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
