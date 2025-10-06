@@ -14,6 +14,7 @@ import {
   ArrowLeft,
   Bookmark,
   Share2,
+  AlertCircle,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useEffect } from "react";
@@ -57,6 +58,8 @@ const jobsData = [
       "TechCorp Solutions is a leading technology company specializing in innovative software solutions. We're passionate about creating products that make a difference.",
     teamSize: "50-100 employees",
     founded: "2015",
+    futureProjects:
+      "TechCorp Solutions is planning to launch AI-powered analytics tools and expand into new markets in the coming year.",
   },
   {
     id: 2,
@@ -93,8 +96,9 @@ const jobsData = [
     ],
     aboutCompany:
       "Creative Studios is an award-winning design agency that partners with brands to create exceptional digital experiences.",
-    teamSize: "25-50 employees",
     founded: "2018",
+    futureProjects:
+      "Creative Studios will be working on immersive AR/VR experiences and launching a new design mentorship program.",
   },
   {
     id: 3,
@@ -130,9 +134,10 @@ const jobsData = [
       "Comprehensive health coverage",
     ],
     aboutCompany:
-      "CloudTech Inc is a cloud infrastructure company helping businesses modernize their technology stack and achieve digital transformation.",
-    teamSize: "100-200 employees",
+      "CloudTech Inc is a cloud infrastructure company focused on scalable and secure solutions for businesses worldwide.",
     founded: "2012",
+    futureProjects:
+      "CloudTech Inc is developing multi-cloud orchestration solutions and enhancing security automation features.",
   },
 ];
 
@@ -363,7 +368,8 @@ const JobDetails = () => {
               <p className="text-sm text-muted-foreground mb-4">
                 {job.aboutCompany}
               </p>
-              <div className="space-y-3">
+
+              <div className="space-y-3 mb-6">
                 <div className="flex items-center gap-3">
                   <Users className="h-4 w-4 text-muted-foreground" />
                   <div>
@@ -380,6 +386,29 @@ const JobDetails = () => {
                     <p className="font-medium">{job.founded}</p>
                   </div>
                 </div>
+              </div>
+
+              {/* Future Projects Section */}
+              <div>
+                <h4 className="font-semibold mb-2 flex items-center gap-2">
+                  Future Projects
+                  {/* <Badge
+                    variant="outline"
+                    className="text-yellow-600 border-yellow-600"
+                  >
+                    Tentative
+                    <AlertCircle className="h-4 w-4 ml-1" />
+                  </Badge> */}
+                  <Badge
+                    variant="outline"
+                    className="text-green-600 border-green-600 flex items-center gap-1"
+                  >
+                    Confirmed <CheckCircle2 className="h-4 w-4" />
+                  </Badge>
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  {job.futureProjects}
+                </p>
               </div>
             </Card>
           </div>
