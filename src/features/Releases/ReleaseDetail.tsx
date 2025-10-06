@@ -179,7 +179,6 @@ const releasesData = [
     breakingChanges: [],
     stars: 68000,
     downloads: 5000000,
-    breaking: false,
     documentation: "https://bun.sh/docs",
     github: "https://github.com/oven-sh/bun",
     dependencies: {},
@@ -266,7 +265,7 @@ const ReleaseDetail = () => {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-5xl mx-auto px-6 py-8">
+      <div className="max-w-6xl mx-auto px-4 py-8">
         {/* Release Header */}
         <div className="mb-8">
           <div className="flex items-start justify-between mb-4">
@@ -348,16 +347,16 @@ const ReleaseDetail = () => {
 
         {/* Breaking Changes */}
         {release.breakingChanges.length > 0 && (
-          <Card className="p-6 mb-6 border-destructive/20 bg-destructive/5">
-            <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-              <AlertTriangle className="h-5 w-5 text-destructive" />
+          <Card className="p-6 mb-6 border border-destructive/50 bg-destructive/10">
+            <h2 className="text-lg font-semibold mb-4 flex items-center gap-2 text-destructive">
+              <AlertTriangle className="h-5 w-5" />
               Breaking Changes
             </h2>
             <ul className="space-y-2">
               {release.breakingChanges.map((change, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <div className="h-1.5 w-1.5 rounded-full bg-destructive mt-2 flex-shrink-0" />
-                  <span className="text-muted-foreground">{change}</span>
+                  <span>{change}</span>
                 </li>
               ))}
             </ul>
@@ -367,27 +366,31 @@ const ReleaseDetail = () => {
         {/* Dependencies */}
         {Object.keys(release.dependencies).length > 0 && (
           <Card className="p-6 mb-6 border border-primary/10 bg-gradient-to-br from-accent/5 via-primary/2 to-background">
+            {" "}
             <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-              <GitBranch className="h-5 w-5" />
-              Dependencies
-            </h2>
+              {" "}
+              <GitBranch className="h-5 w-5" /> Dependencies{" "}
+            </h2>{" "}
             <div className="space-y-2">
+              {" "}
               {Object.entries(release.dependencies).map(([name, version]) => (
                 <div
                   key={name}
                   className="flex items-center justify-between py-2 px-3 bg-muted/50 rounded-lg"
                 >
-                  <span className="font-mono text-sm">{name}</span>
+                  {" "}
+                  <span className="font-mono text-sm">{name}</span>{" "}
                   <span className="text-sm text-muted-foreground">
-                    {version}
-                  </span>
+                    {" "}
+                    {version}{" "}
+                  </span>{" "}
                 </div>
-              ))}
-            </div>
+              ))}{" "}
+            </div>{" "}
           </Card>
         )}
 
-        {/* Actions */}
+        {/* Documentation & GitHub */}
         <div className="flex flex-wrap gap-3">
           <Button
             onClick={() => window.open(release.documentation, "_blank")}
@@ -407,48 +410,6 @@ const ReleaseDetail = () => {
             <ExternalLink className="h-3 w-3" />
           </Button>
         </div>
-
-        {/* Changelog Section */}
-        {/* <Card id="changelog" className="overflow-hidden mt-8">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <GitBranch className="h-5 w-5" />
-              Changelog
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <div className="space-y-4">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-2 h-2 rounded-full bg-primary mt-2"></div>
-                <div className="space-y-1">
-                  <p className="font-medium">Added new API endpoints for authentication</p>
-                  <p className="text-sm text-muted-foreground">Includes OAuth2 support and JWT token management</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-2 h-2 rounded-full bg-primary mt-2"></div>
-                <div className="space-y-1">
-                  <p className="font-medium">Improved performance by 40%</p>
-                  <p className="text-sm text-muted-foreground">Optimized database queries and caching mechanisms</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-2 h-2 rounded-full bg-primary mt-2"></div>
-                <div className="space-y-1">
-                  <p className="font-medium">Fixed critical security vulnerability</p>
-                  <p className="text-sm text-muted-foreground">Addressed XSS vulnerability in user input handling</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-2 h-2 rounded-full bg-destructive mt-2"></div>
-                <div className="space-y-1">
-                  <p className="font-medium">Deprecated legacy API v1</p>
-                  <p className="text-sm text-muted-foreground">Users should migrate to v2 before next major release</p>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card> */}
       </div>
     </div>
   );
